@@ -1,0 +1,327 @@
+%Определение 9. Декартовым произведением нечетких множеств A из X , ..., A
+%~
+%из Xn называется нечеткое множество A в X = X1 ¥...¥ Xn с функцией принадлежности
+%m~(x):=min[m~ (x );...;m~ (x )] длялюбого x=(x ,...,x )ŒX . AA1An1n
+%1n
+%Итак, основным способом определения операций над нечеткими множествами яв-
+%ляется обобщение соответствующих операций над обычными обществами.
+%В следующих лекциях мы обобщим на нечеткий случай более сложные понятия – отображения и бинарные отношения. Именно они лежат в основе теории принятия реше-
+%ний в условиях нечеткой информации.
+
+\subsection{Основные понятия теории нечётких множеств}
+
+Теория нечётких множеств появилась в~1965 году с~выходом статьи Лотфи Заде “Fuzzy Sets” [ссылка].Понятие нечёткого множества - попытка математической формализации нечёткой информации с целью её использования при построении математических моделей сложных систем \cite{Orlovskiy}. В основе этого понятия лежит представление о том, что элементы некоторого множества обладают каким-то общим свойством в разной степени, и, следовательно, принадлежат этому множеству в различной степени. Ключевая идея, изложенная в статье Заде, расширяет классическое понятие множества, допуская, что функция принадлежности ${{\mu }_{{\tilde{A}}}}\left( x \right)$ некоторого элемента $x$ множеству может принимать любые значения из интервала $\left[ 0;1 \right]$, а не только 0 или 1. Само множество в этом случае представляется в виде совокупности пар
+\begin{equation}
+	\tilde{A}=\left\{ \left( x, \mu_{\tilde A}\left( x \right) \right)\left| x\in X \right. \right\} 
+\end{equation}
+где уже упомянутая функция принадлежности $\mu_{\tilde A} \left( x \right)$ характеризует степень, с которой элемент $x$ можно отнести к~нечётком множе ству $\tilde{A}$. При помощи нечётких множеств можно выразить неточные понятия вроде <<низкий дом>>, <<пожилой человек>>, <<много денег>>, однако это~требует задания чёткого множества $X$, которое обычно называется областью рассуждений.
+
+В~\cite{Rutkovskaya, Borisov_Krumberg_Riga} применяется следующий символьный способ записи нечётких множеств. Если~$X$ – чёткое множество с~конечным числом элементов, т.е. $X=\left\{x_1, \dots, x_N \right\}$, то~нечёткое множество $\tilde{A}\subseteq X$  записывается в~виде суммы дробей, в~числителе которых стоит степень принадлежности элемента множеству, а~в~знаменателе~--- его~значение,~т.е.
+\begin{equation}
+\label{eq:discrete-fuzzy-set}
+	\tilde{A}=\sum\limits_{i=1}^{N} \frac{\mu_{\tilde A} \left( x_i \right)}{x_i}
+\end{equation}
+
+В~формуле~\eqref{eq:discrete-fuzzy-set} дробь не~несёт в~себе семантики деления, а~всего~лишь является другой формой записи пары $\left( {{x}_{i}},{{\mu }_{{\tilde{A}}}}\left( {{x}_{i}} \right) \right)$. Аналогично, для~бесконечного множества $X$ нечёткое подмножество $\tilde{A}\subseteq X$ записывается в форме
+\begin{equation}
+\label{eq:infinite-fuzzy-set}
+	\tilde{A}=\int\limits_{x}{\frac{{{\mu }_{{\tilde{A}}}}\left( x \right)}{x}dx}
+\end{equation}
+
+Ещё одним вариантом представления нечётких множеств является т.н. горизонтальная форма \cite{Pegat}, т.е. их~выражение в~виде совокупности чётких подмножеств множества Х, каждое из~которых называется $\alpha$--сечением. 
+\begin{mydef} 
+$\alpha$--сечением (срезом, разрезом) нечёткого множества $\tilde{A}$ называется чёткое множество $A_\alpha$, определяемое в \cite{Rutkovskaya, Pospelov, Borisov_Alexeev_Msk} следующим образом 
+\begin{equation}
+\label{eq:alpha_cut}
+	A_{\alpha}= \left\{ x\in X \left| \mu_{\tilde A}\left( x \right)\geqslant \alpha \right. \right\}
+\end{equation}
+где $\chi \left( {{A}_{\alpha }} \right)$~--- характеристическая функция, определяемая выражением \eqref{eq:alpha_char_function}:
+\begin{equation}
+\label{eq:alpha_char_function}
+	\chi \left( {{A}_{\alpha }} \right)=\left\{
+		\begin{aligned}
+			1, & \mu_{\tilde A}\left( x \right) \geqslant \alpha; \\
+			0, & \mu_{\tilde A}\left( x \right) < \alpha.
+		\end{aligned}		 
+	\right.
+\end{equation}
+\end{mydef}
+
+Для~$\alpha$--сечений нечёткого множества справедлива теорема о~декомпозиции, которая позволяет не только выполнять разложение нечёткого множества на совокупность чётких, но и синтезировать исходное нечёткое множество из совокупности чётких $\alpha$-интервалов \cite{Kaufmann}. 
+\begin{theorem}
+Любое нечёткое множество $\tilde{A}$ можно представить в~виде объединения его~$\alpha$--сечений, т.е.
+\begin{equation}
+\label{eq:alpha_cut_theorem}
+	\tilde{A}=\bigcup\limits_{\alpha \in \left[ 0;1 \right]}{{{A}_{\alpha }}}
+\end{equation}
+\end{theorem}
+
+Например, для множества $\displaystyle \tilde{A}=\frac{0,1}{1}+\frac{0.4}{2}+\frac{0.6}{3}+\frac{1}{4}+\frac{0.9}{5}+\frac{0.5}{6}$, определённого в~пространстве $\displaystyle X=\left\{ 1...6 \right\}$, декомпозиция по~$\alpha$-уровням выглядит следующим образом:
+\[
+	  \tilde{A}=\left( \frac{0,1}{1}+\frac{0,1}{2}+\frac{0,1}{3}+\frac{0,1}{4}+\frac{0,1}{5}+\frac{0,1}{6} \right)\bigcup \left( \frac{0,4}{2}+\frac{0,4}{3}+\frac{0,4}{4}+{} \right.
+\]
+\[
+	\left. {}+\frac{0,4}{5}+\frac{0,4}{6} \right)\bigcup\left( \frac{0,5}{3}+\frac{0,5}{4}+\frac{0,5}{5}+\frac{0,5}{6} \right) \bigcup \left( \frac{0,6}{3}+\frac{0,6}{4}+\frac{0,6}{5} \right) \bigcup \left( \frac{0,9}{4}+\frac{0,9}{5} \right) \bigcup \left( \frac{1}{4} \right) 
+\] 
+
+Также для~нечёткого множества в~\cite{Pospelov, Rutkovskaya, Yakhyaeva} вводятся понятия носителя и высоты.
+
+\begin{mydef}
+Носителем нечёткого множества $\tilde{A}$ называется чёткое множество $supp\left( {\tilde{A}} \right)$, определяемое~как
+\begin{equation}
+\label{eq:support}
+	supp\left( \tilde A \right)=\left\{ x\in X \left| \mu_{\tilde A}\left( x \right)>0 \right. \right\}
+\end{equation}
+\end{mydef}
+
+Иными словами, носитель является множеством строгого уровня $A_\alpha= \left\{ x\in X \left| \mu_{\tilde A}\left( x \right)> \alpha \right. \right\}$ при $\alpha = 0$.
+
+\begin{mydef}
+Высотой нечёткого множества $\tilde A$ называется величина
+\begin{equation}
+\label{eq:number-height}
+	h \left( \tilde A \right)= \underset{x\in R}{\mathop {\sup}} {}\, \left( \mu_{\tilde A} \left( x \right) \right)
+\end{equation}
+\end{mydef}
+Если высота $h\left( \tilde A \right)$ нечёткого множества равна 1, то оно является нормальным; если же $h\left( \tilde A \right) < 1$, то множество называется субнормальным.
+
+Операции над нечёткими множествами можно определить по-разному. При этом нужно учитывать, что нечёткие множества охватывают и множества в обычном смысле, поэтому вводимые операции не должны противоречить уже известным теоретико-множественным операциям. Рассмотрим классические максиминные формулировки объединения, пересечения и дополнения нечётких множеств, приведённые в~\cite{Rutkovskaya, Orlovskiy, Borisov_Alexeev_Msk, Borisov_Krumberg_Riga, Kaufmann}.
+
+\begin{mydef}
+Пересечением нечётких множеств $\tilde{A}$ и $\tilde{B}$ называется нечёткое множество $\displaystyle \tilde{C}=\tilde{A}\bigcap \tilde{B}$, функция принадлежности которого
+\begin{equation}
+\label{eq:fuzzy-cross}
+	{{\mu }_{{\tilde{C}}}}\left( x \right)=\min \left[ {{\mu }_{{\tilde{A}}}}\left( x \right);{{\mu }_{{\tilde{B}}}}\left( x \right) \right]
+\end{equation}
+для любых $x\in X$.
+\end{mydef}
+
+\begin{mydef}
+Объединением нечётких множеств $\tilde{A}$ и $\tilde{B}$ называется нечёткое множество $\displaystyle \tilde{C}=\tilde{A}\bigcup \tilde{B}$, функция принадлежности которого равна
+\begin{equation}
+\label{eq:fuzzy-union}
+	{{\mu }_{{\tilde{C}}}}\left( x \right)=\max \left[ {{\mu }_{{\tilde{A}}}}\left( x \right);{{\mu }_{{\tilde{B}}}}\left( x \right) \right]
+\end{equation}
+для любых $x\in X$.
+\end{mydef}
+
+\begin{mydef}
+Дополнением нечёткого множества $\tilde{A}\subseteq X$ называется нечёткое множество $\displaystyle \tilde{C}=\bar{\tilde{A}}$, функция принадлежности которого равна
+\begin{equation}
+\label{eq:fuzzy-minus}
+	{{\mu }_{{\tilde{C}}}}\left( x \right)=1-{{\mu }_{{\tilde{A}}}}\left( x \right)
+\end{equation}
+для любых $x\in X$.
+\end{mydef}
+
+В тех же источинках \cite{Rutkovskaya, Borisov_Alexeev_Msk, Borisov_Krumberg_Riga, Kaufmann} предлагаются и альтернативные определения операций пересечения и объединения нечётких множеств, называемые алгебраическим произведением и алгебраической суммой.
+
+\begin{mydef}
+Алгебраическим произведением нечётких множеств $\tilde{A}$ и $\tilde{B}$ называется нечёткое множество $\displaystyle \tilde{C}=\tilde{A}\ \widehat{\cdot}\ \tilde{B}$, функция принадлежности которого
+\begin{equation}
+\label{eq:fuzzy-cross}
+	\mu_{\tilde C} \left( x \right)=\mu_{\tilde A}\left( x \right) \cdot \mu_{\tilde B}\left( x \right)
+\end{equation}
+для любых $x\in X$.
+\end{mydef}
+
+\begin{mydef}
+Алгебраической суммой нечётких множеств $\tilde{A}$ и $\tilde{B}$ называется нечёткое множество $\displaystyle \tilde{C}=\tilde{A}\, \widehat{+}\, \tilde{B}$, функция принадлежности которого равна
+\begin{equation}
+\label{eq:fuzzy-union}
+		\mu_{\tilde C} \left( x \right)=\mu_{\tilde A}\left( x \right) + \mu_{\tilde B}\left( x \right) - \mu_{\tilde A}\left( x \right) \cdot \mu_{\tilde B}\left( x \right)
+\end{equation}
+для любых $x\in X$.
+\end{mydef} 
+
+Как отмечается в~\cite{Rutkovskaya, Kaufmann}, максиминные и алгебраические операции над нечёткими множествами обладают свойствами коммутативности, ассоциативности и~отвечают законам де~Моргана, идемпотентности и некоторым другим правилам, справедливым для чётких множеств. Если обозначить операции объединения и алгебраической суммы за $\oplus$, a пересечения и алгебраического произведения за $\otimes$, то свойства и законы будут выглядеть следующим образом:
+\begin{gather*}
+	\tilde A \oplus \tilde B = \tilde B \oplus \tilde A;\ \tilde A \otimes \tilde B = \tilde B \otimes \tilde A; \\
+	\tilde A \oplus \left(\tilde B \oplus \tilde C \right) = \left( \tilde A \oplus \tilde B \right) \oplus \tilde C;\ \tilde A \otimes \left(\tilde B \otimes C \right) = \left( \tilde A \otimes \tilde B \right) \otimes \tilde C;\\
+	\overline{\tilde A \oplus \tilde B}=\overline{\tilde A} \otimes \overline{\tilde B};\  \overline{\tilde A \otimes \tilde B}=\overline{\tilde A} \oplus \overline{\tilde B}; \\
+	\tilde A \otimes \tilde A = \tilde A;\ \tilde A \oplus \tilde A = \tilde A; \\
+	\tilde A \otimes \varnothing = \varnothing;\ \tilde A \oplus \varnothing = \tilde A; \\
+	\tilde A \otimes X = \tilde A;\ \tilde A \oplus X = X; \\
+	\overline{\overline{\tilde A}} = \tilde A.
+\end{gather*}
+Однако для всех операций не~выполняются условие дополнения,~т.е.
+\begin{gather*}
+	\tilde{A} \oplus \overline{\tilde{A}}\ne X; \\
+	\tilde{A} \otimes \overline{\tilde{A}}\ne \varnothing,
+\end{gather*}
+а для алгебраических~--- ещё и свойство дистрибутивности, которое выполняется для операций пересечения и объединения:
+\begin{gather*}
+	\tilde{A}\, \widehat{+}\, \left( \tilde{B}\ \widehat{\cdot}\ \tilde C \right) \neq \left( \tilde A\, \widehat{+}\, \tilde B \right)\ \widehat{\cdot}\ \left(\tilde A\, \widehat{+}\, \tilde C \right); \\
+		\tilde{A}\ \widehat{\cdot}\ \left( \tilde{B}\, \widehat{+}\, \tilde C \right) \neq \left( \tilde A\ \widehat{\cdot}\ \tilde B \right)\, \widehat{+}\, \left(\tilde A\ \widehat{\cdot}\ \tilde C \right); \\
+	\tilde A \bigcup \left( \tilde B \bigcap \tilde C \right) = \left(\tilde A \bigcup \tilde B \right) \bigcap \left(\tilde A \bigcup \tilde C \right); \\
+	\tilde A \bigcap \left( \tilde B \bigcup \tilde C \right) = \left(\tilde A \bigcap \tilde B \right) \bigcup \left(\tilde A \bigcap \tilde C \right).
+\end{gather*}
+
+Например, пусть нечёткое множество $\tilde A$ задано на носителе $\displaystyle X=\left[ 3;8 \right]\subset N$ совокупностью пар $\displaystyle \tilde{A}=\frac{0,7}{3}+\frac{0,9}{5}+\frac{1}{6}+\frac{0,2}{8}$. 
+В соответствие с определением дополнения нечёткого множества \eqref{eq:fuzzy-minus}
+\[
+	\bar{\tilde{A}}=\frac{0,3}{3}+\frac{1}{4}+\frac{0,1}{5}+\frac{0}{6}+\frac{1}{7}+\frac{0,8}{8}
+\]
+
+Пересечение множеств $\tilde A$ и $\bar \tilde A$ является непустым, т.\,к.
+\[
+  \tilde{A}\bigcap \bar{\tilde{A}}=\frac{\min \left( 0,7;0,3 \right)}{3}+\frac{\min \left( 1;0 \right)}{4}+\frac{\min \left( 0,9;0,1 \right)}{5}+\frac{\min (1;0)}{6}+\frac{\min \left( 0;1 \right)}{7}+{}
+\]
+\[ 
+  {}+\frac{\min \left( 0,2;0,8 \right)}{8}=\frac{0,3}{3}+\frac{0,1}{5}+\frac{0,2}{8} 
+\] 
+Аналогично, их~объединение не~даёт множества-носителя $X$:
+\[
+  \tilde{A}\bigcup \bar{\tilde{A}}=\frac{\max \left( 0,7;0,3 \right)}{3}+\frac{\max \left( 0;1 \right)}{4}+\frac{\max \left( 0,9;0,1 \right)}{5}+\frac{\max \left( 1;0 \right)}{6}+{}
+\]
+\[
+  {}+\frac{\max \left( 0;1 \right)}{7}+\frac{\max \left( 0,2;0,8 \right)}{8}=\frac{0,7}{3}+\frac{1}{4}+\frac{0,9}{5}+\frac{1}{6}+\frac{1}{7}+\frac{0,8}{8} 
+\] 
+
+
+
+\subsection{Принцип обобщения Заде}
+
+Принцип обобщения Заде позволяет перенести различные математические операции с чётких на нечёткие множества. Для того, чтобы ввести 
+
+Для преодоления недостатков теоретико-множественных операций в нечётких вычислениях, Л.~Заде предложил использовать принцип расширения (обобщения). 
+\begin{mydef}
+Пусть дано биективное отображение $f:X\to Y$ из чёткого множества $X$ в чёткое множество $Y$. Пусть $\tilde{A}\subseteq X$ – нечёткое подмножество, имеющее вид
+\begin{equation}
+\label{eq:a-set-discrete-zadeh}
+	\tilde{A}=\sum\limits_{n}{\frac{{{\mu }_{{\tilde{A}}}}\left( {{x}_{i}} \right)}{{{x}_{i}}}}
+\end{equation}
+В этом случае генерируемое отображением $f$ нечёткое множество $\tilde{B}\subseteq Y$ имеет вид
+\begin{equation}
+\label{eq:b-set-discrete-zadeh}
+	\tilde{B}=f\left( {\tilde{A}} \right)=\sum\limits_{n}{\frac{{{\mu }_{{\tilde{A}}}}\left( {{x}_{i}} \right)}{f\left( {{x}_{i}} \right)}}
+\end{equation}
+\end{mydef}
+
+Если отображение $f$ не является взаимно однозначным, то~степень принадлежности элемента к нечёткому множеству $\tilde B$ равна максимальной степени принадлежности среди всех элементов исходного множества $X$, которые отображаются в один и тот же $y\in Y$. В этому случае выражение \eqref{eq:b-set-discrete-zadeh} принимает вид
+\begin{equation}
+\label{eq:b-set-zadeh}
+	\tilde B=f\left( \tilde A \right)=\sum\limits_{n}{\frac{\underset{j=\overline{1,n}:\ f\left( {{x}_{i}} \right)=f\left( x_j \right)}{\mathop{\sup }}\,\left( {{\mu }_{{\tilde{A}}}}\left( x_j \right) \right)}{f\left( x_i \right)}}
+\end{equation}
+
+Однако наиболее универсальным и широко употребляемым является следующее определение из \cite{Rutkovskaya}. 
+\begin{mydef}
+Пусть $f:X\to Y$ – чёткое отображение, в котором $X=X_1 \times X_2 \times \dots \times X_N$, ${{\tilde{A}}_{i}}\subseteq {{\text{X}}_{i}};\ i=\overline{1,N}$ – нечёткие множества. В этом случае нечёткое множество $\tilde{B}=f\left( {{{\tilde{A}}}_{1}},...,{{{\tilde{A}}}_{N}} \right)$ имеет вид
+\begin{equation}
+\label{eq:zadeh-classic-setb}
+	\tilde{B}=\left\{ \left( y;{{\mu }_{{\tilde{B}}}}\left( y \right) \right)\left| y=f\left( {{x}_{1}},{{x}_{2}},...,{{x}_{N}} \right),\ {{x}_{i}}\in X\ \forall i=\overline{1,N} \right. \right\}
+\end{equation}
+а~его~функция принадлежности равна
+\begin{equation}
+\label{eq:zadeh-classic-mfunction}
+	\mu_{\tilde B} \left( y \right)=\underset{
+		\begin{smallmatrix} 
+			 y=f\left( {{x}_{1}},...{{x}_{N}} \right) \\ 
+			 {{x}_{i}}\in supp\left( {{A}_{i}} \right) 
+		\end{smallmatrix}}
+	{\mathop{\sup }} {} \underset{i=1..,N}{\mathop{\min }} {}\, 
+	\left\{ \mu_{\tilde {A_i}} \left( x_i \right ) \right \}
+\end{equation}
+\end{mydef}
+Используя принцип обобщения, вводимый формулами \eqref{eq:zadeh-classic-setb}~--\eqref{eq:zadeh-classic-mfunction}, можно переносить действие известных арифметических операций на~нечёткие множества. Особый интерес здесь представляет перенос операций на~нечёткие подмножества множества действительных чисел $\mathbb{R}$.
+
+\subsection{Нечёткие числа и операции над ними}
+Рассмотрим важные определения, касающиеся нечётких чисел, которые вводятся в~работах \cite{Rutkovskaya, Pegat, Borisov_Alexeev_Msk, Pospelov} и~широко используются в дальнейших параграфах.
+
+\begin{mydef}
+Нечёткое число~--- разновидность нечёткого множества, функция принадлежности которого $\mu_{\tilde A}\left( x \right):R\to \left[ 0;1 \right]$
+\begin{itemize}
+	\item непрерывна;
+	\item выпукла, т.е.
+	\begin{equation}
+		\label{eq:convex-set}
+			 \forall x_1, x_2 \in \mathbb{R}; \forall \gamma \in \left[ 0;1 \right]\ \mu_{\tilde A}\left( \gamma x_1+\left( 1-\gamma  \right)x_2 \right)\geqslant \min \left\{ \mu_{\tilde A}\left( x_1 \right),\mu_{\tilde A}\left( x_2 \right) \right\}
+	\end{equation}
+	\item нормальна, т.е.
+	\begin{equation}
+		\label{eq:normal-set}
+		\underset{x\in \mathbb{R}}{\mathop {\sup}}{}\, \left( \mu_{\tilde A} \left( x \right) \right)=1
+	\end{equation}
+\end{itemize}
+\end{mydef}
+
+\begin{mydef}
+Нечёткие числа $LR$-типа~--– разновидность нечётких чисел, функция принадлежности которых задаётся с помощью двух функций $L(x):\mathbb{R} \to \mathbb{R}$, $R(x):\mathbb{R} \to \mathbb{R}$ таких, что 
+\begin{eqnarray}
+	L\left( -x \right)=&L\left( x \right); \\
+	R\left( -x \right)=&R\left( x \right); \\
+	L\left( 0 \right)=R &\left(  0 \right)=1. \\
+\end{eqnarray}
+Кроме того, $L$ и $R$ являются невозрастающими на интервале $\left[ 0;+\infty  \right)$ \cite{Rutkovskaya}.
+\end{mydef}
+
+Функция принадлежности нечёткого $LR$-числа выглядит следующим образом
+\begin{equation}
+\label{eq:membership-lr-general}
+	 \mu_{\tilde A}\left( x \right)=\left\{ 
+		 \begin{aligned}
+			 & L\left( \frac{m-x}{a} \right);\ x \leqslant m \\ 
+			 & R\left( \frac{x-m}{b} \right);\ x>m \\ 
+		 \end{aligned} 
+	 \right.
+\end{equation}
+
+\begin{mydef}
+Треугольным (триангулярным) нечётким числом называется $LR$-число $\tilde{A}$, задаваемое тройкой $\left\langle a,m,b \right\rangle $, с функцией принадлежности
+\begin{equation}
+\label{eq:membership-abm-form}
+	\mu_{\tilde A}\left( x \right)=
+	\left\{ 
+		\begin{aligned}
+			& \frac{x-m+a}{a};\ x\in \left[ m-a;m \right] \\ 
+			& \frac{m+b-x}{b};\ x\in \left( m;m+b \right] \\ 
+			& 0;\ \text{в остальных случаях} 
+	 	\end{aligned} 
+	 \right.
+\end{equation}
+Числа $a,b>0$ называются левым и правым коэффициентами нечёткости соответственно.
+\end{mydef}
+
+Обозначим точки пересечения левой и правой ветвей функции принадлежности с осью $Ox$ как $x_{{\tilde{A}}}^{L}$ и $x_{{\tilde{A}}}^{R}$ соответственно. В~\cite{Borisov_Krumberg_Riga} эти~точки называются границами функции принадлежности.~Тогда
+\begin{equation}
+\label{eq:xlxr-to-abm}
+	\left[ 
+		\begin{aligned}
+			 & x_{\tilde A}^L=m-a \\ 
+			 & x_{\tilde A}^R=m+b \\ 
+		 \end{aligned} 
+ 	\right.
+\end{equation}
+и~функция принадлежности \eqref{eq:membership-abm-form} с~учётом \eqref{eq:xlxr-to-abm} будет выглядеть следующим образом
+\begin{equation}
+\label{eq:membership-xlxr-form}
+	\mu_{\tilde A}\left( x \right)=\left\{ 
+	\begin{aligned}
+		& \frac{x-x_{{\tilde{A}}}^{L}}{m-x_{{\tilde{A}}}^{L}};\ x\in \left[ x_{{\tilde{A}}}^{L};m \right] \\ 
+		& \frac{x-x_{{\tilde{A}}}^{R}}{m-x_{{\tilde{A}}}^{R}};\ x\in \left( m;x_{{\tilde{A}}}^{R} \right] \\ 
+		& 0;\ \text{в остальных случаях} 
+	\end{aligned} 
+	\right.
+\end{equation}
+а само число можно записать в виде тройки $\left\langle x_{{\tilde{A}}}^{L},m,x_{{\tilde{A}}}^{R} \right\rangle $.
+
+\begin{mydef}
+Треугольным числом $LL$ $\left( RR \right)$-типа, согласно \cite{Vorontsov_PI}, будем называть треугольное число с~нулевым правым (левым) коэффициентом нечёткости.
+\end{mydef}
+На рис. изображены примеры различных нечётких треугольных чисел.
+
+Согласно теореме о~декомпозиции \eqref{eq:alpha_cut_theorem}, для~нечёткого треугольного числа $\tilde{A}$ также можно использовать представление в~виде совокупности чётких $\alpha$-интервалов ${{X}_{\alpha }}$, границы которых определяются как~функции параметра $\alpha \in \left[ 0;1 \right]$:
+\begin{equation}
+\label{eq:membership-alphacut-form}
+	\left[ 
+		\begin{aligned}
+			& {{x}^{L}}(\alpha )=m-a+a\alpha  \\ 
+			& {{x}^{R}}(\alpha )=m+b-b\alpha
+		 \end{aligned}
+	\right.
+\end{equation}
+Представление числа $\tilde{A}$ в~виде объединения интервалов $\left[ {{x}^{L}}\left( \alpha  \right);{{x}^{R}}\left( \alpha  \right) \right]$, концы которых определяются согласно формулам \eqref{eq:membership-alphacut-form}, позволяет сохранить неопределённость в~интервальной форме.
+
+Используя введённый ранее принцип обобщения Заде, можно расширить четыре арифметические действия на 
+
+\subsection{}

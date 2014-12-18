@@ -1,0 +1,230 @@
+Проблемы создания специального программного обеспечения решения задач на основе предложенной алгебры. Нерешенными остались проблемы построения полного порядка. Проведенное исследование показало, что подходящих методов сравнения нечетких чисел нет.
+Предложен изоморфизм алгебры модифицированных нечетких чисел, который позволяет решать нечеткую задачу как две четких задачи на заданных альфа –уровнях.
+Такой подход не только позволяет использовать все стандартные программные продукты для решения нечетких задач, но и решает проблему построения полного порядка.
+
+
+3. Алгебра модифицированных нечетких чисел с примерами
+Для того, чтобы использовать модифицированные нечёткие числа в качестве параметров чётких задач, необходимо построить алгебраическую систему для множества всех нечётких модифицированных чисел $K$. 
+Будем строить чёткую алгебру \[P=\left\langle ;\ +,\,* \right\rangle \] на множестве модифицированных нечётких чисел $K=\left\{ \bar{x}\left( \alpha  \right) \right\};\ \alpha \in \left[ 0;1 \right]$ по аналогии с тем, как это делается в (Яхъяева). Для удобства дальнейших вычислений преобразуем $\bar{x}\left( \alpha  \right)$:
+	\[\begin{matrix}
+  \bar{x}\left( \alpha  \right)=\lambda \left( m-a+a\alpha  \right)+\left( 1-\lambda  \right)\left( m+b-b\alpha  \right)=a\alpha \lambda +\lambda \left( m-a \right)+m+b-b\alpha -\lambda \left( m+b \right)+b\alpha \lambda = \\ 
+  =\alpha \left( \lambda a+\lambda b-b \right)+m+b-\lambda \left( m+b-m+a \right)=a\left( \lambda \left( a+b \right)-b \right)+m+b-\lambda \left( a+b \right) \\ 
+\end{matrix}\] 
+При построении алгебры будем использовать форму записи
+	\[\bar{x}\left( \alpha  \right)=c+k\alpha \] 	(1.77)
+где
+	\[\begin{aligned}
+  & \left[ \begin{aligned}
+  & c=m+b-\lambda \left( a+b \right) \\ 
+ & k=\lambda \left( a+b \right)-b \\ 
+\end{aligned} \right. \\ 
+ & \lambda \in \left[ 0;1 \right];\ c,k\in \mathbb{R} \\ 
+\end{aligned}\] 	(1.78)
+Операция сложения
+Введем на множестве $K$ бинарную операцию сложения + следующим образом:
+	\[\begin{matrix}
+  {{{\bar{x}}}_{1}}(\alpha )+{{{\bar{x}}}_{2}}(\alpha )={{r}_{1}}\left( \alpha  \right)={{c}_{1}}+{{c}_{2}}+\left( {{k}_{1}}+{{k}_{2}} \right)\alpha  \\ 
+  {{r}_{1}}\left( \alpha  \right)\in K \\ 
+\end{matrix}\] 	(1.79)
+Докажем основные свойства операции сложения:
+1. Коммутативность:
+\[{{\bar{x}}_{1}}\left( \alpha  \right)+{{\bar{x}}_{2}}\left( \alpha  \right)={{c}_{1}}+{{c}_{2}}+({{k}_{1}}+{{k}_{2}})\alpha ={{c}_{2}}+{{c}_{1}}+({{k}_{2}}+{{k}_{1}})\alpha ={{\bar{x}}_{2}}\left( \alpha  \right)+{{\bar{x}}_{1}}\left( \alpha  \right)\] 
+2. Ассоциативность
+\[\begin{matrix}
+  {{{\bar{x}}}_{1}}\left( \alpha  \right)+\left( {{{\bar{x}}}_{2}}\left( \alpha  \right)+{{{\bar{x}}}_{3}}\left( \alpha  \right) \right)={{c}_{1}}+{{k}_{1}}\alpha +({{c}_{2}}+{{c}_{3}}+({{k}_{2}}+{{k}_{3}})\alpha )= \\ 
+  =({{c}_{1}}+{{c}_{2}}+({{k}_{1}}+{{k}_{2}})\alpha )+{{c}_{3}}+{{k}_{3}}\alpha =\left( {{{\bar{x}}}_{1}}\left( \alpha  \right)+{{{\bar{x}}}_{2}}\left( \alpha  \right) \right)+{{{\bar{x}}}_{3}}\left( \alpha  \right) \\ 
+\end{matrix}\]
+Введём нейтральный (нулевой) элемент
+	$\bar{0}=0+0\alpha \in K$ 	(1.80)
+такой, что 
+	\[\forall \bar{x}(\alpha )\in K:\ \bar{x}(\alpha )+\bar{0}=c+k\alpha +0+0\alpha =\bar{x}(\alpha )\] 	(1.81)
+Также определим для каждого $\bar{x}\left( \alpha  \right)=c+k\alpha \in K$ единственный элемент $-\bar{x}\left( \alpha  \right)\in K$, называемый противоположным, такой, что выполняется равенство
+	\[\bar{x}\left( \alpha  \right)+\left( -\bar{x}\left( \alpha  \right) \right)=\bar{0}\]	(1.82)
+Очевидно, что противоположный элемент можно определить следующим образом:
+	\[-\bar{x}\left( \alpha  \right)=-c-k\alpha \], 	(1.83)
+так что равенство (1.82) будет справедливым:
+	\[\bar{x}\left( \alpha  \right)+\left( -\bar{x}\left( \alpha  \right) \right)=c+k\alpha -c-k\alpha =0+0\alpha =\bar{0}\].
+Операция вычитания нечётких чисел вводится как сложение числа ${{\bar{x}}_{1}}\left( \alpha  \right)$ с числом, противоположным числу ${{\bar{x}}_{2}}\left( \alpha  \right)$:
+	\[{{\bar{x}}_{1}}\left( \alpha  \right)-{{\bar{x}}_{2}}\left( \alpha  \right)={{\bar{x}}_{1}}\left( \alpha  \right)+\left( -{{{\bar{x}}}_{2}}\left( \alpha  \right) \right)={{c}_{1}}-{{c}_{2}}+\left( {{k}_{1}}-{{k}_{2}} \right)\alpha \] 	(1.84)
+Пример. Даны два нечётких числа $\tilde{A}=\left\langle 3;4;1 \right\rangle $ и $\tilde{B}=\left\langle 5;2;3 \right\rangle $. Выполнить операции ${{\tilde{A}}^{*}}+{{\tilde{B}}^{*}}$, ${{\tilde{A}}^{*}}-{{\tilde{B}}^{*}}$.
+Вначале запишем уравнения для левой и правой ветвей каждого из чисел и оптимальные в смысле сохранения нечёткой информации значения $\lambda $:
+	\[\begin{matrix}
+   \left[ \begin{aligned}
+  & x_{{\tilde{A}}}^{L}\left( \alpha  \right)=-1+4\alpha  \\ 
+ & x_{{\tilde{A}}}^{R}\left( \alpha  \right)=4-\alpha  \\ 
+ & {{\lambda }_{{\tilde{A}}}}=\frac{4}{4+1}=\frac{4}{5} \\ 
+\end{aligned} \right. & \left[ \begin{aligned}
+  & x_{{\tilde{B}}}^{L}\left( \alpha  \right)=3+2\alpha  \\ 
+ & x_{{\tilde{B}}}^{R}\left( \alpha  \right)=8-3\alpha  \\ 
+ & {{\lambda }_{{\tilde{B}}}}=\frac{2}{2+3}=\frac{2}{5} \\ 
+\end{aligned} \right.  \\
+\end{matrix}\] 
+Найдём модифицированные значения:
+	\[\left[ \begin{aligned}
+  & {{{\bar{x}}}_{{\tilde{A}}}}\left( \alpha  \right)=\frac{4}{5}\left( -1+4\alpha  \right)+\frac{1}{5}\left( 4-\alpha  \right)=\frac{-4+16\alpha +4-\alpha }{5}=3\alpha  \\ 
+ & {{{\bar{x}}}_{{\tilde{B}}}}\left( \alpha  \right)=\frac{2}{5}\left( 3+2\alpha  \right)+\frac{3}{5}\left( 8-3\alpha  \right)=\frac{6+4\alpha +24-9\alpha }{5}=6-\alpha  \\ 
+\end{aligned} \right.\] 	(1.85)
+Исходя из (1.85), значения искомых выражений равны:
+	\[\left[ \begin{aligned}
+  & {{{\tilde{A}}}^{*}}+{{{\tilde{B}}}^{*}}=3\alpha +6-\alpha =6+2\alpha  \\ 
+ & {{{\tilde{A}}}^{*}}-{{{\tilde{B}}}^{*}}=3\alpha -6+\alpha =-6+4\alpha  \\ 
+\end{aligned} \right.\] 
+Операция умножения
+Введём на множестве $K$ операцию умножения. Её можно было бы определить с помощью следующего выражения как сумму произведений компонент модифицированных нечётких чисел
+	\[{{\bar{x}}_{1}}(\alpha )\cdot {{\bar{x}}_{2}}(\alpha )=r_{2}^{'}\left( \alpha  \right)=\left( {{c}_{1}}+{{k}_{1}}\alpha  \right)\left( {{c}_{2}}+{{k}_{2}}\alpha  \right)={{c}_{1}}{{c}_{2}}+{{c}_{1}}{{k}_{2}}\alpha +{{c}_{2}}{{k}_{1}}\alpha +{{k}_{1}}{{k}_{2}}{{\alpha }^{2}}\] 	(1.86)
+Однако такое определение приводит к искажению треугольного вида результата нечётких операций, поскольку в (1.86) появляется слагаемое с ${{\alpha }^{2}}$. А это означает, что \[r_{2}^{'}\left( \alpha  \right)\notin K\].
+Для того, чтобы результат операции умножения остался в множестве $K$, воспользуемся линейной интерполяцией – зависимость \[{{r}_{2}}(\alpha )\] будет восстанавливаться в виде линейной функции по значениям выражения (1.86) при $\alpha =0$ и $\alpha =1$. В первом случае $r_{2}^{'}\left( 0 \right)={{c}_{1}}{{c}_{2}}$, во втором \[r_{2}^{'}\left( 1 \right)=\left( {{c}_{1}}+{{k}_{1}} \right)\left( {{c}_{2}}+{{k}_{2}} \right)\]. Подставляя данные значения в уравнение прямой ${{r}_{2}}\left( \alpha  \right)$, получаем:
+	\[\frac{\alpha -0}{1-0}=\frac{{{r}_{2}}\left( \alpha  \right)-{{c}_{1}}{{c}_{2}}}{\left( {{c}_{1}}+{{k}_{1}} \right)\left( {{c}_{2}}+{{k}_{2}} \right)-{{c}_{1}}{{c}_{2}}}\],	(1.87)
+откуда, упрощая знаменатель второй дроби, получаем:
+	\[\alpha =\frac{{{r}_{2}}\left( \alpha  \right)-{{c}_{1}}{{c}_{2}}}{{{c}_{1}}{{k}_{2}}+{{c}_{2}}{{k}_{1}}+{{k}_{1}}{{k}_{2}}}\] 	\[{{r}_{2}}\left( \alpha  \right)={{c}_{1}}{{c}_{2}}+\left( {{c}_{1}}{{k}_{2}}+{{c}_{2}}{{k}_{1}}+{{k}_{1}}{{k}_{2}} \right)\alpha \in K\] 	(1.88)
+Таким образом, операция умножения на $K$ вводится следующим образом:
+	\[{{\bar{x}}_{1}}(\alpha )\cdot {{\bar{x}}_{2}}(\alpha )={{r}_{2}}\left( \alpha  \right)={{c}_{1}}{{c}_{2}}+({{c}_{1}}{{k}_{2}}+{{c}_{2}}{{k}_{1}}+{{k}_{1}}{{k}_{2}})\alpha ;\ \ {{r}_{2}}\left( \alpha  \right)\in K\] 	(1.89)
+Умножение нечёткого числа на скаляр $\beta $ является частным случаем операции (1.89), поскольку скаляр представляется в виде нечёткого синглтона
+	\[\bar{\beta }=\beta +0\alpha \in K\].
+Докажем основные свойства операции умножения.
+Коммутативность доказывается элементарно:
+	\[\begin{matrix}
+  {{{\bar{x}}}_{1}}(\alpha )\cdot {{{\bar{x}}}_{2}}(\alpha )={{c}_{1}}{{c}_{2}}+({{c}_{1}}{{k}_{2}}+{{c}_{2}}{{k}_{1}}+{{k}_{1}}{{k}_{2}})\alpha = \\ 
+  ={{c}_{2}}{{c}_{1}}+\left( {{c}_{2}}{{k}_{1}}+{{c}_{1}}{{k}_{2}}+{{k}_{2}}{{k}_{1}} \right)\alpha ={{{\bar{x}}}_{2}}(\alpha )\cdot {{{\bar{x}}}_{1}}(\alpha ) \\ 
+\end{matrix}\] 
+Ассоциативность. Для доказательства равенства
+	\[{{\bar{x}}_{1}}\left( \alpha  \right)\cdot \left( {{{\bar{x}}}_{2}}\left( \alpha  \right){{{\bar{x}}}_{3}}\left( \alpha  \right) \right)=\left( {{{\bar{x}}}_{1}}\left( \alpha  \right){{{\bar{x}}}_{2}}\left( \alpha  \right) \right)\cdot {{\bar{x}}_{3}}\left( \alpha  \right)\] 	(1.90)
+вычислим по отдельности и сравним результаты правой и левой частей:
+$\begin{matrix}
+  {{{\bar{x}}}_{1}}\left( \alpha  \right)\cdot \left( {{{\bar{x}}}_{2}}\left( \alpha  \right){{{\bar{x}}}_{3}}\left( \alpha  \right) \right)=\left( {{c}_{1}}+{{k}_{1}}\alpha  \right)\left( \left( {{c}_{2}}+{{k}_{2}}\alpha  \right)\left( {{c}_{3}}+{{k}_{3}}\alpha  \right) \right)= \\ 
+  =\left( {{c}_{1}}+{{k}_{1}}\alpha  \right)\left( {{c}_{2}}{{c}_{3}}+\left( {{k}_{2}}{{c}_{3}}+{{k}_{3}}{{c}_{2}}+{{k}_{2}}{{k}_{3}} \right)\alpha  \right)= \\ 
+  ={{c}_{1}}{{c}_{2}}{{c}_{3}}+\left( {{c}_{1}}{{k}_{2}}{{c}_{3}}+{{c}_{1}}{{c}_{2}}{{k}_{3}}+{{c}_{1}}{{k}_{2}}{{k}_{3}}+{{k}_{1}}{{c}_{2}}{{c}_{3}}+{{k}_{1}}{{k}_{2}}{{c}_{3}}+{{k}_{1}}{{c}_{2}}{{k}_{3}}+{{k}_{1}}{{k}_{2}}{{k}_{3}} \right)\alpha  \\ 
+\end{matrix}$ 
+$\begin{matrix}
+  \left( {{{\bar{x}}}_{1}}\left( \alpha  \right){{{\bar{x}}}_{2}}\left( \alpha  \right) \right)\cdot {{{\bar{x}}}_{3}}\left( \alpha  \right)=\left( \left( {{c}_{1}}+{{k}_{1}}\alpha  \right)\left( {{c}_{2}}+{{k}_{2}}\alpha  \right) \right)\left( {{c}_{3}}+{{k}_{3}}\alpha  \right)= \\ 
+  =\left( {{c}_{1}}{{c}_{2}}+\left( {{k}_{1}}{{c}_{2}}+{{c}_{1}}{{k}_{2}}+{{k}_{1}}{{k}_{2}} \right)\alpha  \right)\left( {{c}_{3}}+{{k}_{3}}\alpha  \right)= \\ 
+  ={{c}_{1}}{{c}_{2}}{{c}_{3}}+\left( {{k}_{1}}{{c}_{2}}{{c}_{3}}+{{c}_{1}}{{k}_{2}}{{c}_{3}}+{{k}_{1}}{{k}_{2}}{{c}_{3}}+{{c}_{1}}{{c}_{2}}{{k}_{3}}+{{k}_{1}}{{c}_{2}}{{k}_{3}}+{{c}_{1}}{{k}_{2}}{{k}_{3}}+{{k}_{1}}{{k}_{2}}{{k}_{3}} \right) \\ 
+\end{matrix}$ 
+Путём сравнения результатов умножения можно убедиться, что свойство ассоциативности верно.
+Для доказательства дистрибутивности умножения относительно сложения, т.е. справедливости равенства 
+	\[{{\bar{x}}_{1}}(\alpha )\cdot {{\bar{x}}_{2}}(\alpha )+{{\bar{x}}_{1}}(\alpha )\cdot {{\bar{x}}_{3}}(\alpha )={{\bar{x}}_{1}}(\alpha )\cdot ({{\bar{x}}_{2}}(\alpha )+{{\bar{x}}_{3}}(\alpha ))\] 	(1.91)
+также выполним действия в левой и правой частях выражения (1.91) по отдельности, а затем сравним результаты:
+\[\begin{matrix}
+  {{{\bar{x}}}_{1}}\left( \alpha  \right){{{\bar{x}}}_{2}}\left( \alpha  \right)+{{{\bar{x}}}_{1}}\left( \alpha  \right){{{\bar{x}}}_{3}}\left( \alpha  \right)=({{c}_{1}}+{{k}_{1}}\alpha )\cdot ({{c}_{2}}+{{k}_{2}}\alpha )+({{c}_{1}}+{{k}_{1}}\alpha )\cdot ({{c}_{3}}+{{k}_{3}}\alpha )= \\ 
+  ={{c}_{1}}{{c}_{2}}+({{c}_{1}}{{k}_{2}}+{{c}_{2}}{{k}_{1}}+{{k}_{1}}{{k}_{2}})\alpha +{{c}_{1}}{{c}_{3}}+({{c}_{1}}{{k}_{3}}+{{c}_{3}}{{k}_{1}}+{{k}_{1}}{{k}_{3}})\alpha . \\ 
+\end{matrix}\] 
+\[\begin{matrix}
+  {{{\bar{x}}}_{1}}\left( \alpha  \right)\left( {{{\bar{x}}}_{2}}\left( \alpha  \right)+{{{\bar{x}}}_{3}}\left( \alpha  \right) \right)=({{c}_{1}}+{{k}_{1}}\alpha )\cdot ({{c}_{2}}+{{k}_{2}}\alpha +{{c}_{3}}+{{k}_{3}}\alpha )= \\ 
+  =({{c}_{1}}+{{k}_{1}}\alpha )\cdot ({{c}_{2}}+{{c}_{3}}+({{k}_{2}}+{{k}_{3}})\alpha )= \\ 
+  ={{c}_{1}}{{c}_{2}}+{{c}_{1}}{{c}_{3}}+({{c}_{1}}{{k}_{2}}+{{c}_{2}}{{k}_{1}}+{{k}_{1}}{{k}_{2}})\alpha +({{c}_{1}}{{k}_{3}}+{{c}_{3}}{{k}_{1}}+{{k}_{1}}{{k}_{3}})\alpha . \\ 
+\end{matrix}\] 
+Сравнение результатов вычислений подтверждает верность равенства (1.91), т.е. дистрибутивность операции умножения относительно сложения.
+Проиллюстрируем введённые операции примерами.
+Пример. Даны нечёткие числа $\tilde{A}=\left\langle 4;1;2 \right\rangle $. $\tilde{B}=\left\langle 7;3;1 \right\rangle $ и $\tilde{C}=\left\langle 1;4;2 \right\rangle $. Выполнить операции $2\tilde{A}+\tilde{B}\tilde{C}$, $\tilde{C}\left( \tilde{A}-3\tilde{B} \right)$ с использованием модифицированных чисел.
+Вначале найдём оптимальные в смысле сохранения нечёткой информации значения $\lambda$:
+	\[\left[ \begin{aligned}
+  & {{\lambda }_{{\tilde{A}}}}=\frac{1}{1+2}=\frac{1}{3} \\ 
+ & {{\lambda }_{{\tilde{B}}}}=\frac{3}{3+1}=\frac{3}{4} \\ 
+ & {{\lambda }_{{\tilde{C}}}}=\frac{4}{4+2}=\frac{2}{3} \\ 
+\end{aligned} \right.\].
+Найдём модифицированные нечёткие числа для каждого из исходных чисел согласно формулам (1.77) и (1.78):
+	\[\left[ \begin{aligned}
+  & {{{\bar{x}}}_{{\tilde{A}}}}\left( \alpha  \right)=4+2-\frac{1}{3}\left( 1+2 \right)+\left( \frac{1}{3}\left( 1+2 \right)-2 \right)\alpha =5-\alpha  \\ 
+ & {{{\bar{x}}}_{{\tilde{B}}}}\left( \alpha  \right)=7+1-\frac{3}{4}\left( 3+1 \right)+\left( \frac{3}{4}\left( 3+1 \right)-1 \right)\alpha =5+2\alpha  \\ 
+ & {{{\bar{x}}}_{{\tilde{C}}}}\left( \alpha  \right)=1+2-\frac{2}{3}\left( 4+2 \right)+\left( \frac{2}{3}\left( 4+2 \right)-2 \right)\alpha =-1+2\alpha  \\ 
+\end{aligned} \right.\] 
+Значение первого выражения в модифицированном виде равно
+	$\begin{matrix}
+  2{{{\tilde{A}}}^{*}}+{{{\tilde{B}}}^{*}}{{{\tilde{C}}}^{*}}=2\left( 5-\alpha  \right)+\left( 5+2\alpha  \right)\left( -1+2\alpha  \right)= \\ 
+  =10-2\alpha +\left( -5+\left( 10-2+4 \right)\alpha  \right)=5+10\alpha  \\ 
+\end{matrix}$
+а второго
+	\[\begin{matrix}
+  {{{\tilde{C}}}^{*}}\left( {{{\tilde{A}}}^{*}}-3{{{\tilde{B}}}^{*}} \right)=\left( -1+2\alpha  \right)\left( 5-\alpha -3\left( 5+2\alpha  \right) \right)=\left( -1+2\alpha  \right)\left( -10-7\alpha  \right)= \\ 
+  =10+\left( 7-20-14 \right)\alpha =10-27\alpha  \\ 
+\end{matrix}\] 
+Перейдём к рассмотрению нейтрального по умножению и обратного элементов. Введём единичный элемент
+	\[\bar{1}=1+0\alpha \in K\] 	(1.92)
+такой, что 
+	\[\forall \bar{x}\left( \alpha  \right)\in K\quad \bar{x}\left( \alpha  \right)\cdot \bar{1}=\bar{x}\left( \alpha  \right)\] 	(1.93)
+Равенство (1.93) легко подтверждается с помощью формулы (1.89):
+	\[\bar{1}\cdot \bar{x}(\alpha )=(1+0\alpha )(c+k\alpha )=c+k\alpha =\bar{x}(\alpha )\] 
+Несколько сложнее вводится на множестве К обратный элемент ${{\bar{x}}^{-1}}\left( \alpha  \right)\in K$ такой, что
+	\[\bar{x}\left( \alpha  \right){{\bar{x}}^{-1}}\left( \alpha  \right)=\bar{1}\] 	(1.94)
+Поскольку предполагается, что ${{\bar{x}}^{-1}}\left( \alpha  \right)\in K$, то будем искать обратный элемент в виде ${{\bar{x}}^{-1}}\left( \alpha  \right)={c}'+{k}'\alpha $. Имеем
+	\[\bar{x}\left( \alpha  \right){{\bar{x}}^{-1}}\left( \alpha  \right)=\left( c+k\alpha  \right)\left( {c}'+{k}'\alpha  \right)=c{c}'+\left( c{k}'+{c}'k+k{k}' \right)\alpha =1+0\alpha \] 	(1.95)
+Из (1.95) очевидно, что должны выполняться равенства
+	\[\left\{ \begin{aligned}
+  & c{c}'=1 \\ 
+ & c{k}'+{c}'k+k{k}'=0 \\ 
+\end{aligned} \right.\].
+Из первого уравнения системы находим ${c}'=\frac{1}{c};\ c\ne 0$. Подставляя найденное значение во второе уравнение, имеем:
+	\[c{k}'+\frac{k}{c}+k{k}'=0\],
+откуда
+	\[{k}'=\frac{-k}{c(k+c)}\] 
+Таким образом, обратный элемент вводится в виде
+	\[{{\bar{x}}^{-1}}(\alpha )=\frac{1}{c}-\frac{k}{c(c+k)}\alpha ,\quad c\ne 0\] 	(1.96)
+Очевидно, что для существования обратного элемента число $\bar{x}\left( \alpha  \right)$ должно иметь ненулевую моду, поскольку, согласно (1.78), $c+k=m\ne 0$.
+Операция деления вводится как умножение числа ${{\bar{x}}_{1}}\left( \alpha  \right)$ на число, обратное числу ${{\bar{x}}_{2}}\left( \alpha  \right)$:
+	\[\begin{matrix}
+  \frac{{{{\bar{x}}}_{1}}\left( \alpha  \right)}{{{{\bar{x}}}_{2}}\left( \alpha  \right)}={{{\bar{x}}}_{1}}\left( \alpha  \right)\bar{x}_{2}^{-1}\left( \alpha  \right)=\left( {{c}_{1}}+{{k}_{1}}\alpha  \right)\left( \frac{1}{{{c}_{2}}}-\frac{{{k}_{2}}}{{{c}_{2}}\left( {{k}_{2}}+{{c}_{2}} \right)}\alpha  \right)= \\ 
+  =\frac{{{c}_{1}}}{{{c}_{2}}}+\left( -\frac{{{c}_{1}}{{k}_{2}}}{{{c}_{2}}\left( {{k}_{2}}+{{c}_{2}} \right)}+\frac{{{k}_{1}}}{{{c}_{2}}}-\frac{{{k}_{1}}{{k}_{2}}}{{{c}_{2}}\left( {{k}_{2}}+{{c}_{2}} \right)} \right)\alpha ;\ {{c}_{2}}\ne 0;\ {{k}_{2}}+{{c}_{2}}\ne 0 \\ 
+\end{matrix}\] 	(1.97)
+Таким образом, алгебра модифицированных нечётких чисел удовлетворяет всем аксиомам поля, а вводимые выше алгебраические операции над элементами множества $K$ модифицированных нечётких чисел позволяют рассматривать его как линейное пространство над полем P [Воеводин Линейная алгебра].
+Стоит отметить, что расчёты с использованием модифицированных нечётких чисел можно проводить несколько иным, более удобным с вычислительной точки зрения, методом. Поскольку все элементы множества $K$ имеют линейную структуру, то для восстановления конкретного модифицированного числа $\tilde{A}$ достаточно знать два значения – ${{\bar{x}}_{{\tilde{A}}}}\left( 0 \right)$ и ${{\bar{x}}_{{\tilde{A}}}}\left( 1 \right)={{m}_{{\tilde{A}}}}$. Их подстановка в уравнение прямой позволяет получить зависимость ${{\bar{x}}_{{\tilde{A}}}}\left( \alpha  \right)$ или ${{\mu }_{{\tilde{A}}}}\left( x \right)$ в явном виде:
+	\[\frac{\alpha -0}{1-0}=\frac{{{{\bar{x}}}_{{\tilde{A}}}}\left( \alpha  \right)-{{{\bar{x}}}_{{\tilde{A}}}}\left( 0 \right)}{{{{\bar{x}}}_{{\tilde{A}}}}\left( 1 \right)-{{{\bar{x}}}_{{\tilde{A}}}}\left( 0 \right)}\] 	(1.98)
+	${{\bar{x}}_{{\tilde{A}}}}\left( \alpha  \right)={{\bar{x}}_{{\tilde{A}}}}\left( 0 \right)+\alpha \left( {{{\bar{x}}}_{{\tilde{A}}}}\left( 1 \right)-{{{\bar{x}}}_{{\tilde{A}}}}\left( 0 \right) \right)=\alpha {{\bar{x}}_{{\tilde{A}}}}\left( 1 \right)+\left( 1-\alpha  \right){{\bar{x}}_{{\tilde{A}}}}\left( 0 \right)$ 	(1.99)
+Все вычисления с использованием данного способа ведутся только на двух $\alpha $-уровнях над действительными числами без использования дополнительных параметров. Если обозначить за $*$ произвольную арифметическую операцию, то для чисел в форме (1.99) её результат будет выглядеть следующим образом:
+	\[{{\bar{x}}_{{\tilde{A}}}}\left( \alpha  \right)*{{\bar{x}}_{{\tilde{B}}}}\left( \alpha  \right)=\alpha \left( {{{\bar{x}}}_{{\tilde{A}}}}\left( 1 \right)*{{{\bar{x}}}_{{\tilde{B}}}}\left( 1 \right) \right)+\left( 1-\alpha  \right)\left( {{{\bar{x}}}_{{\tilde{A}}}}\left( 0 \right)*{{{\bar{x}}}_{{\tilde{B}}}}\left( 0 \right) \right)\] 	(1.100)
+По сути, вводится другая алгебра на множестве $K$, оперирующая парой чётких значений и автоморфная введённой ранее алгебре модифицированных нечётких чисел. В самом деле, существует взаимно однозначная функция $f:K\to K$, которая позволяет сопоставить числу вида $c+k\alpha $ число вида $\alpha {{\bar{x}}_{{\tilde{A}}}}\left( 1 \right)+\left( 1-\alpha  \right){{\bar{x}}_{{\tilde{A}}}}\left( 0 \right)$. Воспользовавшись (1.99), (1.77) и приравняв свободные члены и коэффициенты при $\alpha$, получим следующее соответствие
+	\[\left[ \begin{aligned}
+  & c={{{\bar{x}}}_{{\tilde{A}}}}\left( 0 \right) \\ 
+ & k={{{\bar{x}}}_{{\tilde{A}}}}\left( 1 \right)-{{{\bar{x}}}_{{\tilde{A}}}}\left( 0 \right) \\ 
+\end{aligned} \right.\Leftrightarrow \left[ \begin{aligned}
+  & {{{\bar{x}}}_{{\tilde{A}}}}\left( 0 \right)=c \\ 
+ & {{{\bar{x}}}_{{\tilde{A}}}}\left( 1 \right)=c+k \\ 
+\end{aligned} \right.\] 
+Стоит отметить, что преобразование $L$ и вводимая алгебра модифицированных нечётких чисел снимают проблему сравнения двух нечётких чисел, поскольку все сравнения при решении задач происходят с действительными значениями нечёткого числа на выбранных $\alpha$-уровнях.
+Пример. Даны нечёткие числа $\tilde{A}=\left\langle 4;2;3 \right\rangle $. $\tilde{B}=\left\langle -2;6;2 \right\rangle $ и $\tilde{C}=\left\langle 1;1;4 \right\rangle $. Вычислить значение $\tilde{D}=\frac{3\tilde{A}\tilde{C}+4\tilde{B}}{\tilde{C}\left( \tilde{A}-2\tilde{B} \right)}$ с использованием модифицированных чисел.
+Воспользуемся упрощённой методикой вычислений. Оптимальные в смысле сохранения нечёткой информации значения $\lambda$ равны:
+	\[\left[ \begin{aligned}
+  & {{\lambda }_{{\tilde{A}}}}=\frac{2}{2+3}=\frac{2}{5} \\ 
+ & {{\lambda }_{{\tilde{B}}}}=\frac{6}{6+2}=\frac{3}{4} \\ 
+ & {{\lambda }_{{\tilde{C}}}}=\frac{1}{1+4}=\frac{1}{5} \\ 
+\end{aligned} \right.\] 	(1.101)
+Используя формулы (1.78) c учётом (1.101), получим коэффициенты для модифицированных нечётких чисел:
+	\[\begin{aligned}
+  & {{c}_{{\tilde{A}}}}=4+3-\frac{2}{5}\left( 2+3 \right)=5;\quad {{k}_{{\tilde{A}}}}=\frac{2}{5}\left( 2+3 \right)-3=-1 \\ 
+ & {{c}_{{\tilde{B}}}}=-2+2-\frac{3}{4}\left( 6+2 \right)=-6;\quad {{k}_{{\tilde{B}}}}=\frac{3}{4}\left( 6+2 \right)-2=4 \\ 
+ & {{c}_{{\tilde{C}}}}=1+4-\frac{1}{5}\left( 1+4 \right)=4;\quad {{k}_{{\tilde{C}}}}=\frac{1}{5}\left( 1+4 \right)-4=-3 \\ 
+\end{aligned}\] 
+Отсюда
+	\[\left[ \begin{aligned}
+  & {{{\bar{x}}}_{{\tilde{A}}}}\left( \alpha  \right)=5-\alpha  \\ 
+ & {{{\bar{x}}}_{{\tilde{B}}}}\left( \alpha  \right)=-6+4\alpha  \\ 
+ & {{{\bar{x}}}_{{\tilde{C}}}}\left( \alpha  \right)=4-3\alpha  \\ 
+\end{aligned} \right.\] 	(1.102)
+При $\alpha=1$ выражения (1.102) принимают следующие значения
+	\[{{\bar{x}}_{{\tilde{A}}}}\left( 1 \right)=4;\ {{\bar{x}}_{{\tilde{B}}}}\left( 1 \right)=-2;\ {{\bar{x}}_{{\tilde{C}}}}\left( 1 \right)=1\] 	(1.103)
+а при $\alpha=0$
+	\[{{\bar{x}}_{{\tilde{A}}}}\left( 1 \right)=5;\ {{\bar{x}}_{{\tilde{B}}}}\left( 1 \right)=-6;\ {{\bar{x}}_{{\tilde{C}}}}\left( 1 \right)=4\] 	(1.104)
+Подставляя в выражение $\tilde{D}=\frac{3\tilde{A}\tilde{C}+4\tilde{B}}{\tilde{C}\left( \tilde{A}-2\tilde{B} \right)}$ вместо $\tilde A$, $\tilde B$ и $\tilde C$ соответствующие им чёткие значения модифицированных чисел при $\alpha=0$ и $\alpha=1$, получаем:
+	${{\bar{x}}_{{\tilde{D}}}}\left( 1 \right)={{\left. \frac{3{{{\tilde{A}}}^{*}}{{{\tilde{C}}}^{*}}+4{{{\tilde{B}}}^{*}}}{{{{\tilde{C}}}^{*}}\left( {{{\tilde{A}}}^{*}}-2{{{\tilde{B}}}^{*}} \right)} \right|}_{\alpha =1}}=\frac{3\cdot 4\cdot 1+4\cdot \left( -2 \right)}{1\cdot \left( 4-2\cdot \left( -2 \right) \right)}=\frac{12-8}{4+4}=\frac{1}{2}$,
+	\[{{\bar{x}}_{{\tilde{D}}}}\left( 0 \right)={{\left. \frac{3{{{\tilde{A}}}^{*}}{{{\tilde{C}}}^{*}}+4{{{\tilde{B}}}^{*}}}{{{{\tilde{C}}}^{*}}\left( {{{\tilde{A}}}^{*}}-2{{{\tilde{B}}}^{*}} \right)} \right|}_{\alpha =0}}=\frac{3\cdot 5\cdot 4+4\cdot \left( -6 \right)}{4\cdot \left( 5-2\cdot \left( -6 \right) \right)}=\frac{60-24}{4\cdot 17}=\frac{9}{17}\].
+Согласно формуле (1.99), модифицированный результат будет равен
+	\[{{\bar{x}}_{{\tilde{D}}}}\left( \alpha  \right)=\frac{9}{17}+\alpha \left( \frac{1}{2}-\frac{9}{17} \right)=\frac{9}{17}-\frac{1}{34}\alpha \] 
+Рассмотрим более сложный пример. Необходимо решить уравнение $\tilde{A}x=\tilde{B}$, в котором $\tilde{A}=\left\langle 3;1;2 \right\rangle $, $\tilde{B}=\left\langle 4;4;1 \right\rangle $. В терминах модифицированных нечётких чисел его решение будет иметь вид
+	\[x\left( \alpha  \right)=\frac{{{{\bar{x}}}_{{\tilde{B}}}}\left( \alpha  \right)}{{{{\bar{x}}}_{{\tilde{A}}}}\left( \alpha  \right)}\] 	(1.105)
+Поскольку операция деления для преобразованных нечётких чисел вводится как умножение на обратное число, перепишем (1.105) в виде
+	\[x\left( \alpha  \right)=\bar x_{\tilde B}\left( \alpha  \right)\cdot \bar{x}_{{\tilde{A}}}^{-1}\left( \alpha  \right)\] 	(1.106)
+
+Выберем значения $\lambda_{\tilde A}$ и $\lambda_{\tilde B}$, равные $\frac{a_{\tilde A}}{d_{\tilde A}}$ и $\frac{a_{\tilde B}}{d_{\tilde B}}$, в соответствие с критерием сохранения максимального количества нечёткой информации. Они равны
+	\[{{\lambda }_{{\tilde{A}}}}=\frac{1}{3};\ {{\lambda }_{{\tilde{B}}}}=\frac{4}{5}\] 	(1.107)
+Воспользовавшись формулами (1.77), (1.78) и (1.107), получаем
+	\[\left[ \begin{aligned}
+  & {{{\bar{x}}}_{{\tilde{A}}}}\left( \alpha  \right)=4-\alpha  \\ 
+ & {{{\bar{x}}}_{{\tilde{B}}}}\left( \alpha  \right)=3\alpha +1 \\ 
+\end{aligned} \right.\] 	(1.108)
+Найдём обратный элемент $\bar{x}_{{\tilde{A}}}^{-1}\left( \alpha  \right)$ согласно формуле (1.96): 
+	$\bar{x}_{{\tilde{A}}}^{-1}\left( \alpha  \right)=\frac{1}{4}-\frac{1}{\left( -1 \right)\cdot \left( 4-1 \right)}\alpha =\frac{1}{4}+\frac{1}{12}\alpha $ 	(1.109)
+Пользуясь значениями из (1.108), (1.109) и подставляя их в (1.106), окончательно получаем
+	\[x\left( \alpha  \right)=\left( 1+3\alpha  \right)\left( \frac{1}{4}+\frac{1}{12}\alpha  \right)=\frac{1}{4}+\frac{13}{12}\alpha \] 	(1.110)
+Функция принадлежности модифицированного решения определяется как обратная к (1.110) – ${{\mu }_{x(\alpha )}}\left( x \right)=\frac{12}{13}x-\frac{3}{13}$. Подстановка решения задачи в исходное уравнение $\tilde{A}x=\tilde{B}$ с учётом формулы (1.89) приводит к верному равенству:
+	\[\left( 4-\alpha  \right)\left( \frac{1}{4}+\frac{13}{12}\alpha  \right)=3\alpha +1\];
+	\[\frac{52-13-3}{12}\alpha +1=3\alpha +1\].
+Пример с задачей ЛП и переход к вопросам устойчивости решения
