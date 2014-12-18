@@ -2,9 +2,11 @@
 
 AUXDIR="build"
 FILENAME="Thesis"
+CODE=0
 
 function run_latex(){
-    "/usr/texbin/pdflatex" -synctex=1 -interaction=nonstopmode -output-directory="$AUXDIR" "$FILENAME".tex >/dev/null
+    "/usr/texbin/pdflatex" -synctex=1 -interaction=nonstopmode -output-directory="$AUXDIR" "$FILENAME".tex
+    CODE=$?
 }
 
 function build(){
@@ -12,10 +14,12 @@ function build(){
         mkdir "$AUXDIR"
     fi
     run_latex
-    "/usr/texbin/bibtex" "$AUXDIR"/"$FILENAME".aux
-    run_latex
-    run_latex
-    open "$AUXDIR"/"$FILENAME".pdf
+    if [ $CODE -eq 0 ]; then
+        "/usr/texbin/bibtex" "$AUXDIR"/"$FILENAME".aux
+        run_latex
+        run_latex
+        open "$AUXDIR"/"$FILENAME".pdf
+    fi
 }
 
 function clean(){
