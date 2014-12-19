@@ -3,7 +3,7 @@
 Такой подход не только позволяет использовать все стандартные программные продукты для решения нечетких задач, но и решает проблему построения полного порядка.
 
 
-3. Алгебра модифицированных нечетких чисел с примерами
+\subsection{Алгебра модифицированных нечетких чисел с примерами}
 Для того, чтобы использовать модифицированные нечёткие числа в качестве параметров чётких задач, необходимо построить алгебраическую систему для множества всех нечётких модифицированных чисел $K$. 
 Будем строить чёткую алгебру \[P=\left\langle ;\ +,\,* \right\rangle \] на множестве модифицированных нечётких чисел $K=\left\{ \bar{x}\left( \alpha  \right) \right\};\ \alpha \in \left[ 0;1 \right]$ по аналогии с тем, как это делается в (Яхъяева). Для удобства дальнейших вычислений преобразуем $\bar{x}\left( \alpha  \right)$:
 	\[\begin{matrix}
@@ -26,7 +26,7 @@
   {{{\bar{x}}}_{1}}(\alpha )+{{{\bar{x}}}_{2}}(\alpha )={{r}_{1}}\left( \alpha  \right)={{c}_{1}}+{{c}_{2}}+\left( {{k}_{1}}+{{k}_{2}} \right)\alpha  \\ 
   {{r}_{1}}\left( \alpha  \right)\in K \\ 
 \end{matrix}\] 	(1.79)
-Докажем основные свойства операции сложения:
+Докажем основные свойства операции сложения.
 1. Коммутативность:
 \[{{\bar{x}}_{1}}\left( \alpha  \right)+{{\bar{x}}_{2}}\left( \alpha  \right)={{c}_{1}}+{{c}_{2}}+({{k}_{1}}+{{k}_{2}})\alpha ={{c}_{2}}+{{c}_{1}}+({{k}_{2}}+{{k}_{1}})\alpha ={{\bar{x}}_{2}}\left( \alpha  \right)+{{\bar{x}}_{1}}\left( \alpha  \right)\] 
 2. Ассоциативность
@@ -35,16 +35,30 @@
   =({{c}_{1}}+{{c}_{2}}+({{k}_{1}}+{{k}_{2}})\alpha )+{{c}_{3}}+{{k}_{3}}\alpha =\left( {{{\bar{x}}}_{1}}\left( \alpha  \right)+{{{\bar{x}}}_{2}}\left( \alpha  \right) \right)+{{{\bar{x}}}_{3}}\left( \alpha  \right) \\ 
 \end{matrix}\]
 Введём нейтральный (нулевой) элемент
-	$\bar{0}=0+0\alpha \in K$ 	(1.80)
+\begin{equation}
+\label{eq:fuzzy-kc-zero}
+	\bar{0}=0+0\alpha \in K
+\end{equation}
 такой, что 
-	\[\forall \bar{x}(\alpha )\in K:\ \bar{x}(\alpha )+\bar{0}=c+k\alpha +0+0\alpha =\bar{x}(\alpha )\] 	(1.81)
+\begin{equation}
+\label{eq:fuzzy-kc-zeroprop}
+	\forall \bar{x}(\alpha )\in K:\ \bar{x}(\alpha )+\bar{0}=c+k\alpha +0+0\alpha =\bar{x}(\alpha )
+\end{equation}
+
 Также определим для каждого $\bar{x}\left( \alpha  \right)=c+k\alpha \in K$ единственный элемент $-\bar{x}\left( \alpha  \right)\in K$, называемый противоположным, такой, что выполняется равенство
-	\[\bar{x}\left( \alpha  \right)+\left( -\bar{x}\left( \alpha  \right) \right)=\bar{0}\]	(1.82)
+\begin{equation}
+\label{eq:fuzzy-kc-inverse-minus}
+	\bar{x}\left( \alpha  \right)+\left( -\bar{x}\left( \alpha  \right) \right)=\bar{0}
+\end{equation}
+
 Очевидно, что противоположный элемент можно определить следующим образом:
 	\[-\bar{x}\left( \alpha  \right)=-c-k\alpha \], 	(1.83)
-так что равенство (1.82) будет справедливым:
-	\[\bar{x}\left( \alpha  \right)+\left( -\bar{x}\left( \alpha  \right) \right)=c+k\alpha -c-k\alpha =0+0\alpha =\bar{0}\].
-Операция вычитания нечётких чисел вводится как сложение числа ${{\bar{x}}_{1}}\left( \alpha  \right)$ с числом, противоположным числу ${{\bar{x}}_{2}}\left( \alpha  \right)$:
+так что равенство \eqref{eq:fuzzy-kc-inverse-minus} будет справедливым:
+\begin{equation*}
+	\bar{x}\left( \alpha  \right)+\left( -\bar{x}\left( \alpha  \right) \right)=c+k\alpha -c-k\alpha =0+0\alpha =\bar{0}.
+\end{equation*}
+
+Операция вычитания нечётких чисел вводится как сложение числа $\bar{x}_1\left( \alpha  \right)$ с числом, противоположным числу $\bar{x}_2\left( \alpha  \right)$:
 	\[{{\bar{x}}_{1}}\left( \alpha  \right)-{{\bar{x}}_{2}}\left( \alpha  \right)={{\bar{x}}_{1}}\left( \alpha  \right)+\left( -{{{\bar{x}}}_{2}}\left( \alpha  \right) \right)={{c}_{1}}-{{c}_{2}}+\left( {{k}_{1}}-{{k}_{2}} \right)\alpha \] 	(1.84)
 Пример. Даны два нечётких числа $\tilde{A}=\left\langle 3;4;1 \right\rangle $ и $\tilde{B}=\left\langle 5;2;3 \right\rangle $. Выполнить операции ${{\tilde{A}}^{*}}+{{\tilde{B}}^{*}}$, ${{\tilde{A}}^{*}}-{{\tilde{B}}^{*}}$.
 Вначале запишем уравнения для левой и правой ветвей каждого из чисел и оптимальные в смысле сохранения нечёткой информации значения $\lambda $:
@@ -227,4 +241,7 @@ $\begin{matrix}
 Функция принадлежности модифицированного решения определяется как обратная к (1.110) – ${{\mu }_{x(\alpha )}}\left( x \right)=\frac{12}{13}x-\frac{3}{13}$. Подстановка решения задачи в исходное уравнение $\tilde{A}x=\tilde{B}$ с учётом формулы (1.89) приводит к верному равенству:
 	\[\left( 4-\alpha  \right)\left( \frac{1}{4}+\frac{13}{12}\alpha  \right)=3\alpha +1\];
 	\[\frac{52-13-3}{12}\alpha +1=3\alpha +1\].
-Пример с задачей ЛП и переход к вопросам устойчивости решения
+
+Описанная выше модель применима в случаях использования асимметричных нечётких чисел. Однако существуют ситуации, когда  необходимо 
+
+В статье \cite{Kanischeva} предложена алгебра для двухкомпонентных нечётких чисел. Её ключевое отличие в том, что не используется преобразование для $\alpha$-интервалов, а операции над числами выполняются как операции над
