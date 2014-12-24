@@ -1,7 +1,3 @@
-Проблемы создания специального программного обеспечения решения задач на основе предложенной алгебры. Нерешенными остались проблемы построения полного порядка. Проведенное исследование показало, что подходящих методов сравнения нечетких чисел нет.
-Предложен изоморфизм алгебры модифицированных нечетких чисел, который позволяет решать нечеткую задачу как две четких задачи на заданных альфа –уровнях.
-Такой подход не только позволяет использовать все стандартные программные продукты для решения нечетких задач, но и решает проблему построения полного порядка.
-
 \subsection{Алгебра модифицированных нечетких чисел}
 Для того, чтобы использовать модифицированные нечёткие числа в качестве параметров чётких задач, необходимо построить алгебраическую систему для множества всех нечётких модифицированных чисел $K$.
 
@@ -271,7 +267,13 @@
 
 \subsection{Изоморфизм алгебр}
 
+Введённая выше алгебра на~множестве $K$ решает несколько проблем, обозначенных в главе~\ref{chapter1}~--- создание полевой структуры, уменьшение размытости результатов и т.д. Однако
+
 Сказать про нерешённость построения отношения полного порядка - сослаться на статью в Вестнике.
+Проблемы создания специального программного обеспечения решения задач на основе предложенной алгебры. Нерешенными остались проблемы построения полного порядка. Проведенное исследование показало, что подходящих методов сравнения нечетких чисел нет.
+Предложен изоморфизм алгебры модифицированных нечетких чисел, который позволяет решать нечеткую задачу как две четких задачи на заданных альфа –уровнях.
+Такой подход не только позволяет использовать все стандартные программные продукты для решения нечетких задач, но и решает проблему построения полного порядка.
+
 
 Стоит отметить, что расчёты с использованием модифицированных нечётких чисел можно проводить несколько иным, более удобным с вычислительной точки зрения, методом. Поскольку все элементы множества $K$ имеют линейную структуру, то для восстановления конкретного модифицированного числа $\tilde{A}$ достаточно знать два значения~--- $\bar{x}_{\tilde A}\left( 0 \right)$ и~$\bar{x}_{\tilde A}\left( 1 \right)=m_{\tilde A}$. Их подстановка в уравнение прямой позволяет получить зависимость $\bar{x}_{\tilde A}\left( \alpha \right)$ или $\mu_{\tilde A}\left( x \right)$ в~явном виде:
 \begin{gather}
@@ -347,7 +349,11 @@
   \bar{x}_{\tilde D}\left( \alpha \right)=\frac{9}{17}+\alpha \left(\frac{1}{2}-\frac{9}{17} \right)=\frac{9}{17}-\frac{1}{34}\alpha.
 \end{equation*}
 	
-Рассмотрим более сложный пример. Необходимо решить уравнение $\tilde{A}x=\tilde{B}$, в котором $\tilde{A}=\left\langle 3;1;2 \right\rangle $, $\tilde{B}=\left\langle 4;4;1 \right\rangle $. В терминах модифицированных нечётких чисел его решение будет иметь вид
+Рассмотрим более сложный пример. 
+
+\textbf{Пример.} Решить уравнение $\tilde{A}x=\tilde{B}$, в котором $\tilde{A}=\left\langle 3;1;2 \right\rangle $, $\tilde{B}=\left\langle 4;4;1 \right\rangle $.
+
+В терминах модифицированных нечётких чисел решение уравнения будет иметь вид
 \begin{equation}
 \label{eq:sample3-equation}
   x\left( \alpha  \right)=\frac{\bar{x}_{\tilde B}\left( \alpha  \right)}{\bar{x}_{\tilde A}\left(\alpha \right)}.
@@ -376,7 +382,7 @@
 Найдём обратный элемент $\bar{x}_{\tilde A}^{-1}\left( \alpha  \right)$ согласно формуле \eqref{eq:modified-inverse-division}: 
 \begin{equation}
 \label{eq:sample3-inverse}
-  \bar{x}_{\tilde A}^{-1}\left( \alpha  \right)=\frac{1}{4}-\frac{1}{\left( -1 \right)\cdot \left( 4-1 \right)}\alpha =\frac{1}{4}+\frac{1}{12}\alpha.\end{equation}
+  \bar{x}_{\tilde A}^{-1}\left(\alpha \right)=\frac{1}{4}-\frac{1}{\left( -1 \right)\cdot \left( 4-1 \right)}\alpha =\frac{1}{4}+\frac{1}{12}\alpha.\end{equation}
 
 Пользуясь значениями из~\eqref{eq:sample3-modified-functions},~\eqref{eq:sample3-inverse} и~подставляя~их в~\eqref{eq:sample3-equation-modified}, окончательно получаем:
 \begin{equation}
@@ -384,14 +390,123 @@
   x\left( \alpha  \right)=\left( 1+3\alpha  \right)\left( \frac{1}{4}+\frac{1}{12}\alpha  \right)=\frac{1}{4}+\frac{13}{12}\alpha.
 \end{equation}
 
-Функция принадлежности модифицированного решения определяется как обратная к~\eqref{eq:sample3-solution}~--- $\displaystyle \mu_{x\left(\alpha \right)}\left(x \right)=\frac{12}{13}x-\frac{3}{13}$. Подстановка решения задачи в исходное уравнение $\tilde{A}x=\tilde{B}$ с~учётом формулы~eqref{eq:modified-multiplication} приводит к верному равенству:
+Функция принадлежности модифицированного решения определяется как обратная к~\eqref{eq:sample3-solution}~--- $\displaystyle \mu_{x\left(\alpha \right)}\left(x \right)=\frac{12}{13}x-\frac{3}{13}$. Подстановка решения задачи в исходное уравнение $\tilde{A}x=\tilde{B}$ с~учётом формулы~\eqref{eq:modified-multiplication} приводит к верному равенству:
 \begin{gather*}
   \left( 4-\alpha  \right)\left( \frac{1}{4}+\frac{13}{12}\alpha  \right)=3\alpha +1; \\
   \frac{52-13-3}{12}\alpha +1=3\alpha +1.  
 \end{gather*}
 
-\subsection{Двухкомпонентные нечёткие числа}
+\subsection{Алгебра двухкомпонентных нечётких чисел}
 
-Описанная выше модель применима в случаях использования асимметричных нечётких чисел. Однако существуют ситуации, когда  необходимо 
+Описанные выше модель представления нечётких чисел и~методика нечётких вычислений применимы в~случаях использования треугольных асимметричных нечётких чисел, когда допустимы некоторые потери экспертной информации ради создания подходящей алгебры над множеством нечётких чисел. Однако существуют ситуации, когда в~задаче моделирования с чёткими отношениями и нечёткими параметрами потери экспертной информации недопустимы. В этом случае может применяться альтернативный подход к определению операций над нечёткими числами, описанный в~\cite{Kanischeva}. Её~ключевое отличие в~том, что не~используется преобразование для~$\alpha$-интервалов, а~операции над~числами выполняются как~операции над~левой и~правой ветвями функции принадлежности.
 
-В статье \cite{Kanischeva} предложена алгебра для двухкомпонентных нечётких чисел. Её ключевое отличие в том, что не используется преобразование для $\alpha$-интервалов, а операции над числами выполняются как операции над
+Для удобства дальнейших вычислений, нечёткое треугольное число записывается в~форме
+\begin{equation}
+\label{eq:two-component-number}
+  \hat{X} = \left(x^L\left(\alpha \right); x^R\left(\alpha \right) \right),
+\end{equation}
+где $x^L\left(\alpha \right)$, $x^R\left(\alpha \right)$~--- функции, описываемые выражением~\eqref{eq:membership-alphacut-form}. Такое представление позволяет рассматривать вычислительные операции над нечеткими LR-числами как операции над их компонентами~---  функциями~$x^L\left(\alpha \right)$ и~$x^R\left(\alpha \right)$, а~также исследовать алгебраическую структуру множества таких функций. Символ <<$\hat{\ }$>> используется над обозначением числа для того, чтобы отличать двухкомпонентное представление нечёткого числа от классических вариантов.
+
+Если преобразовать выражения для функций~\eqref{eq:membership-alphacut-form} и обозначить $c_1=m-a$, $c_2=m+b$, $k_1=a$, $k_2=b$, где параметры $c_1$ и~$c_2$ определяют границы носителя числа, то получится следующее эквивалентное представление  двухкомпонентного нечёткого числа:
+\begin{equation}
+\label{eq:two-component-number-equivalent}
+  \hat{X} = \left(c_1+k_1\alpha; c_2-k_2\alpha \right) = \left(l\left(\alpha \right), r\left(\alpha \right) \right),ё c_1+k_1\alpha,\, c_2+k_2\alpha \in \mathbb{R},
+\end{equation}
+причём при $\alpha=1$ верно равенство $c_1+k_1=c_2-k_2=m$.
+
+\begin{mydef}
+  Нечёткое число, задаваемое выражением~\eqref{eq:two-component-number-equivalent}, называется двухкомпонентным нечётким числом.
+\end{mydef}
+
+Как уже было отмечено, oперации над двухкомпонентными числами числами вводятся как операции над левой и правой компонентами числа в~представлении~\eqref{eq:two-component-number-equivalent}. В~\cite{Kanischeva} отмечается, что эти компоненты можно рассматривать как два числа LL и RR-типа с~функциями, обратными функциям принадлежности, вида $x\left(\alpha \right)=c+k\alpha \in K$. Выше уже была введена алгебра типа поле для модифицированных чисел, которые структурно являются числами LL/RR-типа, поэтому рассмотрим подробнее взаимодействие между обеими компонентами при~выполнении операций над~нечёткими числами. Если обозначить за~$*$ одну из~четырёх арифметических операций, то~схема взаимодействия между компонентами выглядит следующим образом:
+\begin{gather}
+  \left( l_1\left(\alpha \right), r_1 \left(\alpha \right) \right) * \left(l_2\left(\alpha \right), r_2\left(\alpha \right) \right) = {}\notag \\
+  \label{eq:two-component-generic-operation}
+  {}=\left(l_1\left(\alpha \right)*l_2\left(\alpha \right), r_1\left(\alpha \right)*r_2\left(\alpha \right) \right) = \left(x_1\left(\alpha \right), x_2\left(\alpha \right) \right),
+\end{gather}
+где для результата справедливы следующие варианты: $\left(x_1, x_2 \right) \in \left\{ \left(l, r \right), \left(r, l \right),\allowbreak \left(l, l \right), \left(r, r \right) \right\}$, а тип функции ($l$ или $r$) определяется знаком параметра $k$ в~\eqref{eq:two-component-number-equivalent}.
+
+При выполнении операций над двухкомпонентными нечёткими числами  согласно схеме~\eqref{eq:two-component-generic-operation}, справедливы следующие допущения~\cite{Kanischeva}, которые позволяют избавить операции от жёсткой привязки к понятиям границ числа и левого и правого коэффициентов нечёткости:
+\begin{itemize}
+  \item представление~\eqref{eq:two-component-number-equivalent} двухкомпонентного числа в первую очередь рассматривается как отображение экспертных оценок о~степени пессимизма и~оптимизма относительно достижения величины $m$. В этом случае нечеткие числа типа~$\left(l, r \right)$ и~$\left(r, l \right)$ будут интепретироваться как описания степени оптимизма/пессимизма относительно достижения $m$, а~числа типа $\left(l, l \right)$ и $\left(r, r \right)$ могут определяться как не совпадающее на численном уровне двойное суждение о степени оптимизма/пессимизма;
+  \item в процессе обработки нечёткой информации допускается компенсация противоположных по смыслу оценок, что не противоречит здравому смыслу во многих задачах и позволяет сохранять тождественность чётких отношений, но не согласуется с постулатом теории вероятностей о возрастании дисперсии результата действий со случайными числами.
+\end{itemize}
+
+При невыполнении допущений, результат $\left(l, r \right)$ однозначно выбирался бы из~прямого произведения $\left(l_1, r_1 \right) \times \left(l_2, r_2 \right) = \left(l_1l_2, l_1r_2, r_1l_2, r_1r_2 \right)$ в зависимости от знаков коэффициентов функций $l$ и $r$, что полностью соответствует интервальным алгебрам нечётких чисел со всеми их недостатками, описанными в п.~\ref{chapter2_1}.
+
+Рассмотрим два примера, иллюстрирующие вышеописанные утверждения.
+
+\textbf{Пример.} Решить уравнение $\tilde A \tilde X + \tilde B = \tilde 0$, где $\tilde A = \left \langle 2; 1; 1 \right \rangle$, $\tilde B = \left \langle 5; 3; 2 \right \rangle$.
+
+Решение будем искать в~виде $\tilde X = -\tilde B \tilde A^{-1}$. Найдём двухкомпонентные представления чисел $\tilde A$ и $\tilde B$:
+\begin{gather*}
+  \hat A = \left(2-1+\alpha; 2+1-\alpha \right) = \left(1+\alpha; 3-\alpha \right); \\
+  \hat B = \left(5-3+3\alpha; 5+2-2\alpha \right) = \left(2+3\alpha; 7-2\alpha \right).
+\end{gather*}
+Обратное значение $\hat A^{-1}$ и противоположное $-\hat B$ равны
+\begin{gather*}
+  \hat A^{-1} = \left( \frac{1}{1} - \frac{1}{1\cdot \left( 1+1\right)}\alpha; \frac{1}{3}+\frac{1}{3\cdot\left(3-1\right)}\alpha \right) = \left(1-\frac{1}{2}\alpha; \frac{1}{3}+\frac{1}{6}\alpha \right); \\
+  -\hat B = \left(-2-3\alpha; -7+2\alpha \right).
+\end{gather*}
+Отсюда
+\begin{gather*}
+\hat X = \left(-2-3\alpha; -7+2\alpha \right) \cdot \left(1-\frac{1}{2}\alpha; \frac{1}{3}+\frac{1}{6}\alpha \right) = {} \\{} = \left(-2+\left(1 - 3 + \frac{3}{2} \right)\alpha; -\frac{7}{3}+\left(-\frac{7}{6} + \frac{2}{3} + \frac{1}{3} \right)\alpha \right) = \left( -2 -\frac{1}{2}\alpha; -\frac{7}{3} -\frac{1}{6}\alpha \right).
+\end{gather*}
+Полученный результат является примером двойной численно несогласованной оценки.
+
+\textbf{Пример.} Решить систему уравнений $Ax=B$ методом Крамера. Элементами матрицы $A$ и~вектора $B$ являются нечёткие треугольные числа
+\begin{gather*}
+  \tilde A_{11} = \left \langle 3; 2; 1 \right \rangle; \tilde A_{12} = \left \langle -2; 2; 1\right \rangle; \tilde A_{21} = \left \langle 3; 1; 1\right \rangle; \tilde A_{22} = \left \langle -1; 4; 1\right \rangle; \\
+  \tilde B_1 = \left \langle 1; 1; 1 \right \rangle; \tilde B_2 = \left \langle 2; 1; 3\right \rangle.
+\end{gather*}
+
+Решение системы будем искать независимо для каждой из компонент чисел. Значения определителей системы равны
+\begin{equation*}
+  \left[ \begin{aligned}
+    & \Delta = \tilde A_{11} \tilde A_{22}-\tilde A_{12} \tilde A_{21}; \\
+    & \Delta_1 = \tilde B_1 \tilde A_{22}-\tilde B_2 \tilde A_{12}; \\
+    & \Delta_2 = \tilde B_2 \tilde A_{11}-\tilde B_1 \tilde A_{21},
+    \end{aligned} \right.
+\end{equation*}
+а числа в~двухкомпонентной форме выглядят следующим образом:
+\begin{gather*}
+  \hat A_{11} = \left(1+2\alpha; 4-\alpha \right); \hat A_{12} = \left(-4+2\alpha; -1-\alpha \right); \\
+  \hat A_{21} = \left(2+\alpha; 4-\alpha \right); \hat A_{22} = \left(-5+4\alpha; -\alpha \right); \\
+  \hat B_1 = \left(\alpha; 2-\alpha \right); \hat B_2 = \left(1+\alpha; 5-3\alpha \right).
+\end{gather*}
+
+Для левых компонент определители равны
+\begin{equation*}
+  \left[ \begin{aligned}
+    & \hat \Delta^L = \left(1+2\alpha \right) \left(-5+4\alpha \right) - \left(-4+2\alpha \right) \left(2+\alpha \right) = -5+2\alpha+8-2\alpha = 3; \\
+    & \hat \Delta_1^L = \left(0 + \alpha \right) \left( -5 + 4\alpha \right) - \left(1+\alpha \right) \left(-4+2\alpha \right) = 4-\alpha; \\
+    & \hat \Delta_2^L = \left(1+\alpha \right) \left(1+2\alpha \right) - \left(0+\alpha \right) \left(2+\alpha \right) = 1+5\alpha-3\alpha =1+2\alpha;
+  \end{aligned} \right.
+\end{equation*}
+откуда находим $\hat X_1^L$ и $\hat X_2^L$:
+\begin{gather*}
+  \hat X_1^L = \frac{\hat \Delta_1^L}{\hat \Delta^L} = \frac{4}{3} - \frac{1}{3}\alpha; \\
+  \hat X_2^L = \frac{\hat \Delta_2^L}{\hat \Delta^L} = \frac{1}{3} + \frac{2}{3}\alpha.
+\end{gather*}
+
+Аналогично, находим определители для правых компонент
+\begin{equation*}
+  \left[ \begin{aligned}
+    & \hat \Delta^R = \left(4-\alpha \right) \left(0-\alpha \right) - \left(-1-\alpha \right) \left(4-\alpha \right) = -3\alpha+4+2\alpha = 4-\alpha; \\
+    & \hat \Delta_1^R = \left(2-\alpha \right) \left(0-\alpha \right) - \left(5-3\alpha \right) \left(-1-\alpha \right) = -\alpha+5-\alpha = 5-2\alpha; \\
+    & \hat \Delta_2^R = \left(5-3\alpha \right) \left(4-\alpha \right) - \left(2-\alpha \right) \left(4-\alpha \right) = 20-14\alpha-8+5\alpha=12-9\alpha;
+  \end{aligned} \right.
+\end{equation*}
+и~поэтому $\hat X_1^R$ и $\hat X_2^R$ равны
+\begin{gather*}
+  \hat X_1^R = \frac{\hat \Delta_1^R}{\hat \Delta^R} = \left(5-2\alpha \right) \left(\frac{1}{4}+\frac{1}{12}\alpha \right) = \frac{5}{4}-\frac{1}{4}\alpha; \\
+  \hat X_2^R = \frac{\hat \Delta_2^R}{\hat \Delta^R} = \left(12-9\alpha \right) \left(\frac{1}{4}+\frac{1}{12}\alpha \right) = 3-2\alpha.
+\end{gather*}
+
+Окончательное решение записывается в~виде
+\begin{equation*}
+  \left[ \begin{aligned}
+    \hat X_1 = \left(\frac{4}{3} - \frac{1}{3}\alpha; \frac{5}{4}-\frac{1}{4}\alpha \right); \\
+    \hat X_2 = \left(\frac{1}{3} + \frac{2}{3}\alpha; 3-2\alpha \right).
+  \end{aligned} \right.
+\end{equation*}
