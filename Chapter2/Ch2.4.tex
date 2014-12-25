@@ -1,12 +1,55 @@
-Модификация формулировки задачи устойчивости в терминах ограничений. Использование предложенного метода для решения задачи линейного программирования с иллюстрацией устойчивого и неустойчивого решения. 
+Рассмотрим следующую задачу линейного программирования, которая в~\cite{Vorontsov_PI} решается с~использованием преобразования~$L$ и~алгебры модифицированных нечётких чисел.
 
-Постановка задачи управления устойчивостью решения для модифицированных нечетких чисел в виде задачи векторной оптимизации. Обоснование построения линейной свертки критериев и алгоритм решения с использованием предложенного метода численной реализации.
+\textbf{Пример.} Решить задачу линейного программирования~\eqref{eq:stability-sample-task} при $d=10$, $\tilde A_1 = \left \langle 4; 4; 1 \right \rangle$, $\tilde A_2 = \left \langle 3; 1; 2\right \rangle$:
+\begin{equation}
+\label{eq:stability-sample-task}
+  \left\{ \begin{aligned}
+    & \tilde A_1 x_1 + \tilde A_2 x_2 \to \max; \\
+    & x_1 + x_2 = d; \\
+    & x_1, x_2 \geqslant 0.
+  \end{aligned} \right.
+\end{equation}
 
-Пример с задачей ЛП и переход к вопросам устойчивости решения
+Применяя преобразование~$L$ к~параметрам $\tilde A_1$ и~$\tilde A_2$ c~оптимальными в~смысле минимума потерь экспертной информации коэффициентами $\displaystyle \lambda_{\tilde A_1}=\frac{4}{4+1}=\frac{4}{5}$ и $\displaystyle \lambda_{\tilde A_2}=\frac{1}{2+1}=\frac{1}{3}$, получим:
+\begin{equation}
+\label{eq:stability-sample-modified}
+  \left\{ \begin{aligned}
+    & \bar{x}_{\tilde A_1}\left(\alpha \right)=\frac{4}{5}\left(4-4+4\alpha \right)+\frac{1}{5}\left(4+1-\alpha \right)=3\alpha+1; \\
+    & \bar{x}_{\tilde A_2}\left(\alpha \right)=\frac{1}{3}\left(3-1+\alpha \right)+\frac{2}{3}\left(3+2-2\alpha \right)=4-\alpha.
+  \end{aligned} \right.
+\end{equation}
 
-Рассмотрим следующую задачу линейного программирования, которая в \cite{Vorontsov_PI} решается с~использованием преобразования~$L$ и алгебры модифицированных нечётких чисел.
+С~учётом результатов преобразования~\eqref{eq:stability-sample-modified}, задача~\eqref{eq:stability-sample-task} будет выглядеть следующим образом:
+\begin{equation}
+\label{eq:stability-sample-task-modified}
+  \left\{ \begin{aligned}
+    & \left( 3\alpha+1\right)x_1+\left(4-\alpha \right)x_2 \to \max; \\
+    & x_1 + x_2 = 10; \\
+    & x_1, x_2 \geqslant 0.
+  \end{aligned} \right.
+\end{equation}
 
-Рассмотрим проблему устойчивости, возникающую при решении нечётких задач, на~примере задачи линейного программирования с~нечёткими параметрами. Для~того, чтобы ввести определения устойчивости для нечёткой задачи, вначале рассмотрим формулировки для чёткой задачи линейного программирования, приведённые в~\cite{Ashmanov}.
+При решении задачи~\eqref{eq:stability-sample-task-modified} на~разных $\alpha$-уровнях получаются различные значения $x_1$ и~$x_2$. Например, при $\alpha=0$ задача принимает вид
+\begin{equation*}
+  \left\{ \begin{aligned}
+    & x_1+4x_2 \to \max; \\
+    & x_1 + x_2 = 10; \\
+    & x_1, x_2 \geqslant 0,
+  \end{aligned} \right.
+\end{equation*}
+а её решением является вектор $\left[0;10 \right]$. В~то~же~время, при~$\alpha=0$ задача~\eqref{eq:stability-sample-task-modified} сводится к~системе
+\begin{equation*}
+  \left\{ \begin{aligned}
+    & 4x_1+3x_2 \to \max; \\
+    & x_1 + x_2 = 10; \\
+    & x_1, x_2 \geqslant 0,
+  \end{aligned} \right.
+\end{equation*}
+решение которой~--- вектор $\left[10;0 \right]$.
+
+С одной стороны, можно представить результат решения в~виде нечётких LL/RR-чисел согласно формуле~\eqref{eq:isomorphic-field}:  $\bar{x}_{\tilde A_1}=10\alpha$, $\bar{x}_{\tilde A_2}=10-10\alpha$. С~другой стороны, если решить задачу~\eqref{eq:stability-sample-task-modified} при~$\alpha=0,5$, то~решение будет таким~же, как~и~при~$\alpha=1$, что наводит на мысль о том, что изменение решения происходит скачкообразно при~некотором значении $\alpha_0$, и поэтому $x_1$ и $x_2$ нечёткими быть не могут. Наконец, первое ограничение на~переменные в~исходной задаче~\eqref{eq:stability-sample-task} подразумевает, что значения искомых переменных $x_1$ и $x_2$ должны быть чёткими.
+
+Если зафиксировать в~качестве <<эталонного>> решение задачи~\eqref{eq:stability-sample-task-modified} при~$\alpha=1$, то~очевидно, что при~изменении значений $\alpha$ при~фиксированных коэффициентах $\lambda_{A_i}$ преобразования~L, т.\,е. при~возмущении параметров исходной задачи, решение ведёт себя неустойчиво. Для~того, чтобы дать формальное определение устойчивости для~нечёткой задачи и~определить, возможно~ли влиять на~устойчивость решения с~помощью изменения параметров $\lambda_{A_i}$, вначале рассмотрим соответствующие формулировки для~классической задачи линейного программирования, приведённые в~\cite{Ashmanov}.
 
 Пусть дана задача линейного программирования
 \begin{equation}
@@ -20,25 +63,25 @@
 \begin{equation}
 \label{eq:crisp-lp-problem-unstable}
   \left\{ \begin{aligned}
-    & \max \left\langle c\left(\delta \right),x \right\rangle \\ 
-    & A\left( \delta  \right)x\leqslant b\left(\delta \right)
+    & \max \left\langle c\left(\delta \right),x \right\rangle; \\ 
+    & A\left( \delta  \right)x\leqslant b\left(\delta \right),
   \end{aligned} \right.
 \end{equation}
 относительно параметров которой известно, что они в смысле определённой метрики близки параметрам исходной задачи~\eqref{eq:crisp-lp-problem}, т.\,е. для фиксированного $\delta>0$ выполняются неравенства
 \begin{equation}
 \label{eq:delta-metric}
   \left\{ \begin{aligned}
-    & \left\| A\left( \delta  \right)-A \right\|<\delta \\ 
-    & \left\| b\left( \delta  \right)-b \right\|<\delta \\ 
-    & \left\| c\left( \delta  \right)-c \right\|<\delta
+    & \left\| A\left( \delta  \right)-A \right\|<\delta; \\ 
+    & \left\| b\left( \delta  \right)-b \right\|<\delta; \\ 
+    & \left\| c\left( \delta  \right)-c \right\|<\delta.
   \end{aligned} \right.
 \end{equation}
 
 При этом для фиксированных матрицы~$A$ и~вектора~$b$ и~$\forall \delta >\text{0}$ выражения $A\left(\delta \right)$, $b\left(\delta \right)$ называют $\delta$-окрестностью матрицы $A$ и~вектора $b$ соответственно. В~качестве метрики близости в~\eqref{eq:delta-metric} может использоваться, например, евклидова метрика.
 
-Задачу~\eqref{eq:crisp-lp-problem} будем называть устойчивой, если~$\exists \delta_0 > 0$: $\forall \delta \in \left[ 0; \delta_0 \right]$  задача~\eqref{eq:crisp-lp-problem-unstable} имеет решение. Если обозначить решение задачи~\eqref{eq:crisp-lp-problem-unstable} за~$x^{*} \left(\delta \right)$, то~задачу~\eqref{eq:crisp-lp-problem} будем называть устойчивой по~решению, если она устойчива и~$\forall \varepsilon>0\ \exists \delta > 0$ такое, что~при выполнении неравенств~\eqref{eq:delta-metric} для~$\forall x^{*} \left(\delta \right)\ \exists x^{*}$, удовлетворяющее условию $\left| x^{*}\left(\delta \right)- x^{*} \right| < \varepsilon$. Стоит отметить, что если задача~\eqref{eq:crisp-lp-problem} неустойчива в~смысле хотя бы одного из~приведённых выше определений, то~она считается неустойчивой.
+Задачу~\eqref{eq:crisp-lp-problem} будем называть устойчивой, если~$\exists \delta_0 > 0$: $\forall \delta \in \left[ 0; \delta_0 \right]$  задача~\eqref{eq:crisp-lp-problem-unstable} имеет решение. Если обозначить решение задачи~\eqref{eq:crisp-lp-problem-unstable} за~$x^{*} \left(\delta \right)$, то~задачу~\eqref{eq:crisp-lp-problem} будем называть устойчивой по~решению, если она устойчива и~$\forall \varepsilon>0\ \exists \delta > 0$ такое, что~при выполнении неравенств~\eqref{eq:delta-metric} для~$\forall x^{*} \left(\delta \right)\ \exists x^{*}$, удовлетворяющее условию $\left| x^{*}\left(\delta \right)- x^{*} \right| < \varepsilon$. Стоит отметить, что если задача~\eqref{eq:crisp-lp-problem} неустойчива в~смысле хотя~бы одного из~приведённых выше определений, то~она считается неустойчивой.
 
-Для задач линейного программирования с нечёткими параметрами удобнее использовать определение устойчивости по решению, поскольку оно включает себя более узкое определение общей устойчивости, т.\,е. принципиальное существование решения возмущённой задачи. Пусть дана задача с нечёткими параметрами
+Для~задач линейного программирования с~нечёткими параметрами удобнее использовать определение устойчивости по~решению, поскольку оно включает в~себя более узкое определение общей устойчивости, т.\,е. принципиальное существование решения возмущённой задачи~\cite{Vorontsov_VSTU}. Пусть дана задача с~нечёткими параметрами
 \begin{equation*}
   \left\{ \begin{aligned}
     & f\left( \mathbf{x} \right)=\mathbf{Cx}\to \min;  \\ 
@@ -49,18 +92,18 @@
 \begin{equation}
 \label{eq:fuzzy-lp-unstable-problem}
   \left\{ \begin{aligned}
-    & f\left( \mathbf{x} \right)={\mathbf{C}^{\star}}\mathbf{x}\to \min  \\ 
-    & {\mathbf{A}^{\star}}\mathbf{x}={\mathbf{B}}^{\star}
+    & f\left( \mathbf{x} \right)={\mathbf{C}^{*}}\mathbf{x}\to \min;  \\ 
+    & {\mathbf{A}^{*}}\mathbf{x}={\mathbf{B}}^{*},
   \end{aligned} \right.
 \end{equation}
-в которой $\mathbf{A}^{*}=\left\{ \bar{x}_{\tilde{A}_{ij}}\left(\alpha \right) \right\}$, $\mathbf{B}^{*}=\left\{ \bar{x}_{\tilde{B}_i}\left(\alpha \right) \right\}$, $\mathbf{C}^{*}=\left\{ \bar{x}_{\tilde{C}_i}\left(\alpha \right) \right\}$.
+в~которой $\mathbf{A}^{*}=\left\{ \bar{x}_{\tilde{A}_{ij}}\left(\alpha \right) \right\}$, $\mathbf{B}^{*}=\left\{ \bar{x}_{\tilde{B}_i}\left(\alpha \right) \right\}$, $\mathbf{C}^{*}=\left\{ \bar{x}_{\tilde{C}_i}\left(\alpha \right) \right\}$.
 
-Задачу~\eqref{eq:fuzzy-lp-unstable-problem} удобнее всего решать на двух $\alpha$-уровнях и восстанавливать решение согласно~\eqref{eq:isomorphic-field}. Ввиду свойства сохранения моды, решение модифицированной задачи~\eqref{eq:fuzzy-lp-unstable-problem} при $\alpha=1$ аналогично решению чёткой задачи с коэффициентами, равными модам нечётких чисел. Если решать ту же задачу при $\alpha=0$ и без дополнительных ограничений на параметры $\lambda$ преобразования $L$, то возникает ситуация, при которой все значения $\bar{x}_S\left(\alpha \right)$, где $S$ – один из индексов $\tilde A_{ij}$, $\tilde B_i$, $\tilde C_i$, «сбиваются» в сторону минимума. Это легко объясняется тем фактом, что при $\lambda_S=1$ максимальный вес в значении $\bar{x}_S\left(\alpha \right)$ имеет левая ветвь функции принадлежности. Для решения данной проблемы введём дополнительные ограничения для параметров $\lambda_S$:
+Задачу~\eqref{eq:fuzzy-lp-unstable-problem} удобнее всего решать на~двух $\alpha$-уровнях и~восстанавливать решение согласно~\eqref{eq:isomorphic-field}. Ввиду свойства сохранения моды, решение модифицированной задачи~\eqref{eq:fuzzy-lp-unstable-problem} при $\alpha=1$ аналогично решению чёткой задачи с~коэффициентами, равными модам нечётких чисел. Если решать ту~же задачу при~$\alpha=0$ и~без дополнительных ограничений на~параметры $\lambda$ преобразования $L$, то~возникает ситуация, при~которой все~значения $\bar{x}_S\left(\alpha \right)$, где~$S$~--- один из индексов $\tilde A_{ij}$, $\tilde B_i$, $\tilde C_i$, <<сбиваются>> в~сторону минимума. Это легко объясняется тем фактом, что при $\lambda_S=1$ максимальный вес в значении $\bar{x}_S\left(\alpha \right)$ имеет левая ветвь функции принадлежности, находящаяся ближе к нулю. Для решения данной проблемы введём дополнительные ограничения для параметров $\lambda_S$:
 \begin{equation}
 \label{eq:lambda-minimization-criterion}
   {\left( \lambda_{S}^{\star}-\lambda_S \right)}^2\to \min
 \end{equation}
-которые позволяют минимизировать отклонение параметров от оптимальных в~смысле сохранения нечёткой информации значений $\displaystyle \lambda_{S}^{\star}=\frac{a_S}{d_S}$. 
+которые позволяют минимизировать отклонение параметров от оптимальных в~смысле сохранения нечёткой информации значений $\displaystyle \lambda_{S}^{\star}=\frac{a_S}{d_S}$ и, таким~образом, управлять устойчивостью решения. 
 
 Критерии~\eqref{eq:lambda-minimization-criterion} и~целевая~функция задачи~\eqref{eq:fuzzy-lp-unstable-problem} противоречивы. Возникает задача векторной оптимизации, описанная в~\cite{MSU_Optimization}. Для~её решения воспользуемся аддитивной свёрткой критериев:
 \begin{equation}
@@ -70,8 +113,9 @@
 Семантика целевой функции~\eqref{eq:modified-target-function} такова: ищется решение $\mathbf{x}$ и вектор параметров преобразования $L$ $\mathbf{\lambda}_S$, которые позволяют удовлетворить исходный критерий оптимизации и~при~этом максимально сохранить нечёткую информацию, заложенную экспертами в параметры задачи. Безразмерный коэффициент~$\gamma$ позволяет привести значение свёртки к~одному~порядку со~значением исходной целевой функции.
 
 Полученная пара векторов $\mathbf{x}\left( \alpha =1 \right)$ и $\mathbf{x}\left( \alpha =0 \right)$ позволяет восстановить модифицированные решения согласно~\eqref{eq:isomorphic-field}. Если рассмотреть устойчивость нечёткого решения в~смысле данного ранее определения для чёткой задачи, то~справедливо предположить, что нечёткая задача будет считаться устойчивой по решению, если при переходе с одного $\alpha$-уровня на другой не происходит значительного изменения решения относительно $\mathbf{x}\left( \alpha =1 \right)$, т.\,е.
-\begin{equation*}
+\begin{equation}
+\label{eq:fuzzy-solution-stability}
   \forall \varepsilon >0\ \exists \delta >0:\forall \alpha \in \left[0; 1\right)\ \left| \alpha -1 \right|<\delta \Rightarrow \left\| \mathbf{x}\left( 1 \right)-\mathbf{x}\left( \alpha  \right) \right\|<\varepsilon.
-\end{equation*}
+\end{equation}
 
 Конкретное же условие устойчивости решения зависит от задачи и может принимать различные формы.
