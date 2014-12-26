@@ -15,9 +15,11 @@
 \begin{equation*}
   \tilde Y^{*}=\left\{ y(\alpha )\left| \mu_{\tilde Y}(y)=\alpha \right. \right\}
 \end{equation*}
-которое называется модифицированным решением задачи $\tilde{Y}=f\left( \tilde X \right)$. В статье утверждается, что в реальных задачах модифицированного решения достаточно для, например, поддержки принятия решений. (в статье дан только частный случай, а также нет строгого математического доказательства. Это предложено в~статье~\cite{Vorontsov_PI}. Предлагаемый подход в своей основе имеет факторизацию, т.\,е.~декомпозицию нечётких чисел по~$\alpha$-уровням.
+которое называется модифицированным решением задачи $\tilde{Y}=f\left( \tilde X \right)$. В~статье утверждается, что в реальных задачах модифицированного решения достаточно для, например, поддержки принятия решений. 
 
-Если рассмотреть данный подход с точки зрения нечётких алгебр, то решение задачи с использованием факторизации нечётких чисел представляется как переход от использования алгебр <<полноценных>> нечётких чисел к~алгебрам для~чисел $LL/RR$-типа. Действительно, функция принадлежности такого числа является обратной к функции, которая определяет точки $\bar{x}\left( \alpha  \right)$:
+Предлагаемый подход в своей основе имеет факторизацию, т.\,е.~декомпозицию нечётких чисел по~$\alpha$-уровням, однако в~\cite{Lebedev} рассмотрен только частный случай выбора точки внутри интервала, а также отсутствует строгое математическое доказательство применимости метода, предложенное позднее в~\cite{Vorontsov_PI}.
+
+Если рассмотреть данный подход с точки зрения нечётких алгебр, то решение задачи с~использованием факторизации нечётких чисел представляется как переход от использования алгебр <<полноценных>> нечётких чисел к~алгебрам для~чисел $LL/RR$-типа. Действительно, функция принадлежности LL/RR-числа является обратной к~функции, которая определяет точки $\bar{x}\left(\alpha \right)$:
 \begin{equation}
 \label{eq:modified-inverse-function}
   \mu_{\tilde A^{*}}\left( x \right)={\left( \bar{x}\left( \alpha  \right) \right)}^{-1}
@@ -60,7 +62,15 @@
       & 0;\ x\notin \left[ 2;3 \right] \\ 
     \end{aligned} \right.
 \end{equation*}
-Оба числа – и исходное, и модифицированное – изображены на рис. ().
+Оба числа~--- и~исходное, и~модифицированное~--- изображены на рис.~\ref{fig:sample-224}. Модифицированное число изображено пунктирными линиями.
+\begin{figure}[h!]
+  \centering
+  {
+    \includegraphics[width=0.7\textwidth]{sample-224}
+    \caption{Исходное нечёткое число и~его модификация при~выборе средней точки $\alpha$-интервала}
+    \label{fig:sample-224}
+  }
+\end{figure}
 
 Очевидно, что на~вид модифицированных чисел (и,~соответственно, на~итоговый результат решения задачи) влияние будут оказывать как характеристики самих нечётких чисел~--- мода, коэффициенты нечёткости,~--- так и~принцип, согласно которому выбирается точка $\overline{x}\left( \alpha  \right)$. В~статье~\cite{Vorontsov_PI} предложено обобщение принципа, вводимого в~\cite{Lebedev}~--- значение $\overline{x}\left( \alpha  \right)$ выбирается с~помощью линейного параметрического преобразования $L$:
 \begin{equation}
@@ -97,8 +107,17 @@
 \end{equation}
 
 \begin{mydef}
-  Степенью асимметрии $AS_{\tilde A}$ будем называть характеристику треугольного нечёткого числа, определяемую как разность площадей прямоугольных треугольников, на которые исходное нечёткое число делится модой (рис!!!).
+  Степенью асимметрии $AS_{\tilde A}$ будем называть характеристику треугольного нечёткого числа, определяемую как разность площадей прямоугольных треугольников, на которые исходное нечёткое число делится модой (рис.~\ref{fig:as-degree}).
 \end{mydef}
+\begin{figure}[h!]
+  \centering
+  {
+    \includegraphics[width=0.8\textwidth]{as-degree}
+    \caption{Геометрический смысл степени асимметрии числа}
+    \label{fig:as-degree}
+  }
+\end{figure}
+
 Площадь левого треугольника $\displaystyle S_1=\frac{1}{2}ah(\tilde A)=\frac{a}{2}$, правого $\displaystyle S_2=\frac{1}{2}bh\left(\tilde A \right)=\frac{b}{2}$, отсюда
 \begin{equation}
 \label{eq:as-param}
@@ -156,7 +175,7 @@
 
 \begin{prop}
 \label{prop:L-prop2}
-При некоторых значениях параметра $\lambda $ преобразование $L$ сохраняет
+При некоторых значениях параметра $\lambda$ преобразование $L$ сохраняет
 \begin{enumerate}
   \item знак степени асимметрии, т.е. $\exists \lambda \in [0;1]:\ sign(AS_{\tilde A})=sign(AS_{\tilde A^{*}})$;
   \item значение степени асимметрии, т.е. $\exists \lambda \in [0;1]:\ AS_{\tilde A}=AS_{\tilde A^{*}}$.
@@ -304,7 +323,15 @@
   AS_{\tilde A^{*}}=\frac{0-0,5}{2}=-0,25.
 \end{equation*}
 
-Исходное и~модифицированное числа изображены на рис. На~нём наглядно иллюстрируется свойство~\ref{prop:L-prop3}~--- модифицированное число $\tilde A^{*}$ целиком расположено внутри границ исходного числа.
+Исходное и~модифицированное числа изображены на~рис.~\ref{fig:l-transform-properties-sample}. На~нём наглядно иллюстрируется свойство~\ref{prop:L-prop3}~--- модифицированное число $\tilde A^{*}$ целиком расположено внутри границ исходного числа.
+\begin{figure}[h!]
+  \centering
+  {
+    \includegraphics[width=0.65\textwidth]{l-transform-properties-sample}
+    \caption{Иллюстрация свойств преобразования L}
+    \label{fig:l-transform-properties-sample}
+  }
+\end{figure}
 
 Из~доказанных выше свойств следует, что~применение преобразования~$L$ к~нечетким исходным данным в~основном сохраняет их~информативность при~целенаправленном выборе параметра преобразования. Уменьшение длины носителя при~определенных оговорках можно рассматривать как~положительное явление, поскольку при~этом повышается общая устойчивость решения~\cite{Vorontsov_PI}.
 
@@ -354,11 +381,20 @@
 
 2. $\displaystyle \lambda =\frac{b}{a+b}=\frac{b}{d_{\tilde A}}$. Преобразование~$L$ с~таким значение параметра уничтожает нечёткую информацию, заложенную экспертом в число, поскольку в~этом случае модифицированное число превращается в~чёткое:
 \begin{gather*}
-  \bar{x}\left( \alpha  \right)=\frac{b}{a+b}\left( m-a+a\alpha  \right)+\left( 1-\frac{b}{a+b} \right)\left( m+b-b\alpha  \right)=\frac{b\left( m-a+a\alpha  \right)+a\left( m+b-b\alpha  \right)}{a+b}={} \\ 
-  {} =\frac{bm-ab+ab\alpha +am+ab-ab\alpha }{a+b}=\frac{am+bm}{a+b}=m. 
+  \bar{x}\left( \alpha  \right)=\frac{b}{a+b}\left( m-a+a\alpha \right)+\left( 1-\frac{b}{a+b} \right)\left( m+b-b\alpha \right)={}\\
+  {}=\frac{b\left( m-a+a\alpha  \right)+a\left( m+b-b\alpha \right)}{a+b}={} \\ 
+  {}=\frac{bm-ab+ab\alpha +am+ab-ab\alpha }{a+b}=\frac{am+bm}{a+b}=m. 
 \end{gather*}
 
-3. При $\displaystyle \lambda =\frac{b}{d_{\tilde A}}-\frac{b-a}{3\left( b+a \right)}=\frac{2b+a}{3\left( b+a \right)}=\frac{2b+a}{3d_{\tilde A}}$ значение $\bar{x}(\alpha )$ является проекцией центра тяжести треугольника, построенного на отрезке $\left[ {{x}^{L}}(\alpha ),{{x}^{R}}(\alpha ) \right]$ как на~основании, на~ось~$Ox$ (см. рис.).
+3. При $\displaystyle \lambda =\frac{b}{d_{\tilde A}}-\frac{b-a}{3\left( b+a \right)}=\frac{2b+a}{3\left( b+a \right)}=\frac{2b+a}{3d_{\tilde A}}$ значение $\bar{x}(\alpha )$ является проекцией центра тяжести треугольника, построенного на отрезке $\left[ {{x}^{L}}(\alpha ), x^R\left(\alpha \right) \right]$ как на~основании, на~ось~$Ox$ (см.~рис.~\ref{fig:l-midpoint}).
+\begin{figure}[h!]
+  \centering
+  {
+    \includegraphics[width=0.7\textwidth]{l-midpoint}
+    \caption{Поиск проекции центра тяжести $\alpha$-сечения}
+    \label{fig:l-midpoint}
+  }
+\end{figure}
 
 Данное значение получается следующим образом. Координата $x_0 \left( \alpha  \right)$ центра тяжести $\alpha$-сечения треугольного числа рассчитывается как
 \begin{equation}
@@ -385,13 +421,14 @@
 Преобразование $L$ вычисляется по формуле
 \begin{gather}
   \bar{x}\left( \alpha  \right)=\lambda x^L\left( \alpha  \right)+\left( 1-\lambda  \right)x^R\left( \alpha  \right)=\lambda \left( m-a+a\alpha  \right)+\left( 1-\lambda  \right)\left( m+b-b\alpha  \right)={} \notag \\ 
+  {}=\lambda \left( m-a+a\alpha -m-b+b\alpha  \right)+b\left( 1-\alpha  \right)+m={} \notag \\
   \label{eq:x0-calculated2}
-  {} =\lambda \left( m-a+a\alpha -m-b+b\alpha  \right)+b\left( 1-\alpha  \right)+m=\lambda \left( a+b \right)\left( \alpha -1 \right)+b\left( 1-\alpha  \right)+m.
+  {}=\lambda \left( a+b \right)\left( \alpha -1 \right)+b\left( 1-\alpha  \right)+m.
 \end{gather}
 
 Приравнивая результаты~\eqref{eq:x0-calculated1} и~\eqref{eq:x0-calculated2}, получаем:
 \begin{gather*}
-  m+\frac{\left( a-b \right)\left( \alpha -1 \right)}{3}=m+b\left( 1-\alpha  \right)+\lambda \left( a+b \right)\left( \alpha -1 \right);
+  m+\frac{\left( a-b \right)\left( \alpha -1 \right)}{3}=m+b\left( 1-\alpha  \right)+\lambda \left( a+b \right)\left( \alpha -1 \right); \\
   \left( a-b \right)\left( \alpha -1 \right)=-3b\left( \alpha -1 \right)+3\lambda \left( a+b \right)\left( \alpha -1 \right).  
 \end{gather*}
  
