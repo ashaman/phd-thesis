@@ -62,10 +62,6 @@
   T=\underset{i=\overline{1,n}}{\mathop{\max }}\,\left\{ t_{i}^{-} \right\}.
 \end{equation}
 
-Псевдокод алгоритма приведён ниже.
-
-// Псевдокод из Кормена
-
 Если необходимо, помимо общей длительности проекта, отыскать и критический путь, то по графу выполняется обратный проход, во время которого вычисляются наиболее поздние сроки наступления события. Для вершины-стока принимается, что $t_{n}^{+}=t_{n}^{-}$. Для остальных вершин $v_i;\ i=\overline{n-1,1}$ на каждом шаге вначале находятся непосредственно следующие за ними события $\left\{ v_k \right\}$, т.е. такие, что существует дуга $e_{ik}$ между $v_i$ и $v_k$, после чего ищется $t_{i}^{+}$ в виде
 \begin{equation}
 \label{eq:latest-event-time}
@@ -185,13 +181,13 @@ $\alpha$-уровневые методы и методы, использующи
     & x_{ij} \geqslant 0,
   \end{aligned} \right.
 \end{equation}
-где $x_{ij}$ обозначает величину потока, проходящего через дугу $e_{ij}$. Решением задачи~\eqref{eq:yager-ranking-lp-cpm} является время выполнения проекта $\displaystyle \tilde T = \sum \limits_{i=1}{n} \sum \limits_{j=1}{n} \tilde \tau_{ij} x_{ij}$ и~соответcтвующий ему путь $p^*$. Для всех остальных путей графа $p_k$, $k=\overline{1,m}$ от истока к стоку находится их степень критичности согласно формуле~\eqref{eq:path-criticality-degree}:
+где $x_{ij}$ обозначает величину потока, проходящего через дугу $e_{ij}$. Решением задачи~\eqref{eq:yager-ranking-lp-cpm} является время выполнения проекта $\displaystyle \tilde T = \sum \limits_{i=1}^{n} \sum \limits_{j=1}^{n} \tilde \tau_{ij} x_{ij}$ и~соответcтвующий ему путь $p^*$. Для всех остальных путей графа $p_k$, $k=\overline{1,m}$ от истока к стоку находится их степень критичности согласно формуле~\eqref{eq:path-criticality-degree}:
 \begin{equation}
 \label{eq:path-criticality-degree}
-  deg_{Cr}\left(p_k \right) = \frac{\sum \limits_{i=1}^{n} \sum \limits_{j=1}^{n} I\left(\tilde \tau_{ij} \right) x_{ij}^{p_k}}{\sum \limits_{i=1}{n} \sum \limits_{j=1}{n} I\left( \tilde \tau_{ij} \right) x_{ij}^{p^*}}.
+  deg_{Cr}\left(p_k \right) = \frac{\sum \limits_{i=1}^{n} \sum \limits_{j=1}^{n} I\left(\tilde \tau_{ij} \right) x_{ij}^{p_k}}{\sum \limits_{i=1}^{n} \sum \limits_{j=1}^{n} I\left( \tilde \tau_{ij} \right) x_{ij}^{p^*}}.
 \end{equation}
 
-Предлагаемая в~\cite{Indians_FCPM} методика решения отличается от вышеописанной тем, что величина потока также выражается нечётким числом $\tilde x_{ij}$; её вариант, изложенный в~\cite{Kumar_FCPM_Triangular} оперирует нечёткими числами в~форме, позволяющей сократить число условий и параметров в задаче линейного программирования; а в~\cite{Egyptians, Chen} задача поиска критического пути рассматривается как задача двухуровневой оптимизации~--- на каждом $\alpha$-уровне решается вначале задача поиска верхней (правой) границы $\alpha$-интервала с~ограничениями~\eqref{eq:lp-cpm-int-constraints}:
+Предлагаемая в~\cite{Indians_FCPM} методика решения отличается от вышеописанной тем, что величина потока также выражается нечётким числом $\tilde x_{ij}$; её вариант, изложенный в~\cite{Kumar_FCPM_Triangular} оперирует нечёткими числами в~форме, позволяющей сократить число условий и параметров в задаче линейного программирования; а в~\cite{Egyptians, Chen_CPM} задача поиска критического пути рассматривается как задача двухуровневой оптимизации~--- на каждом $\alpha$-уровне решается вначале задача поиска верхней (правой) границы $\alpha$-интервала с~ограничениями~\eqref{eq:lp-cpm-int-constraints}:
 \begin{equation*}
   \tilde T^R \left( \alpha \right) = \sum \limits_{i=1}^{n} \sum \limits_{j=1}^{n} I\left(\tilde \tau_{ij}^R \left(\alpha \right) \right)x_{ij} \to \max,
 \end{equation*}
