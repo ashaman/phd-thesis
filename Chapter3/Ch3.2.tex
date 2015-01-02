@@ -54,9 +54,9 @@
   \item Решение исходной задачи представляет из себя тройку $\left \langle \tilde T, S_1, \lambda \right \rangle$. Функция принадлежности общего времени выполнения проекта $\tilde T$ восстанавливается по значениям $T\left(0\right)$ и $T\left(1\right)$, либо число $\tilde T$ оставляется в~виде~\eqref{eq:modified-number-base}.
 \end{enumerate}
   
-Рассмотрим алгоритм решения на примере и сравним его результаты с результатами других методов, описанных в~п.\,\ref{chapter3_1}.
+Рассмотрим алгоритм решения на примере и сравним его результаты с результатами некоторых других методов, описанных в~п.\,\ref{chapter3_1}.
 
-\textbf{Пример.} Пусть дан проект, заданный таблицей~\ref{t:sample-project-estimates}. Требуется определить критические операции проекта, а также его общее нечёткое время выполнения.
+\textbf{Пример.} Пусть дан проект, заданный таблицей~\ref{t:sample-project-estimates}. Требуется определить критические операции проекта, а~также его общее нечёткое время выполнения.
 
 \begin{table}[b!]
 \caption{Оценки длительностей операций проекта и их взаимосвязи}
@@ -82,10 +82,19 @@
 Вначале выпишем $L$-преобразование для каждой нечёткой временной оценки:
 \begin{equation}
 \label{eq:sample-project-L-transform}
-\left[ \begin{aligned}   & \bar{\tau}_A\left( \alpha \right)=\lambda_A\left( 1+\alpha \right)+\left( 1-\lambda_A \right)\left( 5-3\alpha \right) \\    & \bar{\tau}_B\left( \alpha \right)=\lambda_B\left( 2+2\alpha \right)+\left( 1-\lambda_B \right)\left( 5-\alpha \right) \\    & \bar{\tau}_C\left( \alpha \right)=\lambda_C\left( 3+4\alpha \right)+\left( 1-\lambda_C \right)\left( 9-2\alpha \right) \\    & \bar{\tau}_D\left( \alpha \right)=\lambda_D\left( 4+2\alpha \right)+\left( 1-\lambda_D \right)\left( 9-3\alpha \right) \\    & \bar{\tau}_E\left( \alpha \right)=\lambda_E\left( 9+\alpha \right)+\left( 1-\lambda_E \right)\left( 12-2\alpha \right) \\    & \bar{\tau}_F\left( \alpha \right)=\lambda_F\left( 4+\alpha \right)+\left( 1-\lambda_F \right)\left( 6-\alpha \right) \\    & \bar{\tau}_G\left( \alpha \right)=\lambda_G\left( 1+4\alpha \right)+\left( 1-\lambda_G \right)\left( 6-\alpha \right) \\    & \bar{\tau}_H\left( \alpha \right)=\lambda_H\left( 2+2\alpha \right)+\left( 1-\lambda_H \right)\left( 7-3\alpha \right)\end{aligned} \right.
+\left[ \begin{aligned}
+   & \bar{\tau}_A\left( \alpha \right)=\lambda_A\left( 1+\alpha \right)+\left( 1-\lambda_A \right)\left( 5-3\alpha \right) \\ 
+   & \bar{\tau}_B\left( \alpha \right)=\lambda_B\left( 2+2\alpha \right)+\left( 1-\lambda_B \right)\left( 5-\alpha \right) \\ 
+   & \bar{\tau}_C\left( \alpha \right)=\lambda_C\left( 3+4\alpha \right)+\left( 1-\lambda_C \right)\left( 9-2\alpha \right) \\ 
+   & \bar{\tau}_D\left( \alpha \right)=\lambda_D\left( 4+2\alpha \right)+\left( 1-\lambda_D \right)\left( 9-3\alpha \right) \\ 
+   & \bar{\tau}_E\left( \alpha \right)=\lambda_E\left( 9+\alpha \right)+\left( 1-\lambda_E \right)\left( 12-2\alpha \right) \\ 
+   & \bar{\tau}_F\left( \alpha \right)=\lambda_F\left( 4+\alpha \right)+\left( 1-\lambda_F \right)\left( 6-\alpha \right) \\ 
+   & \bar{\tau}_G\left( \alpha \right)=\lambda_G\left( 1+4\alpha \right)+\left( 1-\lambda_G \right)\left( 6-\alpha \right) \\ 
+   & \bar{\tau}_H\left( \alpha \right)=\lambda_H\left( 2+2\alpha \right)+\left( 1-\lambda_H \right)\left( 7-3\alpha \right)
+\end{aligned} \right.
 \end{equation}
 
-Соответствующий сетевой график изображён на рис.~\ref{fig:pplan}. Из него видно, что для корректного отображения зависимостей между операциями, введена фиктивная операция Ф1 длительностью 0 дней.
+Соответствующий сетевой график изображён на рис.~\ref{fig:pplan}. Из~него видно, что для~корректного отображения зависимостей между операциями, введена фиктивная операция Ф1 длительностью 0 дней.
 \begin{figure}[h!]
   \centering
   {
@@ -97,19 +106,99 @@
 
 Для решения задачи можно воспользоваться любым математическим пакетом или встраиваемым модулем, поддерживающим решение задач линейного программирования (в рассматриваемом примере использовалась надстройка <<Поиск решения>> в Microsoft Excel). Решая задачу~\eqref{eq:modified-fcpm-lp} с~учётом~\eqref{eq:sample-project-L-transform} при~$\alpha=1$, получаем:
 \begin{gather*}
-  T\left( 1 \right)=23; \\   t\left( 1 \right)=\left\{ 0;7;4;14;14;14;19;23 \right\}; \\   S_1\left( 1 \right)=\left\{ B,E,G,H \right\}.
+  T\left( 1 \right)=23; \\ 
+  t\left( 1 \right)=\left\{ 0;7;4;14;14;14;19;23 \right\}; \\ 
+  S_1\left( 1 \right)=\left\{ B,E,G,H \right\}.
 \end{gather*}
-После этого решаем задачу~\eqref{eq:modified-fcpm-lp-alpha}, которая с~учётом~\eqref{eq:sample-project-L-transform} при $\alpha=0$ принимает вид
+
+После этого решаем задачу~\eqref{eq:modified-fcpm-lp-alpha}, которая с~учётом~\eqref{eq:sample-project-L-transform} при~$\alpha=0$ принимает вид
 \begin{equation}
 \label{eq:0-level-fcpm-task}
   T\left( 0 \right)=t_8-t_1+\gamma \sum\limits_{s=1}^{8}\left( \lambda_{s}^{*}-\lambda_s \right)^{2}\to \min
 \end{equation}
 \begin{equation}
 \label{eq:0-level-fcpm-constraints}
-  \left\{ \begin{aligned}    & t_2-t_1 \geqslant 5-4\lambda_A \\     & t_3-t_1=5-3\lambda_B \\     & t_6-t_2 \geqslant 9-6\lambda_C \\     & t_4-t_3 \geqslant 9-5\lambda_D \\     & t_5-t_3=12-3\lambda_E \\     & t_5-t_4 \geqslant 0 \\     & t_7-t_6 \geqslant 6-2\lambda_F \\     & t_7-t_5=6-5\lambda_G \\     & t_8-t_7=7-5\lambda_H  \end{aligned} \right.
+  \left\{ \begin{aligned}
+    & t_2-t_1 \geqslant 5-4\lambda_A \\ 
+    & t_3-t_1=5-3\lambda_B \\ 
+    & t_6-t_2 \geqslant 9-6\lambda_C \\ 
+    & t_4-t_3 \geqslant 9-5\lambda_D \\ 
+    & t_5-t_3=12-3\lambda_E \\ 
+    & t_5-t_4 \geqslant 0 \\ 
+    & t_7-t_6 \geqslant 6-2\lambda_F \\ 
+    & t_7-t_5=6-5\lambda_G \\ 
+    & t_8-t_7=7-5\lambda_H
+  \end{aligned} \right.
 \end{equation}
-Значение $\gamma$ выбирается порядка 10. В результате решения задачи~\eqref{eq:0-level-fcpm-task} при ограничениях~\eqref{eq:0-level-fcpm-constraints} получаем, что
+
+Значение $\gamma$ выбирается порядка 10. В~результате решения задачи~\eqref{eq:0-level-fcpm-task} при~ограничениях~\eqref{eq:0-level-fcpm-constraints} получаем, что
 \begin{gather*}
-  T^*\left( 0 \right)=20,83; \\  t\left(0\right)=\left\{ 0;\ 4,23;\ 2,96;\ 13,92;\ 13,92;\ 9,97;\ 15,79;\ 20,67 \right\}; \\   S_1\left( 0 \right)=\left\{ B,E,G,H \right\}; \\   \lambda =\left\{ 0,25;\ 0,68;\ 0,67;\ 0,4;\ 0,35;\ 0,5;\ 0,83;\ 0;43 \right\}.
+  T^*\left( 0 \right)=20,83; \\
+  t\left(0\right)=\left\{ 0;\ 4,23;\ 2,96;\ 13,92;\ 13,92;\ 9,97;\ 15,79;\ 20,67 \right\}; \\ 
+  S_1\left( 0 \right)=\left\{ B,E,G,H \right\}; \\ 
+  \lambda =\left\{ 0,25;\ 0,68;\ 0,67;\ 0,4;\ 0,35;\ 0,5;\ 0,83;\ 0;43 \right\}.
 \end{gather*}
-В~итоге имеем критический путь $S_1=\left\{ B,E,G,H \right\}$ и~нечёткое время выполнения $T\left( \alpha \right)=20,67+2,33\alpha$.
+
+В~итоге имеем критический путь $S_1=\left\{ B,E,G,H \right\}$ и~нечёткое время выполнения $T\left( \alpha \right)=20,67+2,33\alpha$.
+
+При решении задачи согласно способам второй группы, описываемым в~\cite{Chinese_CPM, FCPA_Ravi_Shankar, Indians_FCPM}, используется функция ранжирования Ягера~\eqref{eq:yager-ranking-lp-helper}, которая для треугольных чисел равна
+\begin{equation}
+  I\left( \tilde A \right) = \frac{1}{2} \int \limits_{0}^{1} \left(m-a+a\alpha+m+b-b\alpha \right) d\alpha = m+\frac{b-a}{4}.
+\end{equation}
+
+Для проекта, описываемого таблицей~\ref{t:sample-project-estimates}, задача целочисленного программирования~\eqref{eq:yager-ranking-lp-cpm}--\eqref{eq:lp-cpm-int-constraints} выглядит следующим образом:
+\begin{gather*}
+  I\left( \tilde T \right) = 2,5x_{12}+3,75x_{13}+6,5x_{26}+6,25x_{34}+10,25x_{35}+{}\\
+  {}+4,25x_{57}+5x_{67}+4,25x_{78} \to max;
+\end{gather*}
+\begin{equation*}
+  \left \{ \begin{aligned}
+    & x_{12} + x_{13} = 1; \\
+    & x_{12} = x_{26}; \\
+    & x_{13} = x_{34} + x_{35}; \\
+    & x_{34} = x_{45}; \\
+    & x_{35} + x_{45} = x_{57}; \\
+    & x_{26} = x_{67}; \\
+    & x_{67} + x_{57} = x_{78}; \\
+    & x_{78} = 1.
+  \end{aligned} \right.
+\end{equation*}
+
+Решение задачи даёт следующие значения, в~целом соответствующие модифицированному решению:
+\begin{gather*}
+  x_{12}=x_{26}=x_{34}=x_{45}=x_{67}=0; \\
+  x_{13}=x_{35}=x_{57}=x_{78}=1; \\
+  S_1=\left \{ B,E,G,H \right\}; \\
+  \tilde T = \tilde \tau_B + \tilde \tau_E + \tilde \tau_G + \tilde \tau_H = \left \langle 23; 9; 7 \right \rangle.
+\end{gather*}
+
+Решение с помощью метода~\cite{Uskov_FCPM, Dubois_Prade} позволяет найти только общее время выполнения проекта. Выполняя прямой проход по~графу и~используя формулы~\eqref{eq:fcpm-dubois-max}, получим:
+\begin{gather*}
+  t_1^{-} = 0; \\
+  t_2^{-} = t_1^{-}+\tau_A = \left \langle 2;1;3 \right \rangle; \\
+  t_3^{-} = t_1^{-}+\tau_B = \left \langle 4;2;1 \right \rangle; \\
+  t_4^{-} = t_3^{-}+\tau_D = \left \langle 10;4;4 \right \rangle; \\
+  t_5^{-} = \max \left \{ t_3^{-}+\tau_E; t_4^{-} \right \} = \max \left\{ \left \langle 14;3;3 \right \rangle; \left \langle 10;4;4 \right \rangle \right\} = \left \langle 14;3;3 \right \rangle; \\
+  t_6^{-} = t_2^{-}+\tau_C = \left \langle 9;5;5 \right \rangle; \\
+  t_7^{-} = \max \left \{ t_5^{-}+\tau_G; t_6^{-}+\tau_F \right \} = \max \left\{ \left \langle 19;7;4 \right \rangle; \left \langle 14;6;6; \right \rangle \right\} = \left \langle 19;7;4 \right \rangle; \\
+  T = t_8^{-} = t_7^{-} + \tau_H = \left \langle 23;9;7 \right \rangle.
+\end{gather*}
+Обратный проход по графу приведёт к~тому, что нечёткость времён выполнения будет учтена дважды, поэтому можно воспользоваться формулой для наиболее поздних сроков наступления событий из~\cite{Leondes}:
+\begin{equation}
+\label{eq:leondes-let-fcpm}
+  t_i^{+} = \underset{l}{\max} \left\{ t_i^{-}; \underset{s}{\min} \left(r_l - q_s\left(i \right) \right) \right \},
+\end{equation}
+где $r_l$~--- вес пути, проходящего через вершину $i$, от~истока к~стоку, а~$q_s$~--- вес пути от~текущего события до стока. Для~стока принимается, что~$t_n^{+}=t_n^{-}$. При~этом используется достаточно сложные вычисления и~способ выбора максимального из~двух чисел~\eqref{eq:mccaloh-lee-comparison}.
+
+В~графе, описываемом таблицей~\ref{t:fuzzy-modeling-approaches}, существуют три возможных пути от~истока к~стоку~--- 1-2-6-7-8, 1-3-4-5-7-8, 1-3-5-7-8. Их~длины равны
+\begin{gather*}
+  r_1 = \tau_A+\tau_C+\tau_F+\tau_H = \left \langle 18; 8; 9 \right \rangle; \\
+  r_2 = \tau_B+\tau_D+\tau_{\Phi 1}+\tau_G+\tau_H = \left \langle 19; 10; 8 \right \rangle; \\
+  r_3 = \tau_B+\tau_E+\tau_G+\tau_H = \left \langle 23; 9; 7 \right \rangle.
+\end{gather*}
+Для вершины 7 расстояние $q_s\left(i\right) = \tau_H = \left \langle 4;2;3  \right \rangle$, минимальная разность $r_l - q_s\left(i \right)$ равна $\left \langle 15; 13; 10 \right \rangle$, поэтому, согласно формулам~\eqref{eq:leondes-let-fcpm} и~\eqref{eq:mccaloh-lee-comparison}
+\begin{equation*}
+  t_7^{+}=\max \left\{ \left \langle 19;7;4 \right \rangle; \left \langle 15;13;10 \right \rangle \right\} = \left \langle 19;7;4 \right \rangle.
+\end{equation*}
+
+Для остальных событий расчёт аналогичен. В конечном итоге получается, что критическим со степенью, равной единице, является путь $\left\{B, E, G, H \right\}$. Данный пример подтверждает соответствие модифицированного решения полному, полученному с~использованием методов второй группы из~\cite{Leondes, Dubois_Prade}.
