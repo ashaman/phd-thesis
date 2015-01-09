@@ -1,5 +1,6 @@
 %%% Макет страницы %%%
 %\geometry{a4paper,top=2cm,bottom=2cm,left=2.5cm,right=1cm}
+\setpapersize{A4}
 \setmarginsrb{3cm}{2cm}{1cm}{2cm}{0pt}{0mm}{0pt}{10mm} % поля и колонтитулы
 
 %%% Кодировки и шрифты %%%
@@ -11,6 +12,18 @@
 \clubpenalty=10000		% Запрещаем разрыв страницы после первой строки абзаца
 \widowpenalty=10000		% Запрещаем разрыв страницы после последней строки абзаца
 
+%%% Формат заголовков глав %%%
+
+\titleformat{\chapter}[block]{\Large\center\bfseries}{ГЛАВА \arabic{chapter}.\,}{.2ex}{\Large\MakeUppercase}
+\titleformat{\section}[block]{\bfseries\large}{\arabic{chapter}.\arabic{section}.\,}{.2ex}{}
+\titleformat{\subsection}[block]{\bfseries\normalsize}{\arabic{chapter}.\arabic{section}.\arabic{subsection}.}{.2ex}{}
+\titleformat{\subsubsection}[block]{\bfseries\small}{\arabic{chapter}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\.}{1ex}{}
+
+\titlespacing{\chapter}{0pt}{-50pt}{20pt}
+\titlespacing{\section}{1.25cm}{1ex plus .2ex minus .2ex}{.5ex plus .1ex}
+\titlespacing{\subsection}{1.25cm}{2ex plus 0.5ex minus .2ex}{1ex plus .2ex}
+\titlespacing{\subsubsection}{1.25cm}{2ex plus 0.5ex minus .2ex}{1ex plus .2ex}
+
 % Абзацные настройки
 \renewcommand{\baselinestretch}{1.5}
 
@@ -20,6 +33,13 @@
 \bibliographystyle{ugost2008ls}
 \renewcommand{\@biblabel}[1]{#1.}	% Заменяем библиографию с квадратных скобок на точку:
 \makeatother
+
+%%% Списки - кириллическая нумерация для второго уровня %%%
+\RequirePackage{enumitem}
+\renewcommand{\alph}[1]{\asbuk{#1}} 
+% Нумерация
+\setenumerate[1]{label=\arabic*.}
+\setenumerate[2]{label=\alph*)}
 
 %%% Изображения %%%
 \graphicspath{{images/}} % Пути к изображениям
@@ -37,8 +57,6 @@
 \setcounter{tocdepth}{1}
 
 \renewcommand{\cftchapdotsep}{\cftdotsep}
-% \renewcommand{\cftsecleader}{\bfseries\cftdotfill{\cftdotsep}}
-% \renewcommand{\cftchappresnum}{Глава }
 \renewcommand{\cftchapaftersnum}{.}
 \renewcommand{\cftsecpresnum}{}
 \renewcommand{\cftsecaftersnum}{.}
@@ -46,17 +64,6 @@
 
 \renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
 \renewcommand{\thesubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}}
-
-%%% Формат заголовков глав %%%
-\titleformat{\chapter}[block]{\bfseries\Large\center}{Глава \arabic{chapter}.}{1ex}{}
-\titleformat{\section}[block]{\bfseries\large}{\arabic{chapter}.\arabic{section}.}{1ex}{}
-\titleformat{\subsection}[block]{\bfseries\normalsize}{\arabic{chapter}.\arabic{section}.\arabic{subsection}.}{1ex}{}
-\titleformat{\subsubsection}[block]{\bfseries\small}{\arabic{chapter}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.}{1ex}{}
-
-\titlespacing*{\chapter}		 {0pt}{1ex plus 1ex minus .2ex}{2.0ex plus .2ex}
-\titlespacing*{\section}      {0pt}{3.50ex plus 1ex minus .2ex}{1.5ex plus .2ex}
-\titlespacing*{\subsection}   {0pt}{3.25ex plus 1ex minus .2ex}{1.0ex plus .2ex}
-\titlespacing*{\subsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.0ex plus .2ex}
 
 %%% Математика %%%
 \newtheorem{mydef}{Определение}[chapter]
@@ -79,6 +86,5 @@
   \vskip\belowcaptionskip
 }
 
-% Russian-styled figure and table captions
 \captionsetup[figure]{font=small}
 \captionsetup[table]{font=normal, justification=raggedleft}
