@@ -36,3 +36,13 @@
 
 %%% Изображения %%%
 \graphicspath{{images/}} % Пути к изображениям
+
+%%% Математика %%%
+\newtheorem{prop}{Свойство}[]
+\renewcommand*{\theprop}{\arabic{prop}}
+
+%%% Формат заголовков глав %%%
+\titleformat{\section}[block]{\center\bfseries\Large}{\arabic{chapter}.\arabic{section}.\,}{.2ex}{}
+\titleformat{\subsection}[block]{\center\bfseries\large}{\arabic{chapter}.\arabic{section}.\arabic{subsection}.}{.2ex}{}
+
+\titlespacing{\subsection}{1.25cm}{2ex plus 0.5ex minus .2ex}{1ex plus .2ex}
