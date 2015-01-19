@@ -100,6 +100,74 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Основные понятия}
+  \begin{itemize}
+    \item Нечёткие числа $LR$-типа: $L(x):\mathbb{R} \to \mathbb{R}$, $R(x):\mathbb{R} \to \mathbb{R}$
+      \begin{gather*}
+	    L\left( -x \right)=L\left( x \right); \\
+	    R\left( -x \right)=R\left( x \right); \\
+	    L\left( 0 \right)=R\left(  0 \right)=1.
+      \end{gather*}
+      $L$ и~$R$ являются невозрастающими на~интервале $\left[ 0;+\infty  \right)$
+    \item Функция принадлежности $LR$-числа
+      \begin{equation}
+        \mu_{\tilde A}\left( x \right)=\left\{ 
+          \begin{aligned}
+            & L\left( \frac{m-x}{a} \right);\ x \leqslant m \\ 
+			& R\left( \frac{x-m}{b} \right);\ x>m \\ 
+		  \end{aligned} 
+		\right.
+      \end{equation}
+    \item При известной форме функции принадлежности удобнее запись $\tilde A = \left(m; a; b \right)$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Основные понятия}
+  \begin{itemize}
+    \item Треугольное нечёткое число $\tilde A = \left\langle m,a,b \right\rangle $
+      \begin{equation}
+        \mu_{\tilde A}\left( x \right)=
+        \left\{ \begin{aligned}
+			& \frac{x-m+a}{a};\ x\in \left[ m-a;m \right] \\ 
+			& \frac{m+b-x}{b};\ x\in \left( m;m+b \right] \\ 
+			& 0;\ \text{в остальных случаях} 
+	 	\end{aligned} \right.
+      \end{equation}
+    \item Формы записи~--- коэффициенты нечёткости $\left\langle m,a,b \right\rangle$ и границы $\left\langle x_{\tilde A}^L,m,x_{\tilde A}^R \right\rangle$
+      \begin{equation}
+        \left[ 
+          \begin{aligned}
+			 & x_{\tilde A}^L=m-a \\ 
+			 & x_{\tilde A}^R=m+b 
+		  \end{aligned}
+		\right.
+	  \end{equation}
+    \item Число $LL$ $\left( RR \right)$-типа~--- правый (левый) коэффициент нечёткости числа равен нулю
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Основные понятия}
+  \begin{itemize}
+    \item Теорема о декомпозиции 
+      \begin{equation}
+        \tilde{A}=\bigcup\limits_{\alpha \in \left[ 0;1 \right]}{A_\alpha}
+      \end{equation}
+    \item Число как совокупность $\alpha$-интервалов $X_\alpha = \left[x^L(\alpha); x^R(\alpha) \right]$
+      \begin{equation}
+        \left[ 
+          \begin{aligned}
+            & x^L(\alpha )=m-a+a\alpha  \\ 
+            & x^R(\alpha )=m+b-b\alpha
+          \end{aligned}
+        \right.
+      \end{equation}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
   \frametitle{Классификация нечётких моделей}
   \begin{columns}[onlytextwidth]
     \begin{column}{0.6\textwidth}
@@ -119,8 +187,11 @@
 \begin{frame}
   \frametitle{Проблемы существующих способов вычислений}
   \begin{itemize}
-    \item 123
-    \item 456
+    \item требуются значительные вычислительные ресурсы (принцип обобщения);
+    \item неоправданно расширяется носитель функции принадлежности (алгебры и арифметики LR-чисел);
+    \item происходит выход за класс используемых в арифметике чисел из-за искажения формы функции принадлежности;
+    \item ограничивается область определения функции принадлежности;
+    \item нарушаются классические отношения равенства и частичного порядка.
   \end{itemize}
 \end{frame}
 
@@ -136,43 +207,10 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Основные понятия}
-  \begin{itemize}
-    \item 
-  \end{itemize}
-
-  \begin{equation}
-    \label{eq:membership-alphacut-form}
-	\left[ 
-		\begin{aligned}
-			& x^L(\alpha )=m-a+a\alpha  \\ 
-			& x^R(\alpha )=m+b-b\alpha
-		 \end{aligned}
-	\right.
-  \end{equation}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Основные понятия}
-  \begin{itemize}
-    \item Теорема о декомпозиции 
-      \begin{equation}
-        \tilde{A}=\bigcup\limits_{\alpha \in \left[ 0;1 \right]}{A_\alpha}
-      \end{equation}
-  \end{itemize}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Основные понятия}
-    
-\end{frame}
-
-\begin{frame}
   \frametitle{Преобразование L}
   Исходная задача $\tilde{Y}=f\left( \tilde{X}, \tilde A \right)$ с нечёткими числовыми параметрами и~переменными рассматривается как совокупность задач с интервальной неопределенностью
   \begin{equation}
-  \label{eq:alpha-equivalence}
+    \label{eq:task-transform}
   	\tilde{Y} = f\left( \tilde X, \tilde A \right)\to \bigcup\limits_{\alpha =0}^{1}{y_\alpha}=f\left( X_\alpha, A_\alpha \right)
   \end{equation}
   с последующим переходом к полной определённости на каждом $\alpha$-уровне, для чего на каждом $\alpha$-уровне внутри интервала $X_\alpha$ выбирается точка $\bar{x}\left( \alpha  \right)$. Предлагается выбирать значение $\bar{x}\left( \alpha  \right)$ с~помощью линейного параметрического преобразования $L$
@@ -180,23 +218,130 @@
     \label{eq:L-transform-base}
     \bar{x}\left( \alpha  \right)=L\left( X_\alpha \right)=\lambda x^L \left( \alpha  \right)+\left( 1-\lambda  \right) x^R \left( \alpha  \right).
   \end{equation}
+  
+  Преобразование \eqref{eq:L-transform-base} приводит к потерям информации
 \end{frame}
 
 \begin{frame}
   \frametitle{Модифицированные нечёткие числа}
-  
+  После решения чётких $\alpha $-уровневых задач полученные результаты $y\left( \alpha  \right)$ аппроксимируются нечётким числом 
+  \begin{equation}
+    \label{eq:modified-solution}
+    \tilde Y^{*}=\left\{ y(\alpha )\left| \mu_{\tilde Y}(y)=\alpha \right. \right\}  
+  \end{equation}
+  Результат~\eqref{eq:modified-solution} есть \textbf{модифицированное решение} задачи~\eqref{eq:task-transform}.\\
+Происходит переход от использования <<полноценных>> нечётких чисел к~алгебрам для~чисел $LL/RR$-типа. Функция принадлежности чисел $LL/RR$-типа является обратной к~функции $\bar{x}\left(\alpha \right)$:
+\begin{equation}
+  \label{eq:modified-number}
+  \mu_{\tilde A^{*}}\left( x \right)={\left( \bar{x}\left( \alpha  \right) \right)}^{-1}
+\end{equation}
+
+и Число \eqref{eq:modified-number} и есть \textbf{модифицированное нечёткое число}. Является числом LL/RR-типа
 \end{frame}
 
 \begin{frame}
   \frametitle{Свойства преобразования L}
+  \begin{enumerate}
+    \item Преобразование $L$ сохраняет моду нечёткого числа, т.\,е. $\forall \lambda \in \left[ 0;1 \right]:\ m_{\tilde A}=m_{\tilde A^{*}}$.
+    \item При некоторых значениях параметра $\lambda$ преобразование $L$ сохраняет
+      \begin{enumerate}
+        \item знак степени асимметрии: $\exists \lambda \in [0;1]:\ sign(AS_{\tilde A})=sign(AS_{\tilde A^{*}})$;
+        \item значение степени асимметрии: $\exists \lambda \in [0;1]:\ AS_{\tilde A}=AS_{\tilde A^{*}}$.
+      \end{enumerate}
+      $\displaystyle \lambda^* =\frac{a}{a+b}=\frac{a}{d_{\tilde A}}$ сохраняет значение степени асимметрии.
+    \item $\forall \lambda \in \left[ 0;1 \right]: A_{\alpha}^{*}\subset A_\alpha;\ d_{\tilde A} \geqslant d_{\tilde A^{*}}$~--- преобразование~$L$ уменьшает длину носителя нечёткого числа и~оставляет $\alpha$-интервалы модифицированного числа внутри $\alpha$-интервалов исходного числа.
+  \end{enumerate}
 \end{frame}
 
 \begin{frame}
   \frametitle{Алгебра модифицированных нечётких чисел}
+  Строится чёткая алгебра $P=\left\langle K ;\ +,\,* \right\rangle$, $K=\left\lbrace \bar x(\alpha) \right\rbrace$ и~показывается, что $P$ удовлетворяем всем аксиомам поля. Используется более удобная форма записи модифицированного числа
+\begin{equation}
+  \bar{x}\left( \alpha  \right)=c+k\alpha,
+\end{equation}
+\begin{equation}
+  \label{eq:modified-number-from-abm}
+  \begin{aligned}
+    & \left[ \begin{aligned}
+    & c=m+b-\lambda \left( a+b \right) \\ 
+    & k=\lambda \left( a+b \right)-b \\ 
+  \end{aligned} \right. \\ 
+  & \lambda \in \left[ 0;1 \right];\ c,k\in \mathbb{R} \\ 
+\end{aligned}
+\end{equation}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Сложение и его свойства}
+  На~множестве $K$ вводится операция сложения~\eqref{eq:fuzzy-addition}
+  \begin{equation}
+    \label{eq:fuzzy-addition}
+    \bar{x}_1\left(\alpha \right)+\bar{x}_2\left(\alpha \right)=r_1\left( \alpha  \right)=c_1+c_2+\left(k_1+k_2 \right)\alpha,\ r_1 \left( \alpha  \right)\in K;
+  \end{equation}
+  нейтральный по сложению элемент~\eqref{eq:fuzzy-zero}
+  \begin{gather}
+    \label{eq:fuzzy-zero}
+    \bar{0}=0+0\alpha \in K: \forall \bar{x}(\alpha )\in K: \notag \\ 
+    \bar{x}(\alpha )+\bar{0}=c+k\alpha +0+0\alpha =\bar{x}(\alpha );
+  \end{gather}
+  противоположный по сложению элемент~\eqref{eq:fuzzy-minus} 
+  \begin{equation}
+    \label{eq:fuzzy-minus}
+    -\bar{x}\left(\alpha \right)=-c-k\alpha \in K:\ \bar{x}\left( \alpha  \right)+\left( -\bar{x}\left( \alpha  \right) \right)=\bar{0}. 
+  \end{equation}
+
+  Доказываются свойства ассоциативности и коммутативности операции~\eqref{eq:fuzzy-addition}.
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Умножение и его свойства}
+  На~множестве $K$ вводится операция умножения~\eqref{eq:fuzzy-multiplication}
+\begin{equation}
+\label{eq:fuzzy-multiplication}
+  r_2\left( \alpha \right)=c_1 c_2+\left(c_1 k_2+ c_2 k_1 +k_1 k_2 \right)\alpha;\ r_2\left( \alpha  \right)\in K.
+\end{equation}
+нейтральный по умножению элемент~\eqref{eq:fuzzy-one} 
+\begin{equation}
+  \label{eq:fuzzy-one}
+  \bar{1}=1+0\alpha \in K:\ \forall \bar{x}\left( \alpha  \right)\in K\quad \bar{x}\left( \alpha  \right)\cdot \bar{1}=\bar{x}\left( \alpha  \right);
+\end{equation}
+обратный по умножению~\eqref{eq:fuzzy-division} элемент. 
+\begin{equation}
+  \label{eq:fuzzy-division}
+  \bar{x}^{-1}(\alpha )=\frac{1}{c}-\frac{k}{c\left(c+k\right)}\alpha \in K,\ c\ne 0:\ \bar{x}\left(\alpha \right){{\bar{x}}^{-1}}\left( \alpha  \right)=\bar{1}.
+\end{equation}
+
+Доказываются свойства ассоциативности и коммутативности, а также свойство дистрибутивности умножения~\eqref{eq:fuzzy-multiplication} относительно сложения~\eqref{eq:fuzzy-addition}. 
+
+Показано, что для существования обратного элемента число $\bar{x}\left( \alpha  \right)$ должно иметь ненулевую моду, поскольку, согласно~\eqref{eq:modified-number-from-abm}, $c+k=m\ne 0$.
 \end{frame}
 
 \begin{frame}
   \frametitle{Двухточечные вычисления}
+  В диссертации для модифицированных нечётких чисел показывается эквивалентность записи в~виде~\eqref{eq:modified-number-base} и в~виде
+\begin{equation}
+\label{eq:isomorphic-field}
+  \bar{x}_{\tilde A}\left( \alpha \right)=\bar{x}_{\tilde A}\left( 0 \right)+\alpha \left(\bar{x}_{\tilde A}\left( 1 \right)-\bar{x}_{\tilde A}\left(0 \right) \right)=\alpha \bar{x}_{\tilde A}\left( 1 \right)+\left( 1-\alpha  \right) \bar{x}_{\tilde A}\left( 0 \right).
+\end{equation}
+
+Двухточечные вычисления основаны на~\eqref{eq:isomorphic-field} и позволяют решать нечёткую задачу как две чёткие при $\alpha=0$ и $\alpha=1$. 
+
+Если обозначить за~$*$ произвольную арифметическую операцию, то для~чисел в~форме~\eqref{eq:isomorphic-field} её результат будет выглядеть следующим образом:
+\begin{equation}
+\label{eq:two-point-calculations}
+  \bar{x}_{\tilde A}\left( \alpha \right)*\bar{x}_{\tilde B}\left(\alpha \right)=\alpha \left(\bar{x}_{\tilde A}\left( 1 \right)*\bar{x}_{\tilde B}\left(1 \right) \right)+\left(1-\alpha \right)\left(\bar{x}_{\tilde A}\left(0 \right)*\bar{x}_{\tilde B}\left(0 \right) \right).
+\end{equation}
+
+Преимущества двухточечных вычислений:
+\begin{itemize}
+  \item сводятся к алгебре модифицированных нечётких чисел;
+  \item избавляют от необходимости вводить отношение линейного порядка;
+  \item позволяют использовать стандартные программные продукты
+\end{itemize}
+
+
 \end{frame}
 
 \begin{frame}
