@@ -346,30 +346,115 @@
 
 \begin{frame}
   \frametitle{Устойчивость задачи ЛП}
+  Задача линейного программирования с нечёткими параметрами
+  \begin{equation}
+    \left\{ \begin{aligned}
+      & f\left( \mathbf{x} \right)=\mathbf{Cx}\to \min;  \\ 
+      & \mathbf{Ax}=\mathbf{B},
+    \end{aligned} \right.
+  \end{equation}
+
+  Применение к~каждому из~элементов матрицы и~векторов преобразования~$L$ приводит к модифицированной задаче~\eqref{eq:fuzzy-lp-unstable-problem}
+  \begin{equation}
+  \label{eq:fuzzy-lp-unstable-problem}
+    \left\{ \begin{aligned}
+      & f\left( \mathbf{x} \right)={\mathbf{C}^{*}}\mathbf{x}\to \min;  \\ 
+      & {\mathbf{A}^{*}}\mathbf{x}={\mathbf{B}}^{*},
+    \end{aligned} \right.
+  \end{equation}
+  
+  Здесь $\mathbf{A}^{*}=\left\{ \bar{x}_{\tilde{A}_{ij}}\left(\alpha \right) \right\}$, $\mathbf{B}^{*}=\left\{ \bar{x}_{\tilde{B}_i}\left(\alpha \right) \right\}$, $\mathbf{C}^{*}=\left\{ \bar{x}_{\tilde{C}_i}\left(\alpha \right) \right\}$
 \end{frame}
 
 \begin{frame}
   \frametitle{Устойчивость задачи ЛП}
+  Предлагаемое условие устойчивости по решению:
+  \begin{equation}
+  \label{eq:fuzzy-solution-stability}
+    \forall \varepsilon >0\ \exists \delta >0:\forall \alpha \in \left[0; 1\right)\ \left| \alpha -1 \right|<\delta \Rightarrow \left\| \mathbf{x}\left( 1 \right)-\mathbf{x}\left( \alpha  \right) \right\|<\varepsilon.
+  \end{equation}
+  
+  При решении на уровне $\alpha=0$, все~значения $\lambda_S$, где~$S$~--- один из индексов $\tilde A_{ij}$, $\tilde B_i$, $\tilde C_i$,~--- принимают нулевые/единичные значения. Используется критерий минимизации  
+  \begin{equation}
+  \label{eq:lambda-minimization-criterion}
+    {\left( \lambda_{S}^{\star}-\lambda_S \right)}^2\to \min
+  \end{equation}
+
+  Возникает задача векторной оптимизации ввиду противоречивости критерия~\eqref{eq:lambda-minimization-criterion} и~целевой~функции задачи~\eqref{eq:fuzzy-lp-unstable-problem}. Используется аддитивная свёртка критериев~\eqref{eq:modified-target-function}
+  \begin{equation}
+  \label{eq:modified-target-function}
+    f^{*}\left( \mathbf{x} \right)=\mathbf{C}^{*}\mathbf{x}+\gamma \sum\limits_{s}^{}{\left(\lambda_{S}^{*}-\lambda_S \right)}^{2} \to \min
+  \end{equation}
 \end{frame}
 
 \begin{frame}
   \frametitle{Задача сетевого планирования}
+  Алгоритмический метод решения не позволяет проводить анализ задачи на устойчивость, т.е. на изменение критического пути.\\
+
 \end{frame}
 
 \begin{frame}
   \frametitle{Модифицированная задача сетевого планирования}
+  В качестве основного способа решения выбрано решение задачи линейного программирования с~нечёткими временными оценками
+  \begin{equation}
+  \label{eq:crisp-lp-cpm-task}
+    T=t_n-t_1 \to \min
+  \end{equation}
+  при ограничениях на времена наступления событий
+  \begin{equation}
+  \label{eq:crisp-lp-cpm-restrictions}
+    t_{j_s}-t_{i_s}\geqslant \tilde \tau_s;\ s=\overline{1,m},
+  \end{equation}
+  где $t_{i_s}$ и $t_{j_s}$~--- времена наступления событий начала и окончания работы $w_s$ соответственно. \\
+  В~результате решения данной задачи получается общее время выполнения проекта $\tilde T$, а также вектор времён $\mathbf{t}=\left\{\tilde t_1, \ldots, \tilde t_n \right\}$, называемых календарным планом проекта, и~совокупность критических операций $\mathbf{S}_1$.
 \end{frame}
 
 \begin{frame}
   \frametitle{Решение задачи сетевого планирования}
+  Для~решения задачи~\eqref{eq:crisp-lp-cpm-task}--\eqref{eq:crisp-lp-cpm-restrictions}, в работе применяется преобразование $L$ и~методика двухточечных вычислений. Формулируется задача для~произвольного $\alpha$-уровня
+\begin{equation}
+\label{eq:modified-fcpm-lp}
+  \left\{ \begin{aligned}
+    & T(\alpha )=t_n-t_1\to \min  \\ 
+    & t_{j_s}-t_{i_s}\geqslant \bar{\tau}_s\left(\alpha,\lambda_s \right),\ \forall s=\overline{1,m}.
+  \end{aligned} \right.
+\end{equation}
+
+Полученное при $\alpha=1$ решение задачи~\eqref{eq:modified-fcpm-lp} даёт активные ограничения на критические операции. В диссертации отмечается, что на параметры $\lambda_S$ преобразования $L$ также необходимо наложить ограничения и учесть их в целевой функции~\eqref{eq:modified-target-function}, чтобы избежать ситуации, когда $\lambda_S$ принимают граничные значения (0 или 1). В~результате при $\alpha=0$ решается видоизменённая задача
+\begin{equation}
+\label{eq:modified-fcpm-lp-alpha}
+  \left \{ \begin{aligned}
+    & T^* \left(\alpha, \lambda \right) = t_n-t_1+\gamma \sum \limits_{s=1}^{m} \left(\lambda_s^*-\lambda_s \right)^2 \to \min; \\
+    & t_{j_{s_1}}-t_{i_{s_1}} = \bar{\tau}_{s_1}\left(\alpha, \lambda_{s_1} \right),\ \forall s_1 \in S_1\left(1\right); \\
+    & t_{j_s}-t_{i_s} \geqslant \bar{\tau}_s\left(\alpha, \lambda_s \right),\ \forall s \notin S_1\left(1\right),\,s=\overline{1,m}.
+  \end{aligned} \right.
+\end{equation}
 \end{frame}
 
 \begin{frame}
   \frametitle{Результат решения задачи}
+  В результате проведённого исследования предлагается следующий алгоритм решения задачи сетевого планирования с нечёткими временными оценками как задачи линейного программирования с возмущениями.
+\begin{enumerate}
+  \item Решается невозмущённая задача~\eqref{eq:modified-fcpm-lp} при~$\alpha=1$. Ввиду свойства~\ref{prop:L-prop1} преобразования $L$, это решение соответствует модифицированному решению $\left \langle T\left(1\right), t\left(1\right), S_1\left(1\right) \right \rangle$. Фиксируется множество операций $S_1\left(1\right)$, образующих критический путь.
+  \item Фиксируется критический путь при всех $\alpha \neq 1$. Для этого в~задаче~\eqref{eq:modified-fcpm-lp} нестрогие неравенства меняются на равенства $\forall s_1 \in S_1\left(1\right)$, т.\,е. выбранные операции всегда будут критическими. Данный шаг позволяет выполнить условие устойчивости задачи по решению~\eqref{eq:modified-cpm-lp-stability}.
+  \item Решается возмущённая задача~\eqref{eq:modified-fcpm-lp-alpha} c~изменённой целевой функцией. Результатом решения задачи является кортеж $\left \langle T\left(0\right), t\left(0\right), \lambda \right \rangle$, где $\lambda$~--- вектор параметров преобразования $L$.
+  \item Решение исходной задачи представляет из себя тройку $\left \langle \tilde T, S_1, \lambda \right \rangle$. Функция принадлежности общего времени выполнения проекта $\tilde T$ восстанавливается по значениям $T\left(0\right)$ и $T\left(1\right)$, либо число $\tilde T$ оставляется в~виде~\eqref{eq:modified-number-base}.
+\end{enumerate}
 \end{frame}
 
 \begin{frame}
   \frametitle{Программное обеспечение}
+  Приложение <<CSBusinessGraph>> не использует никаких специализированных средств и третьесторонних библиотек для представления нечётких чисел и выполняет все вычисления только с использованием действительных переменных.
+  
+  \textbf{Функциональные возможности}
+  \begin{itemize}
+    \item создание модели проекта в виде вершинного графа в ручном режиме или импорт существующей модели из XML-файла;
+    \item поддержка модели проекта в согласованном состоянии~--- проверка отсутствия циклов в графе и наличие только одной компоненты связности;
+    \item формирование временных оценок выполнения операций, выраженных в~виде треугольных чисел;
+    \item автоматическое преобразование вершинного графа в~стрелочный;
+    \item реализация механизма расчёта критического пути на~основе $\alpha$-уровневых и~двухточечных вычислений с применением выбранного пользователем  вида значений параметров $\lambda$ преобразования $L$;
+    \item экспорт отчёта о~решении задачи в~формат Microsoft Excel с~формированием графиков для модифицированных нечётких оценок, общего времени выполнения проекта и~построением стрелочного графа c~выделением критических операций.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
