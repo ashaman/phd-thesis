@@ -17,10 +17,10 @@
 \setbeamertemplate{footline}{
   \leavevmode%
   \hbox{%
-    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1ex,left]{}%
-      Я. А. Воронцов, ВГУ
-    \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1ex,right]{}%
+%    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1ex,left]{}%
+%      Я. А. Воронцов, ВГУ
+%    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1ex,right]{}%
       \insertframenumber{} / \inserttotalframenumber \hspace*{2ex}
     \end{beamercolorbox}
   }%
@@ -164,6 +164,12 @@
           \end{aligned}
         \right.
       \end{equation}
+    \item Не чувствительная к~знаку нечёткого числа форма $\left\langle m_{\tilde A}, d_{\tilde A}, AS_{\tilde A} \right\rangle$
+      \begin{itemize}
+        \item длина носителя $d_{\tilde A} = a+b$;
+        \item мода $m_{\tilde A}$;
+        \item степень асимметрии $\displaystyle AS_{\tilde A} = \frac{b-a}{2}$.
+      \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -223,6 +229,15 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Пример преобразования L}
+  \begin{figure}
+    \center
+    \includegraphics[width=0.85\textwidth]{sample-224}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}
   \frametitle{Модифицированные нечёткие числа}
   После решения чётких $\alpha $-уровневых задач полученные результаты $y\left( \alpha  \right)$ аппроксимируются нечётким числом 
   \begin{equation}
@@ -256,20 +271,24 @@
 \begin{frame}
   \frametitle{Алгебра модифицированных нечётких чисел}
   Строится чёткая алгебра $P=\left\langle K ;\ +,\,* \right\rangle$, $K=\left\lbrace \bar x(\alpha) \right\rbrace$ и~показывается, что $P$ удовлетворяем всем аксиомам поля. Используется более удобная форма записи модифицированного числа
-\begin{equation}
-  \bar{x}\left( \alpha  \right)=c+k\alpha,
-\end{equation}
-\begin{equation}
-  \label{eq:modified-number-from-abm}
-  \begin{aligned}
-    & \left[ \begin{aligned}
-    & c=m+b-\lambda \left( a+b \right) \\ 
-    & k=\lambda \left( a+b \right)-b \\ 
-  \end{aligned} \right. \\ 
-  & \lambda \in \left[ 0;1 \right];\ c,k\in \mathbb{R} \\ 
-\end{aligned}
-\end{equation}
-
+  \begin{equation}
+    \bar{x}\left( \alpha  \right)=c+k\alpha,
+  \end{equation}
+  \begin{equation}
+    \label{eq:modified-number-from-abm}
+    \begin{aligned}
+      & \left[ \begin{aligned}
+      & c=m+b-\lambda \left( a+b \right) \\ 
+      & k=\lambda \left( a+b \right)-b \\ 
+    \end{aligned} \right. \\ 
+    & \lambda \in \left[ 0;1 \right];\ c,k\in \mathbb{R} \\ 
+  \end{aligned}
+  \end{equation}
+  Элементы множества $K$ имеют линейную структуру, и для восстановления конкретного модифицированного числа $\tilde{A}$ достаточно знать два значения~--- $\bar{x}_{\tilde A}\left( 0 \right)$ и~$\bar{x}_{\tilde A}\left( 1 \right)=m_{\tilde A}$:
+  \begin{equation}
+    \label{eq:isomorphic-field}
+    \bar{x}_{\tilde A}\left( \alpha \right)=\bar{x}_{\tilde A}\left( 0 \right)+\alpha \left(\bar{x}_{\tilde A}\left( 1 \right)-\bar{x}_{\tilde A}\left(0 \right) \right)=\alpha \bar{x}_{\tilde A}\left( 1 \right)+\left( 1-\alpha  \right) \bar{x}_{\tilde A}\left( 0 \right)
+  \end{equation}
 \end{frame}
 
 \begin{frame}
@@ -298,54 +317,49 @@
 \begin{frame}
   \frametitle{Умножение и его свойства}
   На~множестве $K$ вводится операция умножения~\eqref{eq:fuzzy-multiplication}
-\begin{equation}
-\label{eq:fuzzy-multiplication}
-  r_2\left( \alpha \right)=c_1 c_2+\left(c_1 k_2+ c_2 k_1 +k_1 k_2 \right)\alpha;\ r_2\left( \alpha  \right)\in K.
-\end{equation}
-нейтральный по умножению элемент~\eqref{eq:fuzzy-one} 
-\begin{equation}
-  \label{eq:fuzzy-one}
-  \bar{1}=1+0\alpha \in K:\ \forall \bar{x}\left( \alpha  \right)\in K\quad \bar{x}\left( \alpha  \right)\cdot \bar{1}=\bar{x}\left( \alpha  \right);
-\end{equation}
-обратный по умножению~\eqref{eq:fuzzy-division} элемент. 
-\begin{equation}
-  \label{eq:fuzzy-division}
-  \bar{x}^{-1}(\alpha )=\frac{1}{c}-\frac{k}{c\left(c+k\right)}\alpha \in K,\ c\ne 0:\ \bar{x}\left(\alpha \right){{\bar{x}}^{-1}}\left( \alpha  \right)=\bar{1}.
-\end{equation}
-
-Доказываются свойства ассоциативности и коммутативности, а также свойство дистрибутивности умножения~\eqref{eq:fuzzy-multiplication} относительно сложения~\eqref{eq:fuzzy-addition}. 
-
-Показано, что для существования обратного элемента число $\bar{x}\left( \alpha  \right)$ должно иметь ненулевую моду, поскольку, согласно~\eqref{eq:modified-number-from-abm}, $c+k=m\ne 0$.
+  \begin{equation}
+  \label{eq:fuzzy-multiplication}
+    r_2\left( \alpha \right)=c_1 c_2+\left(c_1 k_2+ c_2 k_1 +k_1 k_2 \right)\alpha;\ r_2\left( \alpha  \right)\in K.
+  \end{equation}
+  нейтральный по умножению элемент~\eqref{eq:fuzzy-one} 
+  \begin{equation}
+    \label{eq:fuzzy-one}
+    \bar{1}=1+0\alpha \in K:\ \forall \bar{x}\left( \alpha  \right)\in K\quad \bar{x}\left( \alpha  \right)\cdot \bar{1}=\bar{x}\left( \alpha  \right);
+  \end{equation}
+  обратный по умножению~\eqref{eq:fuzzy-division} элемент. 
+  \begin{equation}
+    \label{eq:fuzzy-division}
+    \bar{x}^{-1}(\alpha )=\frac{1}{c}-\frac{k}{c\left(c+k\right)}\alpha \in K,\ c\ne 0:\ \bar{x}\left(\alpha \right){{\bar{x}}^{-1}}\left( \alpha  \right)=\bar{1}.
+  \end{equation}
+  
+  Доказываются свойства ассоциативности и коммутативности, а также свойство дистрибутивности умножения~\eqref{eq:fuzzy-multiplication} относительно сложения~\eqref{eq:fuzzy-addition}. 
+  
+  Показано, что для существования обратного элемента число $\bar{x}\left( \alpha  \right)$ должно иметь ненулевую моду, поскольку, согласно~\eqref{eq:modified-number-from-abm}, $c+k=m\ne 0$.
 \end{frame}
 
 \begin{frame}
   \frametitle{Двухточечные вычисления}
-  В диссертации для модифицированных нечётких чисел показывается эквивалентность записи в~виде~\eqref{eq:modified-number-base} и в~виде
-\begin{equation}
-\label{eq:isomorphic-field}
-  \bar{x}_{\tilde A}\left( \alpha \right)=\bar{x}_{\tilde A}\left( 0 \right)+\alpha \left(\bar{x}_{\tilde A}\left( 1 \right)-\bar{x}_{\tilde A}\left(0 \right) \right)=\alpha \bar{x}_{\tilde A}\left( 1 \right)+\left( 1-\alpha  \right) \bar{x}_{\tilde A}\left( 0 \right).
-\end{equation}
-
-Двухточечные вычисления основаны на~\eqref{eq:isomorphic-field} и позволяют решать нечёткую задачу как две чёткие при $\alpha=0$ и $\alpha=1$. 
-
-Если обозначить за~$*$ произвольную арифметическую операцию, то для~чисел в~форме~\eqref{eq:isomorphic-field} её результат будет выглядеть следующим образом:
-\begin{equation}
-\label{eq:two-point-calculations}
-  \bar{x}_{\tilde A}\left( \alpha \right)*\bar{x}_{\tilde B}\left(\alpha \right)=\alpha \left(\bar{x}_{\tilde A}\left( 1 \right)*\bar{x}_{\tilde B}\left(1 \right) \right)+\left(1-\alpha \right)\left(\bar{x}_{\tilde A}\left(0 \right)*\bar{x}_{\tilde B}\left(0 \right) \right).
-\end{equation}
-
-Преимущества двухточечных вычислений:
-\begin{itemize}
-  \item сводятся к алгебре модифицированных нечётких чисел;
-  \item избавляют от необходимости вводить отношение линейного порядка;
-  \item позволяют использовать стандартные программные продукты
-\end{itemize}
-
-
+  Согласно~\eqref{eq:isomorphic-field},
+  \begin{equation}
+    \label{eq:isomorphic-field-shortened}
+    \bar{x}_{\tilde A}\left( \alpha \right)=\alpha \bar{x}_{\tilde A}\left( 1 \right)+\left( 1-\alpha  \right) \bar{x}_{\tilde A}\left( 0 \right)
+  \end{equation}
+  Для произвольной арифметической операции~$*$ результат с использованием~\eqref{eq:isomorphic-field-shortened} будет выглядеть следующим образом:
+  \begin{equation}
+  \label{eq:two-point-calculations}
+    \bar{x}_{\tilde A}\left( \alpha \right)*\bar{x}_{\tilde B}\left(\alpha \right)=\alpha \left(\bar{x}_{\tilde A}\left( 1 \right)*\bar{x}_{\tilde B}\left(1 \right) \right)+\left(1-\alpha \right)\left(\bar{x}_{\tilde A}\left(0 \right)*\bar{x}_{\tilde B}\left(0 \right) \right).
+  \end{equation}
+  Двухточечные вычисления основаны на~\eqref{eq:isomorphic-field-shortened}, эквивалентны введённой алгебре и позволяют решать нечёткую задачу как две чёткие при $\alpha=0$ и $\alpha=1$. 
+  
+  Преимущества двухточечных вычислений:
+  \begin{itemize}
+    \item избавляют от необходимости вводить отношение линейного порядка;
+    \item позволяют использовать стандартные программные продукты
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Устойчивость задачи ЛП}
+  \frametitle{Устойчивость задачи линейного программирования (ЗЛП)}
   Задача линейного программирования с нечёткими параметрами
   \begin{equation}
     \left\{ \begin{aligned}
@@ -363,97 +377,108 @@
     \end{aligned} \right.
   \end{equation}
   
-  Здесь $\mathbf{A}^{*}=\left\{ \bar{x}_{\tilde{A}_{ij}}\left(\alpha \right) \right\}$, $\mathbf{B}^{*}=\left\{ \bar{x}_{\tilde{B}_i}\left(\alpha \right) \right\}$, $\mathbf{C}^{*}=\left\{ \bar{x}_{\tilde{C}_i}\left(\alpha \right) \right\}$
+  Здесь $\mathbf{A}^{*}=\left\{ \bar{x}_{\tilde{A}_{ij}}\left(\alpha \right) \right\}$, $\mathbf{B}^{*}=\left\{ \bar{x}_{\tilde{B}_i}\left(\alpha \right) \right\}$, $\mathbf{C}^{*}=\left\{ \bar{x}_{\tilde{C}_i}\left(\alpha \right) \right\}$~--- матрица и векторы соответственно
 \end{frame}
 
 \begin{frame}
-  \frametitle{Устойчивость задачи ЛП}
-  Предлагаемое условие устойчивости по решению:
-  \begin{equation}
-  \label{eq:fuzzy-solution-stability}
-    \forall \varepsilon >0\ \exists \delta >0:\forall \alpha \in \left[0; 1\right)\ \left| \alpha -1 \right|<\delta \Rightarrow \left\| \mathbf{x}\left( 1 \right)-\mathbf{x}\left( \alpha  \right) \right\|<\varepsilon.
-  \end{equation}
-  
-  При решении на уровне $\alpha=0$, все~значения $\lambda_S$, где~$S$~--- один из индексов $\tilde A_{ij}$, $\tilde B_i$, $\tilde C_i$,~--- принимают нулевые/единичные значения. Используется критерий минимизации  
-  \begin{equation}
-  \label{eq:lambda-minimization-criterion}
-    {\left( \lambda_{S}^{\star}-\lambda_S \right)}^2\to \min
-  \end{equation}
-
-  Возникает задача векторной оптимизации ввиду противоречивости критерия~\eqref{eq:lambda-minimization-criterion} и~целевой~функции задачи~\eqref{eq:fuzzy-lp-unstable-problem}. Используется аддитивная свёртка критериев~\eqref{eq:modified-target-function}
-  \begin{equation}
-  \label{eq:modified-target-function}
-    f^{*}\left( \mathbf{x} \right)=\mathbf{C}^{*}\mathbf{x}+\gamma \sum\limits_{s}^{}{\left(\lambda_{S}^{*}-\lambda_S \right)}^{2} \to \min
-  \end{equation}
+  \frametitle{Устойчивость ЗЛП}
+  \begin{itemize}
+    \item Предлагаемое условие устойчивости по решению:
+      \begin{equation}
+      \label{eq:fuzzy-solution-stability}
+        \forall \varepsilon >0\, \exists \delta >0:\forall \alpha \in \left[0; 1\right)\,\left| \alpha -1 \right|<\delta \linebreak \Rightarrow \left\| \mathbf{x}\left( 1 \right)-\mathbf{x}\left( \alpha  \right) \right\|<\varepsilon
+      \end{equation}
+      
+    \item При решении на уровне $\alpha=0$, все~значения $\lambda_S$ ($S$~--- индекс $\tilde A_{ij}$, $\tilde B_i$, $\tilde C_i$)~--- принимают нулевые/единичные значения. Используется критерий для минимизации потерь экспертной информации
+      \begin{equation}
+      \label{eq:lambda-minimization-criterion}
+        {\left( \lambda_{S}^{\star}-\lambda_S \right)}^2\to \min
+      \end{equation}
+    
+    \item Возникает задача векторной оптимизации ввиду противоречивости критерия~\eqref{eq:lambda-minimization-criterion} и~целевой~функции задачи~\eqref{eq:fuzzy-lp-unstable-problem}. Используется аддитивная свёртка критериев в~целевой функции~\eqref{eq:modified-target-function}
+      \begin{equation}
+      \label{eq:modified-target-function}
+        f^{*}\left( \mathbf{x} \right)=\mathbf{C}^{*}\mathbf{x}+\gamma \sum\limits_{s}^{}{\left(\lambda_{S}^{*}-\lambda_S \right)}^{2} \to \min
+      \end{equation}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Задача сетевого планирования}
-  Алгоритмический метод решения не позволяет проводить анализ задачи на устойчивость, т.е. на изменение критического пути.\\
+  \begin{itemize}
+    \item Модель проекта~--- направленный ациклический граф $G=(V,E)$, $\left| V \right|=n$, $\left| E \right|=m$
+    \item Работам проекта $w_j$, длительностью $\tau_j$ каждая, сопоставлены дуги графа $e_j$, $j=\overline{1,m}$
+    \item Cобытиям проекта $z_i$ с~временами наступления $t_i$ сопоставления вершины графа $v_i$, $i=\overline{1,n}$; есть начальное (исток) и конечное (сток) события
+    \item Для любой вершины графа существует путь, проходящий через неё
+    \item Для любого ребра существует путь, содержащий это ребро
+    \item Два метода решения~--- алгоритмический и с помощью математического программирования
+    \item Алгоритмический метод решения не позволяет проводить анализ задачи на устойчивость
+  \end{itemize}
+\end{frame}
 
+\begin{frame}
+  \frametitle{Пример сети проекта с нечёткими оценками}
+  \begin{figure}
+    \center
+    \includegraphics[width=\textwidth]{pplan}
+  \end{figure}
 \end{frame}
 
 \begin{frame}
   \frametitle{Модифицированная задача сетевого планирования}
-  В качестве основного способа решения выбрано решение задачи линейного программирования с~нечёткими временными оценками
-  \begin{equation}
-  \label{eq:crisp-lp-cpm-task}
-    T=t_n-t_1 \to \min
-  \end{equation}
-  при ограничениях на времена наступления событий
-  \begin{equation}
-  \label{eq:crisp-lp-cpm-restrictions}
-    t_{j_s}-t_{i_s}\geqslant \tilde \tau_s;\ s=\overline{1,m},
-  \end{equation}
-  где $t_{i_s}$ и $t_{j_s}$~--- времена наступления событий начала и окончания работы $w_s$ соответственно. \\
-  В~результате решения данной задачи получается общее время выполнения проекта $\tilde T$, а также вектор времён $\mathbf{t}=\left\{\tilde t_1, \ldots, \tilde t_n \right\}$, называемых календарным планом проекта, и~совокупность критических операций $\mathbf{S}_1$.
+  \begin{itemize}
+    \item Решается задачи линейного программирования с~нечёткими временными оценками
+      \begin{equation}
+      \label{eq:modified-fcpm-lp}
+        \left\{ \begin{aligned}
+          & T(\alpha )=t_n-t_1\to \min  \\ 
+          & t_{j_s}-t_{i_s}\geqslant \bar{\tau}_s\left(\alpha,\lambda_s \right),\ \forall s=\overline{1,m}.
+        \end{aligned} \right.
+      \end{equation}
+      где $t_{i_s}$ и $t_{j_s}$~--- времена наступления событий начала и окончания работы $w_s$ соответственно
+    \item Для решения используются двухточечные вычисления
+    \item Результат решения~--- общее время выполнения проекта $\tilde T$, календарный план проекта $\mathbf{t}=\left\{\tilde t_1, \ldots, \tilde t_n \right\}$, совокупность критических операций $S_1$
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Решение задачи сетевого планирования}
-  Для~решения задачи~\eqref{eq:crisp-lp-cpm-task}--\eqref{eq:crisp-lp-cpm-restrictions}, в работе применяется преобразование $L$ и~методика двухточечных вычислений. Формулируется задача для~произвольного $\alpha$-уровня
-\begin{equation}
-\label{eq:modified-fcpm-lp}
-  \left\{ \begin{aligned}
-    & T(\alpha )=t_n-t_1\to \min  \\ 
-    & t_{j_s}-t_{i_s}\geqslant \bar{\tau}_s\left(\alpha,\lambda_s \right),\ \forall s=\overline{1,m}.
-  \end{aligned} \right.
-\end{equation}
-
-Полученное при $\alpha=1$ решение задачи~\eqref{eq:modified-fcpm-lp} даёт активные ограничения на критические операции. В диссертации отмечается, что на параметры $\lambda_S$ преобразования $L$ также необходимо наложить ограничения и учесть их в целевой функции~\eqref{eq:modified-target-function}, чтобы избежать ситуации, когда $\lambda_S$ принимают граничные значения (0 или 1). В~результате при $\alpha=0$ решается видоизменённая задача
-\begin{equation}
-\label{eq:modified-fcpm-lp-alpha}
-  \left \{ \begin{aligned}
-    & T^* \left(\alpha, \lambda \right) = t_n-t_1+\gamma \sum \limits_{s=1}^{m} \left(\lambda_s^*-\lambda_s \right)^2 \to \min; \\
-    & t_{j_{s_1}}-t_{i_{s_1}} = \bar{\tau}_{s_1}\left(\alpha, \lambda_{s_1} \right),\ \forall s_1 \in S_1\left(1\right); \\
-    & t_{j_s}-t_{i_s} \geqslant \bar{\tau}_s\left(\alpha, \lambda_s \right),\ \forall s \notin S_1\left(1\right),\,s=\overline{1,m}.
-  \end{aligned} \right.
-\end{equation}
+  \begin{itemize}
+    \item Полученное при $\alpha=1$ решение задачи~\eqref{eq:modified-fcpm-lp} даёт активные ограничения на критические операции и их номера $S_1$
+    \item На параметры $\lambda_S$ преобразования $L$ также необходимо наложить ограничения и учесть их в целевой функции~\eqref{eq:modified-target-function}, чтобы избежать ситуации, когда $\lambda_S$ принимают граничные значения (0 или 1)
+    \item При $\alpha = 0$ решается видоизменённая задача
+      \begin{equation}
+      \label{eq:modified-fcpm-lp-alpha}
+        \left \{ \begin{aligned}
+          & T^* \left(\alpha, \lambda \right) = t_n-t_1+\gamma \sum \limits_{s=1}^{m} \left(\lambda_s^*-\lambda_s \right)^2 \to \min; \\
+          & t_{j_{s_1}}-t_{i_{s_1}} = \bar{\tau}_{s_1}\left(\alpha, \lambda_{s_1} \right),\ \forall s_1 \in S_1\left(1\right); \\
+          & t_{j_s}-t_{i_s} \geqslant \bar{\tau}_s\left(\alpha, \lambda_s \right),\ \forall s \notin S_1\left(1\right),\,s=\overline{1,m}.
+        \end{aligned} \right.
+      \end{equation}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Результат решения задачи}
-  В результате проведённого исследования предлагается следующий алгоритм решения задачи сетевого планирования с нечёткими временными оценками как задачи линейного программирования с возмущениями.
+  \frametitle{Алгоритм решения задачи}
 \begin{enumerate}
-  \item Решается невозмущённая задача~\eqref{eq:modified-fcpm-lp} при~$\alpha=1$. Ввиду свойства~\ref{prop:L-prop1} преобразования $L$, это решение соответствует модифицированному решению $\left \langle T\left(1\right), t\left(1\right), S_1\left(1\right) \right \rangle$. Фиксируется множество операций $S_1\left(1\right)$, образующих критический путь.
-  \item Фиксируется критический путь при всех $\alpha \neq 1$. Для этого в~задаче~\eqref{eq:modified-fcpm-lp} нестрогие неравенства меняются на равенства $\forall s_1 \in S_1\left(1\right)$, т.\,е. выбранные операции всегда будут критическими. Данный шаг позволяет выполнить условие устойчивости задачи по решению~\eqref{eq:modified-cpm-lp-stability}.
-  \item Решается возмущённая задача~\eqref{eq:modified-fcpm-lp-alpha} c~изменённой целевой функцией. Результатом решения задачи является кортеж $\left \langle T\left(0\right), t\left(0\right), \lambda \right \rangle$, где $\lambda$~--- вектор параметров преобразования $L$.
-  \item Решение исходной задачи представляет из себя тройку $\left \langle \tilde T, S_1, \lambda \right \rangle$. Функция принадлежности общего времени выполнения проекта $\tilde T$ восстанавливается по значениям $T\left(0\right)$ и $T\left(1\right)$, либо число $\tilde T$ оставляется в~виде~\eqref{eq:modified-number-base}.
+  \item Решается невозмущённая задача~\eqref{eq:modified-fcpm-lp} при~$\alpha=1$. Результат~--- кортеж $\left \langle T\left(1\right), t\left(1\right), S_1\left(1\right) \right \rangle$.
+  \item Фиксируется критический путь при всех $\alpha \neq 1$~--- в~задаче~\eqref{eq:modified-fcpm-lp} нестрогие неравенства меняются на равенства $\forall s_1 \in S_1\left(1\right)$. Это позволяет выполнить условие устойчивости задачи по решению.
+  \item Решается возмущённая задача~\eqref{eq:modified-fcpm-lp-alpha}. Результатом решения задачи является кортеж $\left \langle T\left(0\right), t\left(0\right), \lambda \right \rangle$, где $\lambda$~--- вектор параметров преобразования $L$.
+  \item Решение исходной задачи~--- тройка $\left \langle \tilde T, S_1, \lambda \right \rangle$. Функция принадлежности общего времени выполнения проекта $\tilde T$ восстанавливается по значениям $T\left(0\right)$ и $T\left(1\right)$, либо число $\tilde T$ оставляется в~виде зависимости~$\bar x \left(\alpha \right)$.
 \end{enumerate}
 \end{frame}
 
 \begin{frame}
   \frametitle{Программное обеспечение}
-  Приложение <<CSBusinessGraph>> не использует никаких специализированных средств и третьесторонних библиотек для представления нечётких чисел и выполняет все вычисления только с использованием действительных переменных.
-  
+  Приложение <<CSBusinessGraph>> выполняет все вычисления только с использованием действительных переменных
   \textbf{Функциональные возможности}
   \begin{itemize}
-    \item создание модели проекта в виде вершинного графа в ручном режиме или импорт существующей модели из XML-файла;
-    \item поддержка модели проекта в согласованном состоянии~--- проверка отсутствия циклов в графе и наличие только одной компоненты связности;
-    \item формирование временных оценок выполнения операций, выраженных в~виде треугольных чисел;
+    \item создание и редактирование модели проекта в виде вершинного графа;
+    \item поддержка модели проекта в согласованном состоянии;
+    \item формирование временных оценок выполнения операций;
     \item автоматическое преобразование вершинного графа в~стрелочный;
-    \item реализация механизма расчёта критического пути на~основе $\alpha$-уровневых и~двухточечных вычислений с применением выбранного пользователем  вида значений параметров $\lambda$ преобразования $L$;
-    \item экспорт отчёта о~решении задачи в~формат Microsoft Excel с~формированием графиков для модифицированных нечётких оценок, общего времени выполнения проекта и~построением стрелочного графа c~выделением критических операций.
+    \item реализация механизма расчёта критического пути на~основе $\alpha$-уровневых и~двухточечных вычислений;
+    \item экспорт отчёта о~решении задачи в~формат Microsoft Excel.
   \end{itemize}
 \end{frame}
 
@@ -464,22 +489,6 @@
     \includegraphics[width=0.9\textwidth]{app-sample-graph.png}
   \end{figure}
 \end{frame}
-
-%\begin{frame}
-%\frametitle{Таблица}
-%\begin{tabular}{|l|l|}
-%\hline
-%\textbf{Заголовок 1} & \textbf{Заголовок 2} \\
-%\hline
-%Сумма & $b+a$ \\
-%\hline
-%Разность & $a-b$ \\
-%\hline
-%Произведение & $a*b$ \\
-%\hline
-%\end{tabular}
-%\end{frame}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
