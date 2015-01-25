@@ -49,6 +49,8 @@
 
 \maketitle
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}
   \frametitle{Классификация нечётких моделей}
   \begin{columns}[onlytextwidth]
@@ -66,6 +68,8 @@
   \end{columns}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}
   \frametitle{Особенности существующих способов мягких вычислений}
   \begin{itemize}
@@ -77,6 +81,8 @@
   \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}
   \frametitle{Цель и задачи исследования}
   \textbf{Цель:} построение и исследование моделей учёта нечёткой неопределённости, обеспечивающих требуемые свойства решения различных прикладных задач, а также разработка методов эффективного численного решения на основе вводимых моделей \\
@@ -87,6 +93,8 @@
   \end{itemize}  
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}
   \frametitle{Цель и задачи исследования}
   \textbf{Задачи:}
@@ -95,6 +103,8 @@
     \item разработка и верификация программного обеспечения, реализущего предложенную модель представления нечётких параметров и методики численного решения задач с нечёткими параметрами.
   \end{itemize}  
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
   \frametitle{Представление нечёткой информации}
@@ -118,6 +128,8 @@
       \end{itemize}
   \end{itemize}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
   \frametitle{Основные понятия}
@@ -144,6 +156,8 @@
   \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}
   \frametitle{Преобразование L}
   \begin{itemize}
@@ -155,7 +169,7 @@
     \item Переход к чётким значениям на каждом $\alpha$-уровне 
       \begin{equation}
         \label{eq:L-transform-base}
-        \bar{x}\left( \alpha  \right)=L\left( X_\alpha \right)=\lambda x^L \left( \alpha  \right)+\left( 1-\lambda  \right) x^R \left( \alpha  \right).
+        \bar{x}\left( \alpha  \right)=L\left( X_\alpha \right)=\lambda x^L \left( \alpha  \right)+\left( 1-\lambda  \right) x^R \left( \alpha  \right);\, \lambda \in \left[0; 1 \right]
       \end{equation}
     \item Модифицированное решение
       \begin{equation}
@@ -169,6 +183,8 @@
   \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}
   \frametitle{Преобразование L}
   \begin{figure}
@@ -176,6 +192,8 @@
     \includegraphics[width=0.85\textwidth]{sample-224}
   \end{figure}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
   \frametitle{Представление числа}
@@ -186,6 +204,8 @@
     \includegraphics[width=0.9\textwidth]{as-degree}
   \end{figure}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
   \frametitle{Свойства преобразования L}
@@ -201,90 +221,102 @@
   \end{enumerate}
 \end{frame}
 
-%Происходит переход от использования <<полноценных>> нечётких чисел к~алгебрам для~чисел $LL/RR$-типа. Функция принадлежности чисел $LL/RR$-типа является обратной к~функции $\bar{x}\left(\alpha \right)$:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
   \frametitle{Алгебра модифицированных нечётких чисел}
-  Aлгебра $P=\left\langle K ;\ +,\,*, 0, 1 \right\rangle$, $K=\left\lbrace \bar x(\alpha) \right\rbrace$; $P$-поле. Используется более удобная форма записи модифицированного числа
-  \begin{equation}
-    \bar{x}\left( \alpha  \right)=c+k\alpha,
-  \end{equation}
-  \begin{equation}
-    \label{eq:modified-number-from-abm}
-    \begin{aligned}
-      & \left[ \begin{aligned}
-      & c=m+b-\lambda \left( a+b \right) \\ 
-      & k=\lambda \left( a+b \right)-b \\ 
-    \end{aligned} \right. \\ 
-    & \lambda \in \left[ 0;1 \right];\ c,k\in \mathbb{R} \\ 
-  \end{aligned}
-  \end{equation}
-  Элементы множества $K$ имеют линейную структуру, и для восстановления конкретного модифицированного числа $\tilde{A}$ достаточно знать два значения~--- $\bar{x}_{\tilde A}\left( 0 \right)$ и~$\bar{x}_{\tilde A}\left( 1 \right)=m_{\tilde A}$:
-  \begin{equation}
-    \label{eq:isomorphic-field}
-    \bar{x}_{\tilde A}\left( \alpha \right)=\bar{x}_{\tilde A}\left( 0 \right)+\alpha \left(\bar{x}_{\tilde A}\left( 1 \right)-\bar{x}_{\tilde A}\left(0 \right) \right)=\alpha \bar{x}_{\tilde A}\left( 1 \right)+\left( 1-\alpha  \right) \bar{x}_{\tilde A}\left( 0 \right)
-  \end{equation}
+  \begin{itemize}
+    \item Aлгебра $P=\left\langle K ;\ +,\,*, 0, 1 \right\rangle$, $K=\left\lbrace \bar x(\alpha) \right\rbrace$
+      \begin{equation}
+        \label{eq:def-one}
+        \bar{x}\left( \alpha  \right)=c+k\alpha,
+      \end{equation}
+    \item Коэффициенты в~\eqref{eq:def-one}
+      \begin{equation}
+        \label{eq:modified-number-from-abm}
+        \begin{aligned}
+          & \left[ \begin{aligned}
+          & c=m+b-\lambda \left( a+b \right) \\ 
+          & k=\lambda \left( a+b \right)-b \\ 
+        \end{aligned} \right. \\ 
+        & \lambda \in \left[ 0;1 \right];\ c,k\in \mathbb{R} \\ 
+      \end{aligned}
+      \end{equation}
+    \item Элементы множества $K$ линейны; достаточно знать два значения~--- $\bar{x}_{\tilde A}\left( 0 \right)$ и~$\bar{x}_{\tilde A}\left( 1 \right)=m_{\tilde A}$, чтобы найти $\tilde{A}$:
+      \begin{equation}
+        \label{eq:isomorphic-field}
+        \bar{x}_{\tilde A}\left( \alpha \right)=\bar{x}_{\tilde A}\left( 0 \right)+\alpha \left(\bar{x}_{\tilde A}\left( 1 \right)-\bar{x}_{\tilde A}\left(0 \right) \right)=\alpha \bar{x}_{\tilde A}\left( 1 \right)+\left( 1-\alpha  \right) \bar{x}_{\tilde A}\left( 0 \right)
+      \end{equation}
+  \end{itemize}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
   \frametitle{Сложение и его свойства}
-  На~множестве $K$ вводится операция сложения~\eqref{eq:fuzzy-addition}
-  \begin{equation}
-    \label{eq:fuzzy-addition}
-    \bar{x}_1\left(\alpha \right)+\bar{x}_2\left(\alpha \right)=r_1\left( \alpha  \right)=c_1+c_2+\left(k_1+k_2 \right)\alpha,\ r_1 \left( \alpha  \right)\in K;
-  \end{equation}
-  нейтральный по сложению элемент~\eqref{eq:fuzzy-zero}
-  \begin{gather}
-    \label{eq:fuzzy-zero}
-    \bar{0}=0+0\alpha \in K: \forall \bar{x}(\alpha )\in K: \notag \\ 
-    \bar{x}(\alpha )+\bar{0}=c+k\alpha +0+0\alpha =\bar{x}(\alpha );
-  \end{gather}
-  противоположный по сложению элемент~\eqref{eq:fuzzy-minus} 
-  \begin{equation}
-    \label{eq:fuzzy-minus}
-    -\bar{x}\left(\alpha \right)=-c-k\alpha \in K:\ \bar{x}\left( \alpha  \right)+\left( -\bar{x}\left( \alpha  \right) \right)=\bar{0}. 
-  \end{equation}
-
-  Доказываются свойства ассоциативности и коммутативности операции~\eqref{eq:fuzzy-addition}.
+  \begin{itemize}
+    \item Операция сложения на~множестве $K$
+      \begin{equation}
+        \label{eq:fuzzy-addition}
+        \bar{x}_1\left(\alpha \right)+\bar{x}_2\left(\alpha \right)=r_1\left( \alpha  \right)=c_1+c_2+\left(k_1+k_2 \right)\alpha,\ r_1 \left( \alpha  \right)\in K
+      \end{equation}
+    \item Нейтральный по сложению элемент
+      \begin{gather}
+        \label{eq:fuzzy-zero}
+        \bar{0}=0+0\alpha \in K: \forall \bar{x}(\alpha )\in K: \notag \\ 
+        \bar{x}(\alpha )+\bar{0}=c+k\alpha +0+0\alpha =\bar{x}(\alpha )
+      \end{gather}
+    \item Противоположный по сложению элемент~\eqref{eq:fuzzy-minus} 
+      \begin{equation}
+        \label{eq:fuzzy-minus}
+        -\bar{x}\left(\alpha \right)=-c-k\alpha \in K:\ \bar{x}\left( \alpha  \right)+\left( -\bar{x}\left( \alpha  \right) \right)=\bar{0}
+      \end{equation}
+    \item Алгебра $\left \langle K,+,0 \right \rangle$~--- абелева группа
+  \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
   \frametitle{Умножение и его свойства}
-  На~множестве $K$ вводится операция умножения~\eqref{eq:fuzzy-multiplication}
-  \begin{equation}
-  \label{eq:fuzzy-multiplication}
-    r_2\left( \alpha \right)=c_1 c_2+\left(c_1 k_2+ c_2 k_1 +k_1 k_2 \right)\alpha;\ r_2\left( \alpha  \right)\in K.
-  \end{equation}
-  нейтральный по умножению элемент~\eqref{eq:fuzzy-one} 
-  \begin{equation}
-    \label{eq:fuzzy-one}
-    \bar{1}=1+0\alpha \in K:\ \forall \bar{x}\left( \alpha  \right)\in K\quad \bar{x}\left( \alpha  \right)\cdot \bar{1}=\bar{x}\left( \alpha  \right);
-  \end{equation}
-  обратный по умножению~\eqref{eq:fuzzy-division} элемент. 
-  \begin{equation}
-    \label{eq:fuzzy-division}
-    \bar{x}^{-1}(\alpha )=\frac{1}{c}-\frac{k}{c\left(c+k\right)}\alpha \in K,\ c\ne 0:\ \bar{x}\left(\alpha \right){{\bar{x}}^{-1}}\left( \alpha  \right)=\bar{1}.
-  \end{equation}
-  
-  Доказываются свойства ассоциативности и коммутативности, а также свойство дистрибутивности умножения~\eqref{eq:fuzzy-multiplication} относительно сложения~\eqref{eq:fuzzy-addition}. 
-  
-  Показано, что для существования обратного элемента число $\bar{x}\left( \alpha  \right)$ должно иметь ненулевую моду, поскольку, согласно~\eqref{eq:modified-number-from-abm}, $c+k=m\ne 0$.
+  \begin{itemize}
+    \item Операция умножения на~множестве $K$
+      \begin{equation}
+      \label{eq:fuzzy-multiplication}
+        r_2\left( \alpha \right)=c_1 c_2+\left(c_1 k_2+ c_2 k_1 +k_1 k_2 \right)\alpha;\ r_2\left( \alpha  \right)\in K
+      \end{equation}
+    \item Нейтральный по умножению элемент
+      \begin{equation}
+        \label{eq:fuzzy-one}
+        \bar{1}=1+0\alpha \in K:\ \forall \bar{x}\left( \alpha  \right)\in K\quad \bar{x}\left( \alpha  \right)\cdot \bar{1}=\bar{x}\left( \alpha  \right)
+      \end{equation}
+    \item Обратный по умножению элемент
+      \begin{equation}
+        \label{eq:fuzzy-division}
+        \bar{x}^{-1}(\alpha )=\frac{1}{c}-\frac{k}{c\left(c+k\right)}\alpha \in K,\ c\ne 0:\ \bar{x}\left(\alpha \right){{\bar{x}}^{-1}}\left( \alpha  \right)=\bar{1}
+      \end{equation}
+    \item При~$c+k=m=0$~\eqref{eq:modified-number-from-abm} обратного элемента для $\bar{x}\left( \alpha  \right)$ не существует
+    \item Алгебра ненулевых элементов $\left \langle K,*,1 \right \rangle$~--- абелева группа
+    \item Умножение дистрибутивно относительно сложения
+  \end{itemize}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
   \frametitle{Двухточечные вычисления}
   \begin{itemize}
-    \item Согласно~\eqref{eq:isomorphic-field},
+    \item Согласно~\eqref{eq:isomorphic-field}
       \begin{equation}
         \label{eq:isomorphic-field-shortened}
-        \bar{x}_{\tilde A}\left( \alpha \right)=\alpha \bar{x}_{\tilde A}\left( 1 \right)+\left( 1-\alpha  \right) \bar{x}_{\tilde A}\left( 0 \right)
+        \bar{x}_{\tilde A}\left( \alpha \right)=\alpha \bar{x}_{\tilde A}\left( 1 \right)+\left( 1-\alpha  \right) \bar{x}_{\tilde A}\left( 0 \right) \in K
       \end{equation}
     \item Для произвольной алгебраической операции~$*$
       \begin{equation}
       \label{eq:two-point-calculations}
-        \bar{x}_{\tilde A}\left( \alpha \right)*\bar{x}_{\tilde B}\left(\alpha \right)=\alpha \left(\bar{x}_{\tilde A}\left( 1 \right)*\bar{x}_{\tilde B}\left(1 \right) \right)+\left(1-\alpha \right)\left(\bar{x}_{\tilde A}\left(0 \right)*\bar{x}_{\tilde B}\left(0 \right) \right).
+        \bar{x}_{\tilde A}\left( \alpha \right)*\bar{x}_{\tilde B}\left(\alpha \right)=\alpha \left(\bar{x}_{\tilde A}\left( 1 \right)*\bar{x}_{\tilde B}\left(1 \right) \right)+\left(1-\alpha \right)\left(\bar{x}_{\tilde A}\left(0 \right)*\bar{x}_{\tilde B}\left(0 \right) \right)
       \end{equation}
+    \item Изоморфны алгебре P
     \item Преимущества:
       \begin{itemize}
         \item решение нечёткой задачи как двух чётких при $\alpha=0$ и $\alpha=1$
@@ -293,6 +325,14 @@
       \end{itemize}
   \end{itemize}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Пример вычислений}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
   \frametitle{Устойчивость задачи линейного программирования (ЗЛП)}
@@ -312,24 +352,28 @@
     \end{equation}
     $\mathbf{A}^{*}=\left\{ \bar{x}_{\tilde{A}_{ij}}\left(\alpha \right) \right\}$, $\mathbf{B}^{*}=\left\{ \bar{x}_{\tilde{B}_i}\left(\alpha \right) \right\}$, $\mathbf{C}^{*}=\left\{ \bar{x}_{\tilde{C}_i}\left(\alpha \right) \right\}$
     \item Невозмущённое решение~--- при $\alpha=1$ (свойство сохранения моды)
-    \item Предлагаемое условие устойчивости по решению:
-      \begin{equation}
-      \label{eq:fuzzy-solution-stability}
-        \forall \varepsilon >0\, \exists \delta >0:\forall \alpha \in \left[0; 1\right)\,\left| \alpha -1 \right|<\delta \linebreak \Rightarrow \left\| \mathbf{x}\left( 1 \right)-\mathbf{x}\left( \alpha  \right) \right\|<\varepsilon
-      \end{equation}
+    \item Задача устойчива, если результат получается в той же форме, что и исходные данные (не происходит искажений формы нечётких чисел)
+    %    \item Предлагаемое условие устойчивости по решению:
+%      \begin{equation}
+%      \label{eq:fuzzy-solution-stability}
+%        \forall \varepsilon >0\, \exists \delta >0:\forall \alpha \in \left[0; 1\right)\,\left| \alpha -1 \right|<\delta \linebreak \Rightarrow \left\| \mathbf{x}\left( 1 \right)-\mathbf{x}\left( \alpha  \right) \right\|<\varepsilon
+%      \end{equation}
   \end{itemize}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
   \frametitle{Устойчивость ЗЛП}
   \begin{itemize}
-    \item При решении на уровне $\alpha=0$, все~значения $\lambda_S$ ($S$~--- индекс $\tilde A_{ij}$, $\tilde B_i$, $\tilde C_i$)~--- принимают нулевые/единичные значения. Используется критерий для минимизации потерь экспертной информации
+    \item При $\alpha=0$, все~значения $\lambda_S$ ($S$~--- индекс $\tilde A_{ij}$, $\tilde B_i$, $\tilde C_i$)~--- принимают граничные значения (0 или 1). 
+    \item Ограничения на $\lambda$ для минимизации потерь экспертной информации
       \begin{equation}
       \label{eq:lambda-minimization-criterion}
         {\left( \lambda_{S}^{\star}-\lambda_S \right)}^2\to \min
       \end{equation}
-    
-    \item Задача векторной оптимизации ввиду противоречивости критерия~\eqref{eq:lambda-minimization-criterion} и~целевой~функции задачи~\eqref{eq:fuzzy-lp-unstable-problem}. Применяется аддитивная свёртка критериев в~целевой функции~\eqref{eq:modified-target-function}
+    \item Задача векторной оптимизации ввиду противоречивости критерия~\eqref{eq:lambda-minimization-criterion} и~целевой~функции задачи~\eqref{eq:fuzzy-lp-unstable-problem}
+    \item Применяется аддитивная свёртка критериев в~целевой функции~\eqref{eq:modified-target-function}
       \begin{equation}
       \label{eq:modified-target-function}
         f^{*}\left( \mathbf{x} \right)=\mathbf{C}^{*}\mathbf{x}+\gamma \sum\limits_{s}^{}{\left(\lambda_{S}^{*}-\lambda_S \right)}^{2} \to \min
@@ -348,10 +392,12 @@
   вершины $v_i$~--- события $z_i$ с~временами наступления $t_i$, $i=\overline{1,n}$
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}
   \frametitle{Модифицированная задача сетевого планирования}
   \begin{itemize}
-    \item Задача линейного программирования с~нечёткими временными оценками
+    \item ЗЛП с~нечёткими временными оценками
       \begin{equation}
       \label{eq:modified-fcpm-lp}
         \left\{ \begin{aligned}
@@ -359,20 +405,6 @@
           & t_{j_s}-t_{i_s}\geqslant \bar{\tau}_s\left(\alpha,\lambda_s \right),\ \forall s=\overline{1,m}.
         \end{aligned} \right.
       \end{equation}
-      где $t_{i_s}$ и $t_{j_s}$~--- времена наступления событий начала и окончания работы $w_s$ соответственно
-    \item Для решения используются двухточечные вычисления
-    \item Результат решения~--- общее время выполнения проекта $\tilde T$, календарный план проекта $\mathbf{t}=\left\{\tilde t_1, \ldots, \tilde t_n \right\}$, совокупность критических операций $S_1$
-  \end{itemize}
-  
-%    \item Решается невозмущённая задача~\eqref{eq:modified-fcpm-lp} при~$\alpha=1$. Результат~--- кортеж $\left \langle T\left(1\right), t\left(1\right), S_1\left(1\right) \right \rangle$.
-%  \item Фиксируется критический путь при всех $\alpha \neq 1$~--- в~задаче~\eqref{eq:modified-fcpm-lp} нестрогие неравенства меняются на равенства $\forall s_1 \in S_1\left(1\right)$. Это позволяет выполнить условие устойчивости задачи по решению.
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{Решение задачи сетевого планирования}
-  \begin{itemize}
-    \item Полученное при $\alpha=1$ решение задачи~\eqref{eq:modified-fcpm-lp} даёт активные ограничения на критические операции и их номера $S_1$
     \item При $\alpha = 0$ решается возмущённая задача
       \begin{equation}
       \label{eq:modified-fcpm-lp-alpha}
@@ -382,31 +414,47 @@
           & t_{j_s}-t_{i_s} \geqslant \bar{\tau}_s\left(\alpha, \lambda_s \right),\ \forall s \notin S_1\left(1\right),\,s=\overline{1,m}.
         \end{aligned} \right.
       \end{equation}
-      
-%        \item Решается возмущённая задача~\eqref{eq:modified-fcpm-lp-alpha}. Результатом решения задачи является кортеж $\left \langle T\left(0\right), t\left(0\right), \lambda \right \rangle$, где $\lambda$~--- вектор параметров преобразования $L$.
-%  \item Решение исходной задачи~--- тройка $\left \langle \tilde T, S_1, \lambda \right \rangle$. Функция принадлежности общего времени выполнения проекта $\tilde T$ восстанавливается по значениям $T\left(0\right)$ и $T\left(1\right)$, либо число $\tilde T$ оставляется в~виде зависимости~$\bar x \left(\alpha \right)$.
+    \item Результат~--- совокупность $\left \langle \tilde T, S_1, \lambda \right \rangle$
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Решение примера (с. 19)}
+  \begin{itemize}
+    \item При~$\alpha=1$: $T\left( 1 \right)=23$, $S_1\left( 1 \right)=\left\{ B,E,G,H \right\}$
+    \item При~$\alpha=0$ и $\gamma \sim 10$: $T^*\left( 0 \right)=20,83$, $S_1\left( 0 \right)=\left\{ B,E,G,H \right\}$
+      \begin{equation}
+      \label{eq:0-level-fcpm-task}
+        T\left( 0 \right)=t_8-t_1+\gamma \sum\limits_{s=A}^{H}\left( \lambda_{s}^{*}-\lambda_s \right)^{2}\to \min
+      \end{equation}
+      \begin{equation}
+      \label{eq:0-level-fcpm-constraints}
+        \left\{ \begin{aligned}
+          & t_2-t_1 \geqslant 5-4\lambda_A \\ 
+          & t_6-t_2 \geqslant 9-6\lambda_C \\ 
+          & t_4-t_3 \geqslant 9-5\lambda_D \\ 
+          & t_5-t_4 \geqslant 0 \\ 
+          & t_7-t_6 \geqslant 6-2\lambda_F \\ 
+        \end{aligned} \right.
+        \left\{ \begin{aligned}
+          & t_3-t_1=5-3\lambda_B \\ 
+          & t_5-t_3=12-3\lambda_E \\ 
+          & t_7-t_5=6-5\lambda_G \\ 
+          & t_8-t_7=7-5\lambda_H
+        \end{aligned} \right.
+      \end{equation}
+    \item Окончательный результат: $S_1=\left\{ B,E,G,H \right\}$, $T\left( \alpha \right)=20,67+2,33\alpha$, $\lambda =\left\{ 0,25;\ 0,68;\ 0,67;\ 0,4;\ 0,35;\ 0,5;\ 0,83;\ 0;43 \right\}$
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Программное обеспечение}
   Приложение <<CSBusinessGraph>> выполняет все вычисления только с использованием действительных переменных
-  \textbf{Функциональные возможности}
-  \begin{itemize}
-    \item создание и редактирование модели проекта в виде вершинного графа;
-    \item поддержка модели проекта в согласованном состоянии;
-    \item формирование временных оценок выполнения операций;
-    \item автоматическое преобразование вершинного графа в~стрелочный;
-    \item реализация механизма расчёта критического пути на~основе $\alpha$-уровневых и~двухточечных вычислений;
-    \item экспорт отчёта о~решении задачи в~формат Microsoft Excel.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Главное окно приложения}
   \begin{figure}
     \center
-    \includegraphics[width=0.9\textwidth]{app-sample-graph.png}
+    \includegraphics[width=0.8\textwidth]{app-sample-graph.png}
   \end{figure}
 \end{frame}
 
@@ -434,6 +482,8 @@
     \item Программный комплекс~--- решение задачи оценки сроков разработки программного обеспечения
   \end{itemize}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
   \frametitle{Апробация работы и публикации}
