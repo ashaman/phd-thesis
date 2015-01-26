@@ -422,31 +422,11 @@
 
 \begin{frame}
   \frametitle{Решение примера (с. 19)}
-  \begin{itemize}
-    \item При~$\alpha=1$: $T\left( 1 \right)=23$, $S_1\left( 1 \right)=\left\{ B,E,G,H \right\}$
-    \item При~$\alpha=0$ и $\gamma \sim 10$: $T^*\left( 0 \right)=20,83$, $S_1\left( 0 \right)=\left\{ B,E,G,H \right\}$
-      \begin{equation}
-      \label{eq:0-level-fcpm-task}
-        T\left( 0 \right)=t_8-t_1+\gamma \sum\limits_{s=A}^{H}\left( \lambda_{s}^{*}-\lambda_s \right)^{2}\to \min
-      \end{equation}
-      \begin{equation}
-      \label{eq:0-level-fcpm-constraints}
-        \left\{ \begin{aligned}
-          & t_2-t_1 \geqslant 5-4\lambda_A \\ 
-          & t_6-t_2 \geqslant 9-6\lambda_C \\ 
-          & t_4-t_3 \geqslant 9-5\lambda_D \\ 
-          & t_5-t_4 \geqslant 0 \\ 
-          & t_7-t_6 \geqslant 6-2\lambda_F \\ 
-        \end{aligned} \right.
-        \left\{ \begin{aligned}
-          & t_3-t_1=5-3\lambda_B \\ 
-          & t_5-t_3=12-3\lambda_E \\ 
-          & t_7-t_5=6-5\lambda_G \\ 
-          & t_8-t_7=7-5\lambda_H
-        \end{aligned} \right.
-      \end{equation}
-    \item Окончательный результат: $S_1=\left\{ B,E,G,H \right\}$, $T\left( \alpha \right)=20,67+2,33\alpha$, $\lambda =\left\{ 0,25;\ 0,68;\ 0,67;\ 0,4;\ 0,35;\ 0,5;\ 0,83;\ 0;43 \right\}$
-  \end{itemize}
+  \begin{figure}
+    \center
+    \includegraphics[width=\textwidth]{excel-screen.png}
+  \end{figure}
+  Окончательный результат: $S_1=\left\{ B,E,G,H \right\}$, $T\left( \alpha \right)=20,67+2,33\alpha$, $\lambda =\left\{ 0,25;\ 0,68;\ 0,67;\ 0,4;\ 0,35;\ 0,5;\ 0,83;\ 0;43 \right\}$
 \end{frame}
 
 \begin{frame}
