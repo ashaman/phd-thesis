@@ -49,7 +49,7 @@
 
 \maketitle
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 2
 
 \begin{frame}
   \frametitle{Классификация нечётких моделей}
@@ -68,7 +68,7 @@
   \end{columns}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 3
 
 \begin{frame}
   \frametitle{Особенности существующих способов мягких вычислений}
@@ -81,7 +81,7 @@
   \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 4
 
 \begin{frame}
   \frametitle{Цель и задачи исследования}
@@ -93,7 +93,7 @@
   \end{itemize}  
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 5
 
 \begin{frame}
   \frametitle{Цель и задачи исследования}
@@ -104,7 +104,7 @@
   \end{itemize}  
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 6
 
 \begin{frame}
   \frametitle{Представление нечёткой информации}
@@ -129,7 +129,7 @@
   \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 7
 
 \begin{frame}
   \frametitle{Основные понятия}
@@ -156,7 +156,7 @@
   \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 8
 
 \begin{frame}
   \frametitle{Преобразование L}
@@ -183,17 +183,17 @@
   \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 9
 
 \begin{frame}
   \frametitle{Преобразование L}
   \begin{figure}
     \center
-    \includegraphics[width=0.85\textwidth]{sample-224}
+    \includegraphics[width=\textwidth]{l-transform-full}
   \end{figure}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 10
 
 \begin{frame}
   \frametitle{Представление числа}
@@ -205,7 +205,7 @@
   \end{figure}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 11
 
 \begin{frame}
   \frametitle{Свойства преобразования L}
@@ -221,7 +221,7 @@
   \end{enumerate}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 12
 
 \begin{frame}
   \frametitle{Алгебра модифицированных нечётких чисел}
@@ -243,14 +243,15 @@
       \end{aligned}
       \end{equation}
     \item Элементы множества $K$ линейны; достаточно знать два значения~--- $\bar{x}_{\tilde A}\left( 0 \right)$ и~$\bar{x}_{\tilde A}\left( 1 \right)=m_{\tilde A}$, чтобы найти $\tilde{A}$:
-      \begin{equation}
+      \begin{gather}
         \label{eq:isomorphic-field}
-        \bar{x}_{\tilde A}\left( \alpha \right)=\bar{x}_{\tilde A}\left( 0 \right)+\alpha \left(\bar{x}_{\tilde A}\left( 1 \right)-\bar{x}_{\tilde A}\left(0 \right) \right)=\alpha \bar{x}_{\tilde A}\left( 1 \right)+\left( 1-\alpha  \right) \bar{x}_{\tilde A}\left( 0 \right)
-      \end{equation}
+        \bar{x}_{\tilde A}\left( \alpha \right)=\bar{x}_{\tilde A}\left( 0 \right)+\alpha \left(\bar{x}_{\tilde A}\left( 1 \right)-\bar{x}_{\tilde A}\left(0 \right) \right)=\\
+        =\alpha \bar{x}_{\tilde A}\left( 1 \right)+\left( 1-\alpha  \right) \bar{x}_{\tilde A}\left( 0 \right)
+      \end{gather}
   \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 13
 
 \begin{frame}
   \frametitle{Сложение и его свойства}
@@ -275,7 +276,7 @@
   \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 14
 
 \begin{frame}
   \frametitle{Умножение и его свойства}
@@ -301,38 +302,55 @@
   \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 15
 
 \begin{frame}
   \frametitle{Двухточечные вычисления}
-  \begin{itemize}
-    \item Согласно~\eqref{eq:isomorphic-field}
-      \begin{equation}
-        \label{eq:isomorphic-field-shortened}
-        \bar{x}_{\tilde A}\left( \alpha \right)=\alpha \bar{x}_{\tilde A}\left( 1 \right)+\left( 1-\alpha  \right) \bar{x}_{\tilde A}\left( 0 \right) \in K
-      \end{equation}
-    \item Для произвольной алгебраической операции~$*$
-      \begin{equation}
-      \label{eq:two-point-calculations}
-        \bar{x}_{\tilde A}\left( \alpha \right)*\bar{x}_{\tilde B}\left(\alpha \right)=\alpha \left(\bar{x}_{\tilde A}\left( 1 \right)*\bar{x}_{\tilde B}\left(1 \right) \right)+\left(1-\alpha \right)\left(\bar{x}_{\tilde A}\left(0 \right)*\bar{x}_{\tilde B}\left(0 \right) \right)
-      \end{equation}
-    \item Изоморфны алгебре P
-    \item Преимущества:
-      \begin{itemize}
-        \item решение нечёткой задачи как двух чётких при $\alpha=0$ и $\alpha=1$
-        \item нет необходимости вводить отношение линейного порядка
-        \item нет потребности в специализированном ПО
-      \end{itemize}
-  \end{itemize}
+  \begin{figure}[h]
+    \includegraphics[width=\textwidth]{two-point}
+  \end{figure}
+  Для произвольной алгебраической операции~$*$
+  \begin{gather}
+    \bar{x}_{\tilde A}\left( \alpha \right)*\bar{x}_{\tilde B}\left(\alpha \right)=\notag\\
+    \label{eq:two-point-calculations}
+    =\alpha \left(\bar{x}_{\tilde A}\left( 1 \right)*\bar{x}_{\tilde B}\left(1 \right) \right)+\left(1-\alpha \right)\left(\bar{x}_{\tilde A}\left(0 \right)*\bar{x}_{\tilde B}\left(0 \right) \right)
+  \end{gather}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 16
 
 \begin{frame}
-  \frametitle{Пример вычислений}
+  \frametitle{Решение системы $\mathbf{A}\mathbf{x}=\mathbf{B} $}
+    \begin{gather*}
+      \tilde A_{11} = \left \langle 3; 2; 1 \right \rangle; \tilde A_{12} = \left \langle -2; 2; 1\right \rangle; \tilde A_{21} = \left \langle 3; 1; 1\right \rangle; \tilde A_{22} = \left \langle -1; 4; 1\right \rangle; \\
+      \tilde B_1 = \left \langle 1; 1; 1 \right \rangle; \tilde B_2 = \left \langle 2; 1; 3\right \rangle.
+  \end{gather*}
+  Преобразование L с параметрами $\lambda^*$ приводит к системе:
+  \begin{equation}
+    \left\lbrace\begin{aligned}
+      & \left(2+\alpha\right)x_1+\left(-3+\alpha\right)x_2 = 1 \\
+      & 3x_1+\left(-4+3\alpha\right)x_2=4-2\alpha
+    \end{aligned}\right.
+  \end{equation}
+  Две чёткие системы при $\alpha=1$ и $\alpha=0$:
+  \begin{equation}
+      \left\{\begin{aligned}
+        & 3x_1-2x_2 = 1 \\
+        & 3x_1-x_2=2
+      \end{aligned}\right.
+      \text{ и }
+      \left\{\begin{aligned}
+        & 2x_1-3x_2 = 1 \\
+        & 3x_1-4x_2=4
+      \end{aligned}\right.
+  \end{equation}
+  При $\alpha=1$ $x_1 = 1, x_2 = 1$; при $\alpha = 0$ $x_1 = 8, x_2 = 5$, так что
+  \begin{equation}
+    \bar x_1\left(\alpha\right) = 8 - 7\alpha;\ \bar x_2\left(\alpha\right) = 5 - 4\alpha
+  \end{equation}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 17
 
 \begin{frame}
   \frametitle{Устойчивость задачи линейного программирования (ЗЛП)}
@@ -352,16 +370,15 @@
     \end{equation}
     $\mathbf{A}^{*}=\left\{ \bar{x}_{\tilde{A}_{ij}}\left(\alpha \right) \right\}$, $\mathbf{B}^{*}=\left\{ \bar{x}_{\tilde{B}_i}\left(\alpha \right) \right\}$, $\mathbf{C}^{*}=\left\{ \bar{x}_{\tilde{C}_i}\left(\alpha \right) \right\}$
     \item Невозмущённое решение~--- при $\alpha=1$ (свойство сохранения моды)
-    \item Задача устойчива, если результат получается в той же форме, что и исходные данные (не происходит искажений формы нечётких чисел)
-    %    \item Предлагаемое условие устойчивости по решению:
-%      \begin{equation}
-%      \label{eq:fuzzy-solution-stability}
-%        \forall \varepsilon >0\, \exists \delta >0:\forall \alpha \in \left[0; 1\right)\,\left| \alpha -1 \right|<\delta \linebreak \Rightarrow \left\| \mathbf{x}\left( 1 \right)-\mathbf{x}\left( \alpha  \right) \right\|<\varepsilon
-%      \end{equation}
+    \item Задача устойчива, если
+      \begin{equation}
+      \label{eq:fuzzy-solution-stability}
+        \forall \varepsilon >0\, \exists \delta >0:\forall \alpha \in \left[0; 1\right)\,\left| \alpha -1 \right|<\delta \linebreak \Rightarrow \left\| \mathbf{x}\left( 1 \right)-\mathbf{x}\left( \alpha  \right) \right\|<\varepsilon
+      \end{equation}
   \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 18
 
 \begin{frame}
   \frametitle{Устойчивость ЗЛП}
@@ -376,10 +393,12 @@
     \item Применяется аддитивная свёртка критериев в~целевой функции~\eqref{eq:modified-target-function}
       \begin{equation}
       \label{eq:modified-target-function}
-        f^{*}\left( \mathbf{x} \right)=\mathbf{C}^{*}\mathbf{x}+\gamma \sum\limits_{s}^{}{\left(\lambda_{S}^{*}-\lambda_S \right)}^{2} \to \min
+        f^{*}\left( \mathbf{x}, \lambda \right)=\mathbf{C}^{*}\mathbf{x}+\gamma \sum\limits_{s}^{}{\left(\lambda_{S}^{*}-\lambda_S \right)}^{2} \to \min
       \end{equation}
   \end{itemize}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 19
 
 \begin{frame}
   \frametitle{Задача сетевого планирования}
@@ -392,7 +411,7 @@
   вершины $v_i$~--- события $z_i$ с~временами наступления $t_i$, $i=\overline{1,n}$
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 20
 
 \begin{frame}
   \frametitle{Модифицированная задача сетевого планирования}
@@ -418,7 +437,7 @@
   \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 21
 
 \begin{frame}
   \frametitle{Решение примера (с. 19)}
@@ -429,6 +448,8 @@
   Окончательный результат: $S_1=\left\{ B,E,G,H \right\}$, $T\left( \alpha \right)=20,67+2,33\alpha$, $\lambda =\left\{ 0,25;\ 0,68;\ 0,67;\ 0,4;\ 0,35;\ 0,5;\ 0,83;\ 0;43 \right\}$
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 22
+
 \begin{frame}
   \frametitle{Программное обеспечение}
   Приложение <<CSBusinessGraph>> выполняет все вычисления только с использованием действительных переменных
@@ -438,7 +459,7 @@
   \end{figure}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 23
 
 \begin{frame}
   \frametitle{Результаты работы}
@@ -463,7 +484,7 @@
   \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 24
 
 \begin{frame}
   \frametitle{Апробация работы и публикации}
