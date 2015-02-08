@@ -57,8 +57,8 @@
 \begin{equation}
 \label{eq:crisp-lp-problem}
   \left\{ \begin{aligned}
-    & \max \left\langle c,x \right\rangle \\ 
-    & Ax\leqslant b
+    & \max \left\langle c,x \right\rangle; \\ 
+    & Ax\leqslant b,
   \end{aligned} \right.
 \end{equation}
 имеющая решение $x^{*}$. Возмущённой задачей линейного программирования называется задача
@@ -85,7 +85,7 @@
 
 Проблема устойчивости по~решению в~задаче линейного программирования с~нечёткими коэффициентами рассматривалась в~работах~\cite{Matveev_Starodubtsev, PhD_Starodubtsev}, где для сведения нечёткой задачи к чёткой используется средневзвешенное значение для коэффициентов
 \begin{equation*}
-  \tilde A \to \frac{\sum \limits_k \alpha_k \left( x^L_{\tilde A} \left( \alpha_k \right) + x^R_{\tilde A} \left( \alpha_k \right) \right) }{2 \sum \limits_k \alpha_k }
+  \tilde A \to \frac{\sum \limits_k \alpha_k \left( x^L_{\tilde A} \left( \alpha_k \right) + x^R_{\tilde A} \left( \alpha_k \right) \right) }{2 \sum \limits_k \alpha_k }.
 \end{equation*}
 Такое преобразование позволяет получать чёткое решение и~использовать классическое определение устойчивости~\eqref{eq:crisp-lp-problem-unstable}--\eqref{eq:delta-metric}.
 
@@ -106,19 +106,19 @@
 \end{equation}
 в~которой $\mathbf{A}^{*}=\left\{ \bar{x}_{\tilde{A}_{ij}}\left(\alpha \right) \right\}$, $\mathbf{B}^{*}=\left\{ \bar{x}_{\tilde{B}_i}\left(\alpha \right) \right\}$, $\mathbf{C}^{*}=\left\{ \bar{x}_{\tilde{C}_i}\left(\alpha \right) \right\}$.
 
-Задачу~\eqref{eq:fuzzy-lp-unstable-problem} удобнее всего решать на~двух $\alpha$-уровнях и~восстанавливать решение согласно~\eqref{eq:isomorphic-field}. Ввиду свойства сохранения моды, решение модифицированной задачи~\eqref{eq:fuzzy-lp-unstable-problem} при $\alpha=1$ аналогично решению чёткой задачи с~коэффициентами, равными модам нечётких чисел. Если решать ту~же задачу при~$\alpha=0$ и~без дополнительных ограничений на~параметры $\lambda$ преобразования $L$, то~возникает ситуация, при~которой все~значения $\bar{x}_S\left(\alpha \right)$, где~$S$~--- один из индексов $\tilde A_{ij}$, $\tilde B_i$, $\tilde C_i$, принимают левое граничное значение. Это легко объясняется тем фактом, что при $\lambda_S=1$ максимальный вес в значении $\bar{x}_S\left(\alpha \right)$ имеет левая ветвь функции принадлежности, находящаяся ближе к нулю. Для решения данной проблемы введём дополнительные ограничения для параметров $\lambda_S$:
+Задачу~\eqref{eq:fuzzy-lp-unstable-problem} удобнее всего решать на~двух $\alpha$-уровнях и~восстанавливать решение согласно~\eqref{eq:isomorphic-field}. Ввиду свойства сохранения моды, решение модифицированной задачи~\eqref{eq:fuzzy-lp-unstable-problem} при $\alpha=1$ аналогично решению чёткой задачи с~коэффициентами, равными модам нечётких чисел. Если решать ту~же задачу при~$\alpha=0$ и~без дополнительных ограничений на~параметры $\lambda$ преобразования $L$, то~возникает ситуация, при~которой все~значения $\bar{x}_S\left(\alpha \right)$, где~$S$~--- один из индексов $\tilde A_{ij}$, $\tilde B_i$, $\tilde C_i$, принимают левое граничное значение. Это легко объясняется тем фактом, что при $\lambda_S=1$ максимальный вес в значении $\bar{x}_S\left(\alpha \right)$ имеет левая ветвь функции принадлежности. Для решения данной проблемы введём дополнительные ограничения для параметров $\lambda_S$:
 \begin{equation}
 \label{eq:lambda-minimization-criterion}
-  {\left( \lambda_{S}^{\star}-\lambda_S \right)}^2\to \min
+  {\left( \lambda_{S}^{\star}-\lambda_S \right)}^2\to \min,
 \end{equation}
 которые позволяют минимизировать отклонение параметров от оптимальных в~смысле сохранения нечёткой информации значений $\displaystyle \lambda_{S}^{\star}=\frac{a_S}{d_S}$ и, таким~образом, управлять устойчивостью решения. 
 
 Критерии~\eqref{eq:lambda-minimization-criterion} и~целевая~функция задачи~\eqref{eq:fuzzy-lp-unstable-problem} противоречивы. Возникает задача векторной оптимизации, описанная в~\cite{MSU_Optimization}. Для~её решения воспользуемся аддитивной свёрткой критериев:
 \begin{equation}
 \label{eq:modified-target-function}
-  f^{*}\left( \mathbf{x}, \mathbf{\lambda} \right)=\mathbf{C}^{*}\mathbf{x}+\gamma \sum\limits_{s}^{}{\left(\lambda_{S}^{*}-\lambda_S \right)}^{2} \to \min
+  f^{*}\left( \mathbf{x}, \mathbf{\lambda} \right)=\mathbf{C}^{*}\mathbf{x}+\gamma \sum\limits_{s}^{}{\left(\lambda_{S}^{*}-\lambda_S \right)}^{2} \to \min.
 \end{equation}
-Семантика целевой функции~\eqref{eq:modified-target-function} такова: ищется решение $\mathbf{x}$ и вектор параметров преобразования $L$ $\mathbf{\lambda}_S$, которые позволяют удовлетворить исходный критерий оптимизации и~при~этом максимально сохранить нечёткую информацию, заложенную экспертами в параметры задачи. Безразмерный коэффициент~$\gamma$ позволяет привести значение свёртки к~одному~порядку со~значением исходной целевой функции.
+Семантика целевой функции~\eqref{eq:modified-target-function} такова: ищется решение $\mathbf{x}$ и вектор $\mathbf{\lambda}_S$ параметров преобразования $L$, которые позволяют удовлетворить исходный критерий оптимизации и~при~этом максимально сохранить нечёткую информацию, заложенную экспертами в параметры задачи. Безразмерный коэффициент~$\gamma$ позволяет привести значение свёртки к~одному~порядку со~значением исходной целевой функции.
 
 Полученная пара векторов $\mathbf{x}\left( \alpha =1 \right)$ и $\mathbf{x}\left( \alpha =0 \right)$ позволяет восстановить модифицированные решения согласно~\eqref{eq:isomorphic-field}. Если рассмотреть устойчивость нечёткого решения в~смысле данного ранее определения для чёткой задачи, то~справедливо предположить, что нечёткая задача будет считаться устойчивой по решению, если при переходе с одного $\alpha$-уровня на другой не происходит значительного изменения решения, т.\,е.
 \begin{equation}

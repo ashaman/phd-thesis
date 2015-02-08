@@ -1,5 +1,5 @@
 \subsection{Алгебра модифицированных нечетких чисел}
-Для того, чтобы использовать модифицированные нечёткие числа в качестве параметров задач с чёткими отношениями, необходимо построить алгебраическую систему для множества всех нечётких модифицированных чисел $K$. Будем строить чёткую алгебру $P=\left\langle K ;\ +,\,* \right\rangle$ на множестве модифицированных нечётких чисел $K=\left\{ \bar{x}\left( \alpha  \right) \right\};\ \alpha \in \left[ 0;1 \right]$ по аналогии с тем, как это делается в~\cite{Yakhyaeva}. Для удобства дальнейших вычислений преобразуем $\bar{x}\left( \alpha \right)$:
+Для того, чтобы использовать модифицированные нечёткие числа в качестве параметров задач с чёткими отношениями, необходимо построить алгебраическую систему для множества всех нечётких модифицированных чисел $K=\left\{ \bar{x}\left( \alpha  \right) \right\};\ \alpha \in \left[ 0;1 \right]$. Будем строить чёткую алгебру $P=\left\langle K ;\ +,\,* \right\rangle$ по аналогии с тем, как это делается в~\cite{Yakhyaeva}. Для удобства дальнейших вычислений преобразуем $\bar{x}\left( \alpha \right)$:
 \begin{gather*}
   \bar{x}\left( \alpha  \right)=\lambda \left( m-a+a\alpha  \right)+\left( 1-\lambda  \right)\left( m+b-b\alpha  \right)=a\alpha \lambda +\lambda \left( m-a \right)+m+b-{}\\
   {}-b\alpha -\lambda \left( m+b \right)+b\alpha \lambda =\alpha \left( \lambda a+\lambda b-b \right)+m+b-\lambda \left( m+b-m+a \right)={}\\
@@ -54,18 +54,18 @@
 такой, что 
 \begin{equation}
 \label{eq:fuzzy-kc-zeroprop}
-	\forall \bar{x}(\alpha )\in K:\ \bar{x}(\alpha )+\bar{0}=c+k\alpha +0+0\alpha =\bar{x}(\alpha )
+	\forall \bar{x}(\alpha )\in K:\ \bar{x}(\alpha )+\bar{0}=c+k\alpha +0+0\alpha =\bar{x}(\alpha ).
 \end{equation}
 
 Также определим для каждого $\bar{x}\left( \alpha  \right)=c+k\alpha \in K$ единственный элемент $-\bar{x}\left(\alpha \right)\in K$, называемый противоположным, такой, что выполняется равенство
 \begin{equation}
 \label{eq:fuzzy-kc-inverse-minus}
-	\bar{x}\left( \alpha  \right)+\left( -\bar{x}\left( \alpha  \right) \right)=\bar{0}
+	\bar{x}\left( \alpha  \right)+\left( -\bar{x}\left( \alpha  \right) \right)=\bar{0}.
 \end{equation}
 
 Очевидно, что противоположный элемент можно определить следующим образом:
 \begin{equation*}
-  -\bar{x}\left( \alpha  \right)=-c-k\alpha
+  -\bar{x}\left( \alpha  \right)=-c-k\alpha,
 \end{equation*}
 так что равенство \eqref{eq:fuzzy-kc-inverse-minus} будет справедливым:
 \begin{equation*}
@@ -74,7 +74,7 @@
 
 Операция вычитания нечётких чисел вводится как сложение числа $\bar{x}_1\left(\alpha \right)$ с числом, противоположным числу $\bar{x}_2\left( \alpha  \right)$:
 \begin{gather*}
-  \bar{x}_1\left(\alpha \right)-\bar{x}_2\left(\alpha \right)=\bar{x}_1\left(\alpha \right)+\left(-\bar{x}_2\left(\alpha \right) \right)=c_1-c_2+\left( k_1-k_2 \right)\alpha
+  \bar{x}_1\left(\alpha \right)-\bar{x}_2\left(\alpha \right)=\bar{x}_1\left(\alpha \right)+\left(-\bar{x}_2\left(\alpha \right) \right)=c_1-c_2+\left( k_1-k_2 \right)\alpha.
 \end{gather*}
 
 \textbf{Пример.} Даны два треугольных числа $\tilde A=\left\langle 3;4;1 \right\rangle $ и $\tilde B=\left\langle 5;2;3 \right\rangle$. Выполнить операции $\tilde A^{*}+ \tilde B^{*}$, $\tilde A^{*}-\tilde B^{*}$.
@@ -162,7 +162,7 @@
 Для доказательства дистрибутивности умножения относительно сложения, т.\,е. справедливости равенства 
 \begin{equation}
 \label{eq:modified-multiplication-distrib}
-  \bar{x}_1\left(\alpha \right)\cdot \bar{x}_2\left(\alpha \right)+\bar{x}_1\left(\alpha \right)\cdot \bar{x}_3\left(\alpha \right)=\bar{x}_1\left(\alpha \right)\cdot \left(\bar{x}_2(\alpha )+\bar{x}_3(\alpha ) \right)
+  \bar{x}_1\left(\alpha \right)\cdot \bar{x}_2\left(\alpha \right)+\bar{x}_1\left(\alpha \right)\cdot \bar{x}_3\left(\alpha \right)=\bar{x}_1\left(\alpha \right)\cdot \left(\bar{x}_2(\alpha )+\bar{x}_3(\alpha ) \right),
 \end{equation}
 также выполним действия в левой и правой частях выражения~\eqref{eq:modified-multiplication-distrib} по~отдельности, а~затем сравним результаты: \allowbreak
 \begin{gather*}
@@ -176,7 +176,7 @@
 
 Проиллюстрируем введённые операции примерами.
 
-\textbf{Пример.} Даны треугольные числа $\tilde{A}=\left\langle 4;1;2 \right\rangle $. $\tilde{B}=\left\langle 7;3;1 \right\rangle $ и $\tilde{C}=\left\langle 1;4;2 \right\rangle $. Выполнить операции $2\tilde{A}+\tilde{B}\tilde{C}$, $\tilde{C}\left( \tilde{A}-3\tilde{B} \right)$ с~использованием модифицированных чисел.
+\textbf{Пример.} Даны треугольные числа $\tilde{A}=\left\langle 4;1;2 \right\rangle $. $\tilde{B}=\left\langle 7;3;1 \right\rangle $ и $\tilde{C}=\left\langle 1;4;2 \right\rangle $. Выполнить операции $2\tilde{A}^*+\tilde{B}^*\tilde{C}^*$, $\tilde{C}^*\left( \tilde{A}^*-3\tilde{B}^* \right)$ с~использованием модифицированных чисел.
 
 Вначале найдём оптимальные в смысле сохранения нечёткой информации значения $\lambda$:
 \begin{equation*}
@@ -221,7 +221,7 @@
   \bar{1}\cdot \bar{x}(\alpha )=(1+0\alpha )(c+k\alpha )=c+k\alpha =\bar{x}(\alpha ).
 \end{equation*}
 
-Несколько сложнее вводится на множестве К обратный элемент $\bar{x}^{-1}\left( \alpha  \right)\in K$ такой, что
+Несколько сложнее вводится на множестве $К$ обратный элемент $\bar{x}^{-1}\left( \alpha  \right)\in K$ такой, что
 \begin{equation*}
   \bar{x}\left( \alpha  \right){{\bar{x}}^{-1}}\left( \alpha  \right)=\bar{1}.
 \end{equation*}

@@ -14,12 +14,12 @@
 Для~вводимых~операций сложения и~умножения справедливы свойства коммутативности и~ассоциативности~\cite{Hanss}. Свойство дистрибутивности, как и~в~случае вычислений, основанных~на принципе~Заде, выполняется не~всегда. Кроме того, для~этой алгебры нечётких чисел характерны недостатки, описанные в~\cite{Spesivtsev, Yakhyaeva}~--– носитель результата может необоснованно расшириться ввиду зависимости результата от~степени нечёткости операндов и~их~местоположения на~числовой~оси. Также при построении данной алгебры не вводятся нейтральные по сложению и умножению элементы (ноль и единица)~\cite{Hanss}. В~статье~\cite{Uskov_PPS} отмечается, что~если в~качестве нулевого~элемента использовать тройку, соответствующую нулю во множестве действительных чисел
 \begin{equation}
 \label{eq:zero-element}
-	\tilde{0}=\left( 0;0;0 \right)
+	\tilde{0}=\left( 0;0;0 \right),
 \end{equation}
 а в~качестве единицы~--– тройку
 \begin{equation}
 \label{eq:one-element}
-	\tilde{1}=\left( 1;0;0 \right)
+	\tilde{1}=\left( 1;0;0 \right),
 \end{equation}
 то в~этом~случае не выполняются тождества $\tilde{A}+\left( -\tilde{A} \right)=\tilde{0}$ и $\tilde{A}\cdot {{\tilde{A}}^{-1}}=\tilde{1}$.
 
@@ -36,7 +36,7 @@
 В~статье~\cite{Piter_SCM} на~основании идей, изложенных в~\cite{Borisov_Krumberg_Riga, Alexeev_Riga, Zak}, для~решения проблем чрезмерной размытости результата и~нетождественности выражений вида $\tilde A+\tilde B-\tilde B=\tilde A$, вводятся дополнительные арифметические операции и~новое представление нечёткого числа, инвариантное к~его~знаку. Дополнительной арифметической операцией $\underset{d}{\mathop{*}}\,$ для~операции $*$ является такая, что~для~нечётких чисел $\tilde A. \tilde B, \tilde C$
 \begin{equation}
 \label{eq:complementary-operations}
-	\tilde{C}=\tilde{A}\underset{d}{\mathop{*}}\,\tilde{B}\to \tilde{C}*\tilde{B}=\tilde{A}
+	\tilde{C}=\tilde{A}\underset{d}{\mathop{*}}\,\tilde{B}\to \tilde{C}*\tilde{B}=\tilde{A}.
 \end{equation}
 
 Для определения нового представления нечёткого числа $\left( m,d\left( {\tilde{A}} \right),\Delta \left( {\tilde{A}} \right) \right)$, называемого симметризованным параметрическим, авторы~\cite{Piter_SCM} вводят понятия показателя нечёткости числа $\displaystyle d\left( {\tilde{A}} \right)=\frac{a+b}{2}$ и коэффициента асимметрии $\displaystyle \Delta \left( {\tilde{A}} \right)=\frac{b-a}{2}$. Дополнительные арифметические операции над нечёткими числами в новом представлении выглядят следующим образом:
@@ -56,19 +56,19 @@
 \begin{equation}
 \label{eq:complementary-arithmetics-1}
 \begin{matrix}
-  \tilde{A}\underset{d}{\mathop{-}}\,\tilde{0}=\tilde{A} \\ 
-  \tilde{A}\underset{d}{\mathop{-}}\,\tilde{A}=\tilde{0} \\ 
-  \tilde{A}\underset{d}{\mathop{:}}\,\tilde{1}=\tilde{A} \\ 
-  \tilde{A}\underset{d}{\mathop{:}}\,\tilde{A}=1 
+  \tilde{A}\underset{d}{\mathop{-}}\,\tilde{0}=\tilde{A};\\ 
+  \tilde{A}\underset{d}{\mathop{-}}\,\tilde{A}=\tilde{0}; \\ 
+  \tilde{A}\underset{d}{\mathop{:}}\,\tilde{1}=\tilde{A}; \\ 
+  \tilde{A}\underset{d}{\mathop{:}}\,\tilde{A}=1. 
 \end{matrix}
 \end{equation}
 \begin{equation}
 \label{eq:complementary-arithmetics-2}
 \begin{matrix}
-  \left( \tilde{A}+\tilde{B} \right)\underset{d}{\mathop{-}}\,\tilde{A}=\tilde{B} \\ 
-  \left( \tilde{A}\cdot \tilde{B} \right)\underset{d}{\mathop{:}}\,\tilde{A}=\tilde{B} \\ 
-  \left( \tilde{A}\underset{d}{\mathop{\cdot }}\,\tilde{B} \right)\underset{d}{\mathop{:}}\,\tilde{A}=-\tilde{B} \\ 
-  \left( \tilde{A}\underset{d}{\mathop{+}}\,\tilde{B} \right)\underset{d}{\mathop{-}}\,\tilde{A}=-\tilde{B} 
+  \left( \tilde{A}+\tilde{B} \right)\underset{d}{\mathop{-}}\,\tilde{A}=\tilde{B}; \\ 
+  \left( \tilde{A}\cdot \tilde{B} \right)\underset{d}{\mathop{:}}\,\tilde{A}=\tilde{B}; \\ 
+  \left( \tilde{A}\underset{d}{\mathop{\cdot }}\,\tilde{B} \right)\underset{d}{\mathop{:}}\,\tilde{A}=-\tilde{B}; \\ 
+  \left( \tilde{A}\underset{d}{\mathop{+}}\,\tilde{B} \right)\underset{d}{\mathop{-}}\,\tilde{A}=-\tilde{B}.
 \end{matrix}
 \end{equation}
 
@@ -93,9 +93,9 @@
 	\item для деления $\displaystyle x_{{\tilde{C}}}^{L}=\frac{x_{{\tilde{A}}}^{L}}{x_{{\tilde{B}}}^{R}}$; $\displaystyle x_{{\tilde{C}}}^{R}=\frac{x_{{\tilde{A}}}^{R}}{x_{{\tilde{B}}}^{L}}$.
 \end{itemize}
 
-Функция принадлежности результата $\mu_{\tilde C}\left( x \right)$ ищется в виде линейной функции $\mu_{\tilde C}\left( x \right)=kx+b$ для операций сложения и вычитания, а также в виде $\mu_{\tilde C}\left( x \right)=k\sqrt{x}+b$ для умножения и $\mu_{\tilde C}\left( x \right)=\frac{k}{x}+b$ для деления.
+Функция принадлежности результата $\mu_{\tilde C}\left( x \right)$ ищется в виде линейной функции $\mu_{\tilde C}\left( x \right)=kx+b$ для операций сложения и вычитания, а также в виде $\mu_{\tilde C}\left( x \right)=k\sqrt{x}+b$ для умножения и $\displaystyle \mu_{\tilde C}\left( x \right)=\frac{k}{x}+b$ для деления.
 
-Исходя из~определения границ результата, можно сразу отметить нерешённость проблемы чрезмерного размытия результата арифметических операций и~его выхода из~класса треугольных чисел. В~\cite{Borisov_Krumberg_Riga} приводится пример операций над~нечёткими числами $\tilde{6}=\left( 5;6;7 \right)$ с длиной носителя ${{d}_{{\tilde{6}}}}=8-6=2$ и $\tilde{8}=\left( 6;8;10 \right)$ с длиной носителя ${{d}_{{\tilde{8}}}}=10-6=4$. Их умножение приводит к границам нечёткого результата $x_{{\tilde{C}}}^{L}=30$, $x_{{\tilde{C}}}^{R}=70$ и моде ${{m}_{{\tilde{C}}}}=48$. Длина носителя ${{d}_{{\tilde{c}}}}=70-30=40\gg {{d}_{{\tilde{6}}}}\cdot {{d}_{{\tilde{8}}}}$.
+Исходя из~определения границ результата, можно сразу отметить нерешённость проблемы чрезмерного размытия результата арифметических операций и~его выхода из~класса треугольных чисел. В~\cite{Borisov_Krumberg_Riga} приводится пример операций над~нечёткими числами $\tilde{6}=\left( 5;6;7 \right)$ с длиной носителя ${{d}_{{\tilde{6}}}}=7-5=2$ и $\tilde{8}=\left( 6;8;10 \right)$ с длиной носителя ${{d}_{{\tilde{8}}}}=10-6=4$. Их умножение приводит к границам нечёткого результата $x_{{\tilde{C}}}^{L}=30$, $x_{{\tilde{C}}}^{R}=70$ и моде ${{m}_{{\tilde{C}}}}=48$. Длина носителя ${{d}_{{\tilde{c}}}}=70-30=40\gg {{d}_{{\tilde{6}}}}\cdot {{d}_{{\tilde{8}}}}$.
 
 \subsection{Вычисления с использованием интервальной нечёткости}
 Как указано в~\cite{Rotshtein, Borisov_Krumberg_Riga, Evdokimov}, алгебры, основанные на~принципе~обобщения Заде, обладают существенным недостатком~--- неэффективными промежуточными вычислениями, необходимыми для получения функции принадлежности результата. Поскольку для~нечётких~множеств справедлива теорема о декомпозиции, то для~решения практических задач обычная нечёткость может быть сведена к интервальной, а операции над числами~--- к соответствующим операциям над их $\alpha$-сечениями~\cite{Pavlov_Sokolov}. В~\cite{Borisov_Krumberg_Riga, Hanss} предлагается выполнить дискретизацию непрерывного нечёткого числа по конечному числу $\alpha$-уровней $\alpha_i;i=\overline{1,k}$, причём $\alpha_1=0$, $\alpha_k=1$. Нечёткое число будет представлено совокупностью интервалов $\displaystyle \bigcup\limits_{i=1}^{k}{{{\left[ x_{i1}; x_{i2} \right]}_{\alpha_i}}}$, над которыми можно совершать некоторые операции. Схожий подход применяется и в~\cite{Bangladesh, Indians_Fuzzy_Arithmetics_Study}~--- вычисления выполняются над $\alpha$-сечениями с~использованием интервальных операций, после чего восстанавливается функция принадлежности результата.
@@ -103,7 +103,7 @@
 В~статье~\cite{Levin} описывается алгебра для~интервалов вида $\tilde{x}=\left[ {{x}_{1}};{{x}_{2}} \right];\,{{x}_{1}}\le {{x}_{2}};\ x_1, x_2\in \mathbb{R};\ \tilde{x}\in X$. Произвольная интервальная функция $F\left( \tilde{x},\tilde{y},...,\tilde{z} \right)$ определяется с~помощью сопоставленной ей чёткой функции $f\left( x,y,\ldots,z \right)$, $x\in \tilde{x}$, $y\in \tilde{y}$, …$z\in \tilde{z}$ следующим образом:
 \begin{equation}
 \label{eq:interval-function}
-	F\left( \tilde{x},\tilde{y},...,\tilde{z} \right)=\left\{ f\left( x,y,...,z \right)\left| x\in \tilde{x},y\in \tilde{y},...,z\in \tilde{z} \right. \right\}
+	F\left( \tilde{x},\tilde{y},...,\tilde{z} \right)=\left\{ f\left( x,y,...,z \right)\left| x\in \tilde{x},y\in \tilde{y},...,z\in \tilde{z} \right. \right\}.
 \end{equation}
 
 В~соответствие с~определением~\eqref{eq:interval-function}, автор вводит конкретные алгебраические операции для интервалов:
@@ -138,8 +138,8 @@
 Как указано в~\cite{Levin}, невыполнение некоторых свойств операций, а также перечисленные выше особенности интервальных чисел приводят к значительной специфике их использования на практике (в основном, для оценки множества решений некоторой задачи при интервально заданных параметрах). Стоит также упомянуть описанную в~\cite{Spesivtsev, Yakhyaeva, Hanss_Strict_Arithmetic} проблему размытости результатов операций, т.\,е. необоснованного увеличения нечёткости. Размытость зависит не только от длины $d={{x}_{2}}-{{x}_{1}}$ интервала, но и от его положения на~числовой~оси. К~примеру, интервалы одинаковой длины $\left[ 1;3 \right]$ и $\left[ 99;101 \right]$, будучи умноженными на один и тот же интервал $\left[ 2;4 \right]$, дадут результаты с сильно различающейся степенью нечёткости:
 \begin{equation*}
 	\begin{matrix}
-		\left[ 2;4 \right]\cdot \left[ 1;3 \right]=\left[ 2;12 \right];\quad d=12-2=10 \\ 
-		\left[ 2;4 \right]\cdot \left[ 99;101 \right]=\left[ 198;404 \right];\quad d=404-198=206 
+		\left[ 2;4 \right]\cdot \left[ 1;3 \right]=\left[ 2;12 \right];\quad d=12-2=10; \\ 
+		\left[ 2;4 \right]\cdot \left[ 99;101 \right]=\left[ 198;404 \right];\quad d=404-198=206.
 	\end{matrix}
 \end{equation*}
 
@@ -149,10 +149,10 @@
 \begin{theorem}
 Пусть биективное преобразование $f:X\to \mathbb{C}$ ставит каждому элементу $\tilde{A}=\left( x;y;y \right)\in X$ множества нечётких симметричных $LR$-чисел элемент $x=y+iz\in \mathbb{C};\ i=\sqrt{-1}$ множества комплексных чисел. Пусть даны симметричные нечёткие $LR$-числа $\tilde{A}=\left( {{m}_{1}};a;a \right)$ и $\tilde{B}=\left( {{m}_{2}};b;b \right)$, которым с помощью $f$ взаимно однозначно сопоставлены комплексные числа $x_A=m_1+ai$ и $x_B=m_2+bi$. Тогда при ${{m}_{1}}{{m}_{2}}\gg ab$ и $m\gg a>0$ арифметические операции над $\tilde A$ и $\tilde B$ соответствуют операциям над комплексными числами ${{x}_{A}}$ и ${{x}_{B}}$:
 \begin{gather*}
-	\tilde{A}+\tilde{B}\leftrightarrow {{x}_{A}}+{{x}_{B}} \\ 
-	\tilde{A}\cdot \tilde{B}\leftrightarrow {{x}_{A}}\cdot {{x}_{B}} \\ 
-	-\tilde{A}\leftrightarrow -{{{\bar{x}}}_{A}} \\ 
-  	{{{\tilde{A}}}^{-1}}\leftrightarrow \bar{x}_{A}^{-1} 
+	\tilde{A}+\tilde{B}\leftrightarrow {{x}_{A}}+{{x}_{B}}; \\ 
+	\tilde{A}\cdot \tilde{B}\leftrightarrow {{x}_{A}}\cdot {{x}_{B}}; \\ 
+	-\tilde{A}\leftrightarrow -{{{\bar{x}}}_{A}}; \\ 
+  	{{{\tilde{A}}}^{-1}}\leftrightarrow \bar{x}_{A}^{-1},
 \end{gather*}
 где ${{\bar{x}}_{A}}={{m}_{1}}-ai$~--- комплексно-сопряженное по отношению к $x_A$.
 \end{theorem}
@@ -173,10 +173,10 @@
    b & {{m}_{2}}  \\
 \end{matrix} \right]$. Тогда~при ${{m}_{1}}{{m}_{2}}\gg ab$ и $m\gg a>0$ арифметические операции над~$\tilde A$ и~$\tilde B$ соответствуют операциям над~матрицами~${{M}_{A}}$ и~${{M}_{B}}$: 
 \begin{gather*}
-  \tilde{A}+\tilde{B}\leftrightarrow {{M}_{A}}+{{M}_{B}} \\ 
-  \tilde{A}\cdot \tilde{B}\leftrightarrow {{M}_{A}}\cdot {{M}_{B}} \\ 
-  -\tilde{A}\leftrightarrow -M_{A}^{T} \\ 
-  {{{\tilde{A}}}^{-1}}\leftrightarrow {{\left[ M_{A}^{T} \right]}^{-1}}
+  \tilde{A}+\tilde{B}\leftrightarrow {{M}_{A}}+{{M}_{B}}; \\ 
+  \tilde{A}\cdot \tilde{B}\leftrightarrow {{M}_{A}}\cdot {{M}_{B}}; \\ 
+  -\tilde{A}\leftrightarrow -M_{A}^{T}; \\ 
+  {{{\tilde{A}}}^{-1}}\leftrightarrow {{\left[ M_{A}^{T} \right]}^{-1}},
 \end{gather*}
 где~${{M}^{T}}$~--- транспонированная матрица, а~${{M}^{-1}}$~--- матрица, обратная матрице $M$.
 \end{theorem}
@@ -187,15 +187,15 @@
 \begin{theorem}
 Пусть биективное преобразование $f:X\to H$ ставит каждому элементу $\tilde{A}=\left( x;y;z \right)\in X$ множества нечётких $LR$-чисел элемент $a=x+yi+zj+\xi k\in H;\ {{i}^{2}}={{j}^{2}}={{k}^{2}}=ijk=-1$ множества кватернионов, где $\xi$~--– произвольный параметр, удовлетворяющий условиям $\xi >0$, $\xi \ll y$, $\xi \ll z$. Пусть даны нечёткие $LR$-числа $\tilde{A}=\left( {{m}_{1}};{{a}_{1}};{{b}_{1}} \right)$ и $\tilde{B}=\left( {{m}_{2}};{{a}_{2}};{{b}_{2}} \right)$, которым с помощью $f$ взаимно однозначно сопоставлены кватернионы ${{x}_{A}}={{m}_{1}}+{{a}_{1}}i+{{b}_{1}}j+\xi k$ и ${{x}_{B}}={{m}_{2}}+{{a}_{2}}i+{{b}_{2}}j+\xi k$. Тогда при~${{m}_{1}}\gg {{a}_{1}},{{a}_{2}},{{b}_{1}},{{b}_{2}}$ и ${{m}_{2}}\gg {{a}_{1}},{{a}_{2}},{{b}_{1}},{{b}_{2}}$ арифметические операции над~$\tilde A$ и $\tilde B$ соответствуют операциям над кватернионами ${{x}_{A}}$ и ${{x}_{B}}$:
 \begin{gather*}
-  \tilde{A}+\tilde{B}\leftrightarrow {{x}_{A}}+{{x}_{B}} \\ 
-  \tilde{A}\cdot \tilde{B}\leftrightarrow {{x}_{A}}\cdot {{x}_{B}} \\ 
-  -\tilde{A}\leftrightarrow -\bar{x}_{A}^{R} \\ 
-  {{{\tilde{A}}}^{-1}}\leftrightarrow {{\left[ \bar{x}_{A}^{-1} \right]}^{R}}
+  \tilde{A}+\tilde{B}\leftrightarrow {{x}_{A}}+{{x}_{B}}; \\ 
+  \tilde{A}\cdot \tilde{B}\leftrightarrow {{x}_{A}}\cdot {{x}_{B}}; \\ 
+  -\tilde{A}\leftrightarrow -\bar{x}_{A}^{R}; \\ 
+  {{{\tilde{A}}}^{-1}}\leftrightarrow {{\left[ \bar{x}_{A}^{-1} \right]}^{R}},
 \end{gather*}
 где~$\bar a=x-yi-zj-\xi k$~--- кватернион, сопряженный по~отношению к~кватерниону $a$, а~${{a}^{R}}$~–-- операция рокировки кватерниона, выполняемая~как перемена~мест $i$-го и~$j$-го компонентов кватерниона $a^R=x+zi+yj+\xi k$.
 \end{theorem}
 
-Далее, по~аналогии со~статьёй~\cite{Uskov_Complex}, доказывается соответствие алгебры нечётких $LR$-чисел $\tilde{A}=\left( m;a;b \right)$ и алгебры матриц 4х4 вида
+Далее, по~аналогии со~статьёй~\cite{Uskov_Complex}, доказывается соответствие алгебры нечётких $LR$-чисел $\tilde{A}=\left( m;a;b \right)$ и алгебры матриц $4 \times 4$ вида
 	\[\left[ \begin{matrix}
    m & a & b & -\xi   \\
    -a & m & -\xi  & -b  \\
