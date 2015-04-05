@@ -143,7 +143,7 @@
 			& 0;\ \text{в остальных случаях} 
 	 	\end{aligned} \right.
       \end{equation}
-    \item Число как совокупность $\alpha$-интервалов $X_\alpha = \left[x^L(\alpha); x^R(\alpha) \right]$
+    \item Горизонтальная форма (Пегат) $X_\alpha = \left[x^L(\alpha); x^R(\alpha) \right]$
       \begin{equation}
         \left[ 
           \begin{aligned}
@@ -152,7 +152,7 @@
           \end{aligned}
         \right.
       \end{equation}
-    \item Число $LL$ $\left( RR \right)$-типа~--- правый (левый) коэффициент нечёткости числа равен нулю
+    \item Треугольное число $LL$ $\left( RR \right)$-типа~--- правый (левый) коэффициент нечёткости числа равен нулю
   \end{itemize}
 \end{frame}
 
@@ -166,12 +166,12 @@
         \label{eq:task-transform}
       	\tilde{Y} = f\left( \tilde X, \tilde A \right)\to \bigcup\limits_{\alpha =0}^{1}{y_\alpha}=f\left( X_\alpha, A_\alpha \right)
       \end{equation}
-    \item Переход к чётким значениям на каждом $\alpha$-уровне 
+    \item Формализованное представление $\alpha$-интервала с помощью преобразования $L$
       \begin{equation}
         \label{eq:L-transform-base}
         \bar{x}\left( \alpha  \right)=L\left( X_\alpha \right)=\lambda x^L \left( \alpha  \right)+\left( 1-\lambda  \right) x^R \left( \alpha  \right);\, \lambda \in \left[0; 1 \right]
       \end{equation}
-    \item Модифицированное решение
+    \item Синтез модифицированного решения
       \begin{equation}
         \tilde Y^{*}= \bigcup\limits_{\alpha =0}^{1} f\left(L\left( X_\alpha \right), L\left( A_\alpha \right) \right)=\left\{ y_\alpha \left| \mu_{\tilde Y^*}(y)=\alpha \right. \right\}
       \end{equation}
@@ -198,7 +198,7 @@
 \begin{frame}
   \frametitle{Представление числа}
   \begin{itemize}
-    \item Не чувствительная к~знаку нечёткого числа форма  $\left\langle m_{\tilde A}, d_{\tilde A}, AS_{\tilde A} \right\rangle$; $d_{\tilde A} = a+b$; $\displaystyle AS_{\tilde A} = \frac{b-a}{2}$.
+    \item Вводится модель представления нечёткого числа, инвариантноя к его расположению на числовой оси  $\left\langle m_{\tilde A}, d_{\tilde A}, AS_{\tilde A} \right\rangle$; $d_{\tilde A} = a+b$; $\displaystyle AS_{\tilde A} = \frac{b-a}{2}$.
   \end{itemize}
   \begin{figure}[h]
     \includegraphics[width=0.9\textwidth]{as-degree}
@@ -226,7 +226,7 @@
 \begin{frame}
   \frametitle{Алгебра модифицированных нечётких чисел}
   \begin{itemize}
-    \item Aлгебра $P=\left\langle K ;\ +,\,*, 0, 1 \right\rangle$, $K=\left\lbrace \bar x(\alpha) \right\rbrace$
+    \item Aлгебра $P=\left\langle K ;\ +,\,*, 0, 1 \right\rangle$, $K=\left\lbrace \bar x(\alpha) \right\rbrace, \alpha \in \left[0; 1\right]$
       \begin{equation}
         \label{eq:def-one}
         \bar{x}\left( \alpha  \right)=c+k\alpha,
@@ -297,7 +297,7 @@
         \bar{x}^{-1}(\alpha )=\frac{1}{c}-\frac{k}{c\left(c+k\right)}\alpha \in K,\ c\ne 0:\ \bar{x}\left(\alpha \right){{\bar{x}}^{-1}}\left( \alpha  \right)=\bar{1}
       \end{equation}
     \item При~$c+k=m=0$~\eqref{eq:modified-number-from-abm} обратного элемента для $\bar{x}\left( \alpha  \right)$ не существует
-    \item Алгебра ненулевых элементов $\left \langle K,*,1 \right \rangle$~--- абелева группа
+    \item Алгебра обратимых элементов $\left \langle K,*,1 \right \rangle$~--- абелева группа
     \item Умножение дистрибутивно относительно сложения
   \end{itemize}
 \end{frame}
@@ -309,53 +309,50 @@
   \begin{figure}[h]
     \includegraphics[width=\textwidth]{two-point}
   \end{figure}
-  Для произвольной алгебраической операции~$*$
+  Для произвольной арифметической операции~$g: R^2 \rightarrow R$
   \begin{gather}
-    \bar{x}_{\tilde A}\left( \alpha \right)*\bar{x}_{\tilde B}\left(\alpha \right)=\notag\\
+    \bar{x}_{\tilde A}\left( \alpha \right)g\bar{x}_{\tilde B}\left(\alpha \right)=\notag\\
     \label{eq:two-point-calculations}
-    =\alpha \left(\bar{x}_{\tilde A}\left( 1 \right)*\bar{x}_{\tilde B}\left(1 \right) \right)+\left(1-\alpha \right)\left(\bar{x}_{\tilde A}\left(0 \right)*\bar{x}_{\tilde B}\left(0 \right) \right)
+    =\alpha \left(\bar{x}_{\tilde A}\left( 1 \right)g\bar{x}_{\tilde B}\left(1 \right) \right)+\left(1-\alpha \right)\left(\bar{x}_{\tilde A}\left(0 \right)g\bar{x}_{\tilde B}\left(0 \right) \right)
   \end{gather}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 16
 
 \begin{frame}
-  \frametitle{Решение системы $\mathbf{A}\mathbf{x}=\mathbf{B} $}
-    \begin{gather*}
-      \tilde A_{11} = \left \langle 3; 2; 1 \right \rangle; \tilde A_{12} = \left \langle -2; 2; 1\right \rangle; \tilde A_{21} = \left \langle 3; 1; 1\right \rangle; \tilde A_{22} = \left \langle -1; 4; 1\right \rangle; \\
-      \tilde B_1 = \left \langle 1; 1; 1 \right \rangle; \tilde B_2 = \left \langle 2; 1; 3\right \rangle.
-  \end{gather*}
-  Преобразование L с параметрами $\lambda^*$ приводит к системе:
-  \begin{equation}
-    \left\lbrace\begin{aligned}
-      & \left(2+\alpha\right)x_1+\left(-3+\alpha\right)x_2 = 1 \\
-      & 3x_1+\left(-4+3\alpha\right)x_2=4-2\alpha
-    \end{aligned}\right.
-  \end{equation}
-  Две чёткие системы при $\alpha=1$ и $\alpha=0$:
-  \begin{equation}
-      \left\{\begin{aligned}
-        & 3x_1-2x_2 = 1 \\
-        & 3x_1-x_2=2
-      \end{aligned}\right.
-      \text{ и }
-      \left\{\begin{aligned}
-        & 2x_1-3x_2 = 1 \\
-        & 3x_1-4x_2=4
-      \end{aligned}\right.
-  \end{equation}
-  При $\alpha=1$ $x_1 = 1, x_2 = 1$; при $\alpha = 0$ $x_1 = 8, x_2 = 5$, так что
-  \begin{equation}
-    \bar x_1\left(\alpha\right) = 8 - 7\alpha;\ \bar x_2\left(\alpha\right) = 5 - 4\alpha
-  \end{equation}
+  \frametitle{Двухточечные вычисления}
+  \begin{itemize}
+  \item Cуществуют отображения $\Gamma:\ K \to M$ и $\Gamma^{-1}:\ M \to K$:
+\begin{equation}
+  \label{eq:isomorph-transition}
+  \left[ \begin{aligned}
+    & P=\left\langle K, \Omega_1 \right\rangle \\
+    & c=\bar{x}_{\tilde A}\left( 0 \right); \\ 
+    & k=\bar{x}_{\tilde A}\left( 1 \right)-\bar{x}_{\tilde A}\left( 0 \right);
+  \end{aligned} \right.
+  \Leftrightarrow 
+  \left[ \begin{aligned}
+    & Q=\left\langle M, \Omega_2 \right\rangle \\
+    & \bar{x}_{\tilde A}\left( 0 \right)=c; \\ 
+    & \bar{x}_{\tilde A}\left( 1 \right)=c+k;
+  \end{aligned} \right.
+\end{equation}
+  \item Для бинарных операций $\varphi_i \in \Omega_1$, $\psi_i \in \Omega_2$ и элементов $k_1, k_2 \in K$, $m_1, m_2 \in M$:
+\begin{gather}
+  \label{eq:gomomorph-1}
+  \Gamma\left( \varphi_i \left( k_1, k_2 \right) \right) = \psi_i\left( \Gamma \left(k_1, k_2 \right) \right); \\
+  \label{eq:gomomorph-2}
+  \varphi_i\left( \Gamma^{-1} \left(m_1, m_2 \right) \right) = \Gamma^{-1}\left( \psi_i \left(m_1, m_2 \right) \right)
+\end{gather}
+  \item Ввиду \eqref{eq:isomorph-transition}, $K$ и $M$ суть одно и то же~--- изоморфизм доказывается простой подстановкой
+  \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 17
 
 \begin{frame}
-  \frametitle{Устойчивость задачи линейного программирования (ЗЛП)}
-  \begin{itemize}
-    \item Задача линейного программирования с нечёткими параметрами
+  \frametitle{Устойчивость ЗЛП}
+  Задача линейного программирования с нечёткими параметрами
     \begin{equation}
       \label{eq:fuzzy-lp-unstable-problem}
       \left\{ \begin{aligned}
@@ -368,14 +365,19 @@
         & {\mathbf{A}^{*}}\mathbf{x}={\mathbf{B}}^{*},
       \end{aligned} \right.
     \end{equation}
-    $\mathbf{A}^{*}=\left\{ \bar{x}_{\tilde{A}_{ij}}\left(\alpha \right) \right\}$, $\mathbf{B}^{*}=\left\{ \bar{x}_{\tilde{B}_i}\left(\alpha \right) \right\}$, $\mathbf{C}^{*}=\left\{ \bar{x}_{\tilde{C}_i}\left(\alpha \right) \right\}$
-    \item Невозмущённое решение~--- при $\alpha=1$ (свойство сохранения моды)
-    \item Задача устойчива, если
-      \begin{equation}
-      \label{eq:fuzzy-solution-stability}
-        \forall \varepsilon >0\, \exists \delta >0:\forall \alpha \in \left[0; 1\right)\,\left| \alpha -1 \right|<\delta \linebreak \Rightarrow \left\| \mathbf{x}\left( 1 \right)-\mathbf{x}\left( \alpha  \right) \right\|<\varepsilon
-      \end{equation}
-  \end{itemize}
+    
+  \begin{wrapfigure}{r}{0.5\textwidth}
+    \includegraphics[width=0.4\textwidth]{stability}
+  \end{wrapfigure}
+
+  Решение задачи устойчиво (по Тихонову), если
+        \begin{gather}
+        \forall \varepsilon >0\, \exists \delta >0\, \forall \alpha_1, \alpha_2 \in \left[0; 1\right] \notag \\
+        \left| \alpha_1 - \alpha_2 \right|<\delta \Rightarrow   \notag \\
+        \label{eq:fuzzy-solution-stability}
+        \left\| \mathbf{x}\left( \alpha_1 \right)-\mathbf{x} \left( \alpha_2  \right) \right\|<\varepsilon
+        \end{gather}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 18
@@ -452,10 +454,9 @@
 
 \begin{frame}
   \frametitle{Программное обеспечение}
-  Приложение <<CSBusinessGraph>> выполняет все вычисления только с использованием действительных переменных
   \begin{figure}
     \center
-    \includegraphics[width=0.8\textwidth]{app-sample-graph.png}
+    \includegraphics[width=0.55\textwidth]{app-architecture}
   \end{figure}
 \end{frame}
 
